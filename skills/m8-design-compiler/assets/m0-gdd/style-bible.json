@@ -1,0 +1,20 @@
+{
+  "ontology_version": "0.1.0",
+  "resolution": {
+    "internal_width": 640,
+    "internal_height": 360,
+    "scale_filter": "nearest"
+  },
+  "tile_grid": 16,
+  "palette": {
+    "mode": "free"
+  },
+  "character_proportions": {
+    "head_ratio": "1:2 chibi",
+    "sprite_px_height": 24,
+    "portrait_px": [96, 96]
+  },
+  "line_weight": "n/a at M0 (placeholder art: flat colored rects, 1px darker outline)",
+  "tone_keywords": ["ember orange on soot black", "warm highlights", "cool shadow blues"],
+  "prompt_scaffolds": {}
+}

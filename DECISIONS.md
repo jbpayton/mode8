@@ -24,3 +24,9 @@ Claude Code discovers project skills under `.claude/skills/`. The spec mandates 
 
 ## D-007 — GPU budget: two RTX 3090s available, but per-stage budget stays "one consumer GPU" (2026-07-11)
 Hardware exceeds the spec's assumption. Decision: keep every single stage runnable within one 24GB device (per spec's degrade-gracefully rule) and use the second device only for overlap (e.g., generation on cuda:0 while the VLM judge holds cuda:1). This keeps the studio portable to the spec's baseline.
+
+## D-008 — One interpreter: the balance sim executes the game's own engine (2026-07-11)
+SPEC §7 wants ≥10k Monte Carlo battles; the obvious build is a fast Python reimplementation of the effect algebra. Rejected: two interpreters (Python sim + GDScript engine) would drift, and a sim of the wrong semantics verifies nothing. Instead, m8-engine-smith must generate a headless sim entrypoint (`sim/sim_battle.gd`, batchable: N battles per process invocation) and m8-balancer's scripts only orchestrate runs and analyze the emitted battle-log JSON. GDScript executes ~10k tiny battles in minutes, which is inside the economy budget — and the sim now *is* an integration test of the shipped interpreter.
+
+## D-009 — Playtester drive model: batch script → trace → extend, not interactive sockets (2026-07-11)
+SPEC §8 requires "injected inputs" + state API. v0: personas run the game headless with an input-action script (JSON) and a fixed seed, read the emitted JSONL state trace, then extend/correct the script and rerun — iterating to the ending. No TCP debug server, no interactive plumbing; every defect automatically has a full repro (script + seed). Revisit if trace-iterate proves too slow at M2 scope. Screenshot sampling (VLM QA) lands at M1 via xvfb-run windowed capture, since true `--headless` cannot render.

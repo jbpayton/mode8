@@ -1,0 +1,42 @@
+{
+  "ontology_version": "0.1.0",
+  "title": "Emberwake",
+  "slug": "emberwake",
+  "logline": "A village on the caldera's lip sends two hopefuls into the smoldering deep to still the mountain's heart.",
+  "genre_config": {
+    "cast_model": "player_built",
+    "battle_model": "menu_rows",
+    "narrative_weight": "light"
+  },
+  "scope": {
+    "target_hours": 0.5,
+    "content_targets": {
+      "items": 5,
+      "equipment": 4,
+      "spells": 4,
+      "classes": 2,
+      "monsters": 4,
+      "statuses": 2,
+      "towns": 1,
+      "dungeons": 1,
+      "dungeon_floors": 3
+    }
+  },
+  "difficulty": {
+    "ttk_band": [2, 5],
+    "boss_ttk_band": [6, 16],
+    "wipe_rate_band": [0.0, 0.15],
+    "grind_tolerance": 1
+  },
+  "party": {
+    "size": 2,
+    "rows": true
+  },
+  "tone_keywords": ["warm ember glow", "stoic frontier", "quiet dread underground", "small kindnesses", "volcanic"],
+  "world_sketch": "Cinderfall is the last village on the caldera's lip. For a generation the mountain slept; now the wells run warm and ash dusts the rooftops. Beneath the village, the old miners' shafts open into the Ember Depth — three floors down to the vault where the Ash Tyrant stirs. A key of cooled ember, lost in the middle shaft, opens the vault. Two volunteers go down. The village waits.",
+  "references": {
+    "style_bible": "style-bible.json",
+    "prose_gdd": "gdd.md",
+    "decision_log": "decisions.md"
+  }
+}
