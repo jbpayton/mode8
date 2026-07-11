@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mode8.dev/ontology/style-bible",
+  "title": "Style bible",
+  "description": "games/<title>/gdd/style-bible.json. The visual contract every asset is gated against (m8-atelier generates to it, m8-asset-warden verifies against it). Prompt scaffolds are per-asset-class templates with {slot} placeholders. Minimal at M0 (placeholder art); fully enforced from M1.",
+  "type": "object",
+  "required": ["ontology_version", "resolution", "tile_grid", "palette"],
+  "properties": {
+    "ontology_version": {"type": "string"},
+    "resolution": {
+      "type": "object",
+      "required": ["internal_width", "internal_height", "scale_filter"],
+      "properties": {
+        "internal_width": {"type": "integer", "minimum": 1},
+        "internal_height": {"type": "integer", "minimum": 1},
+        "scale_filter": {"enum": ["nearest", "linear"], "description": "nearest for crisp pixel art"}
+      },
+      "additionalProperties": false
+    },
+    "tile_grid": {"type": "integer", "minimum": 8, "description": "tile size in px"},
+    "palette": {
+      "type": "object",
+      "required": ["mode"],
+      "properties": {
+        "mode": {"enum": ["free", "fixed"], "description": "fixed = gate on histogram distance vs anchors (Tier 1)"},
+        "anchors": {"type": "array", "items": {"type": "string", "pattern": "^#[0-9a-fA-F]{6}$"}},
+        "max_histogram_distance": {"type": "number", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "character_proportions": {
+      "type": "object",
+      "properties": {
+        "head_ratio": {"type": "string", "description": "e.g. '1:2 chibi', '1:3 heroic'"},
+        "sprite_px_height": {"type": "integer", "description": "character height on the walk sheet; Tier-1 scale conformance gate"},
+        "portrait_px": {"type": "array", "prefixItems": [{"type": "integer"}, {"type": "integer"}], "minItems": 2, "maxItems": 2}
+      },
+      "additionalProperties": false
+    },
+    "line_weight": {"type": "string"},
+    "tone_keywords": {"type": "array", "items": {"type": "string"}},
+    "prompt_scaffolds": {
+      "type": "object",
+      "description": "asset class -> template. Classes: character_sheet, portrait, monster, tileset, battle_background, item_icon, ui_chrome.",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["template"],
+        "properties": {
+          "template": {"type": "string", "description": "prompt with {slot} placeholders"},
+          "negative": {"type": "string"},
+          "workflow": {"type": "string", "description": "ComfyUI workflow JSON path in m8-atelier assets (M1)"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mode8.dev/ontology/world/map",
+  "title": "Tile map",
+  "description": "One walkable grid: a dungeon floor, town interior, or overworld. games/<title>/content/maps/<id>.json. 'tiles' rows are strings of single-char codes resolved through 'legend' (compact, diffable, hand-checkable).",
+  "type": "object",
+  "required": ["ontology_version", "id", "name", "width", "height", "tiles", "legend"],
+  "properties": {
+    "ontology_version": {"type": "string"},
+    "id": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+    "name": {"type": "string"},
+    "width": {"type": "integer", "minimum": 1},
+    "height": {"type": "integer", "minimum": 1},
+    "tiles": {"type": "array", "minItems": 1, "items": {"type": "string"}, "description": "height strings of width chars"},
+    "legend": {
+      "type": "object",
+      "description": "char -> tile type",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["terrain", "walkable"],
+        "properties": {
+          "terrain": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+          "walkable": {"type": "boolean"},
+          "encounter_table": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+          "tileset_key": {"type": "string", "description": "m8-atelier tileset asset key; placeholder color until M1"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "x", "y"],
+        "properties": {
+          "id": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+          "kind": {"enum": ["chest", "portal", "npc", "trigger", "spawn"]},
+          "x": {"type": "integer", "minimum": 0},
+          "y": {"type": "integer", "minimum": 0},
+          "treasure": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id", "description": "chest: treasure table id, rolled once, flagged opened"},
+          "to_map": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id", "description": "portal: destination map"},
+          "to_spawn": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id", "description": "portal: spawn entity id on destination map"},
+          "dialogue": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id", "description": "npc: dialogue script id"},
+          "story_node": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id", "description": "trigger: story graph node fired on step-on"},
+          "requires_flag": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id", "description": "entity inactive until flag set"},
+          "blocked_by_flag": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id", "description": "entity inactive once flag set"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "music": {"type": "string", "description": "m8-soundsmith slot id"}
+  },
+  "additionalProperties": false
+}

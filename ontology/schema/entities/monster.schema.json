@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mode8.dev/ontology/entities/monster",
+  "title": "Bestiary collection",
+  "description": "games/<title>/content/monsters.json. AI is data: 'ai' is an Effect tree (typically branch-phased choice) executed each monster turn with the monster as source.",
+  "type": "object",
+  "required": ["ontology_version", "domain", "entries"],
+  "properties": {
+    "ontology_version": {"type": "string"},
+    "domain": {"const": "monsters"},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "level", "stats", "ai", "xp", "gold"],
+        "properties": {
+          "id": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+          "name": {"type": "string"},
+          "lore": {"type": "string", "description": "scan/bestiary text"},
+          "level": {"type": "integer", "minimum": 1},
+          "is_boss": {"type": "boolean", "default": false},
+          "family": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id", "description": "palette-swap family (m8-atelier reuses the family's base sprite)"},
+          "stats": {
+            "type": "object",
+            "description": "stat id -> value; must cover every stat in the stat model; resources computed from max_formula",
+            "additionalProperties": {"type": "number"}
+          },
+          "abilities": {
+            "type": "array",
+            "description": "this monster's moves, referenced by id from ai.rules",
+            "items": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Ability"}
+          },
+          "ai": {
+            "type": "object",
+            "description": "turn policy: eligible rules = those whose 'when' predicate holds (monster as source, no target bound yet) and whose ability costs are payable; weighted-random pick among eligible; the picked ability's own target selector then resolves (AI picks uniformly among candidates for 'single'). If nothing is eligible the monster defends. Boss phases are 'when' predicates (e.g. hp_below).",
+            "required": ["rules"],
+            "properties": {
+              "rules": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": ["weight", "ability"],
+                  "properties": {
+                    "when": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Predicate"},
+                    "weight": {"type": "number", "exclusiveMinimum": 0},
+                    "ability": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id", "description": "id of one of this monster's abilities"}
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "affinities": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["element", "relation"],
+              "properties": {
+                "element": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+                "relation": {"enum": ["weak", "resist", "immune", "absorb"]}
+              },
+              "additionalProperties": false
+            }
+          },
+          "status_immunity": {"type": "array", "items": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"}},
+          "xp": {"type": "integer", "minimum": 0},
+          "gold": {"type": "integer", "minimum": 0},
+          "drops": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["item", "chance"],
+              "properties": {
+                "item": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+                "chance": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}
+              },
+              "additionalProperties": false
+            }
+          },
+          "steal_table": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+          "sprite": {"type": "string"},
+          "row": {"enum": ["front", "back"], "description": "default battle row"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mode8.dev/ontology/effect-algebra",
+  "title": "MODE 8 Effect Algebra v0.1",
+  "description": "The combinator language for all game mechanics. See ontology/effect-algebra.md for semantics, CONVENTIONS.md for encoding (tagged objects; bare strings for parameterless nodes; bare numbers as const).",
+  "$defs": {
+    "Id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*(\\.[a-z][a-z0-9_]*)*$"},
+    "StatRef": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "Who": {"enum": ["source", "target"]},
+    "Side": {"enum": ["ally", "enemy", "any"]},
+
+    "Value": {
+      "oneOf": [
+        {"type": "number"},
+        {"type": "object", "required": ["op", "n"], "properties": {"op": {"const": "const"}, "n": {"type": "number"}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "ref"], "properties": {"op": {"const": "stat"}, "ref": {"$ref": "#/$defs/StatRef"}, "of": {"$ref": "#/$defs/Who", "default": "source"}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "d"], "properties": {"op": {"const": "dice"}, "d": {"type": "string", "pattern": "^[1-9][0-9]*d[1-9][0-9]*([+-][0-9]+)?$"}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "expr"], "properties": {"op": {"const": "formula"}, "expr": {"type": "string", "minLength": 1}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "curve", "level"], "properties": {"op": {"const": "scaling"}, "curve": {"$ref": "#/$defs/Id"}, "level": {"$ref": "#/$defs/Value"}}, "additionalProperties": false}
+      ]
+    },
+
+    "Selector": {
+      "oneOf": [
+        {"enum": ["self", "cell", "adjacent"]},
+        {"type": "object", "required": ["op"], "properties": {"op": {"enum": ["self", "cell", "adjacent"]}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "side"], "properties": {"op": {"enum": ["single", "all", "dead"]}, "side": {"$ref": "#/$defs/Side"}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "side", "which"], "properties": {"op": {"const": "row"}, "side": {"$ref": "#/$defs/Side"}, "which": {"enum": ["front", "back"]}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "side", "n"], "properties": {"op": {"const": "random"}, "side": {"$ref": "#/$defs/Side"}, "n": {"type": "integer", "minimum": 1}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "stat", "side"], "properties": {"op": {"const": "lowest"}, "stat": {"$ref": "#/$defs/StatRef"}, "side": {"$ref": "#/$defs/Side"}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "n"], "properties": {"op": {"enum": ["radius", "line", "cone"]}, "n": {"type": "integer", "minimum": 1}}, "additionalProperties": false}
+      ]
+    },
+
+    "Trigger": {
+      "oneOf": [
+        {"enum": ["on_use", "on_hit", "on_crit", "on_kill", "on_damage_taken", "on_turn_start", "on_turn_end", "on_equip", "on_battle_start"]},
+        {"type": "object", "required": ["op"], "properties": {"op": {"enum": ["on_use", "on_hit", "on_crit", "on_kill", "on_damage_taken", "on_turn_start", "on_turn_end", "on_equip", "on_battle_start"]}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "pct"], "properties": {"op": {"const": "on_hp_below"}, "pct": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "range"], "properties": {"op": {"const": "aura"}, "range": {"type": "integer", "minimum": 1}}, "additionalProperties": false}
+      ]
+    },
+
+    "Predicate": {
+      "oneOf": [
+        {"type": "object", "required": ["op", "who", "status"], "properties": {"op": {"const": "has_status"}, "who": {"$ref": "#/$defs/Who"}, "status": {"$ref": "#/$defs/Id"}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "who", "element", "relation"], "properties": {"op": {"const": "element_affinity"}, "who": {"$ref": "#/$defs/Who"}, "element": {"$ref": "#/$defs/Id"}, "relation": {"enum": ["weak", "resist", "immune", "absorb"]}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "who", "pct"], "properties": {"op": {"enum": ["hp_below", "hp_above"]}, "who": {"$ref": "#/$defs/Who"}, "pct": {"type": "number", "minimum": 0, "maximum": 1}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "id"], "properties": {"op": {"const": "flag"}, "id": {"$ref": "#/$defs/Id"}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "type"], "properties": {"op": {"const": "terrain"}, "type": {"$ref": "#/$defs/Id"}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "preds"], "properties": {"op": {"enum": ["and", "or"]}, "preds": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/Predicate"}}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "pred"], "properties": {"op": {"const": "not"}, "pred": {"$ref": "#/$defs/Predicate"}}, "additionalProperties": false}
+      ]
+    },
+
+    "Crit": {
+      "type": "object",
+      "required": ["rate", "mult"],
+      "properties": {"rate": {"type": "number", "minimum": 0, "maximum": 1}, "mult": {"type": "number", "exclusiveMinimum": 1}},
+      "additionalProperties": false
+    },
+
+    "Effect": {
+      "oneOf": [
+        {"enum": ["scan", "flee"]},
+        {"type": "object", "required": ["op"], "properties": {"op": {"enum": ["scan", "flee"]}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "value"], "properties": {"op": {"const": "damage"}, "value": {"$ref": "#/$defs/Value"}, "element": {"$ref": "#/$defs/Id"}, "type": {"enum": ["physical", "magical", "fixed"], "default": "physical"}, "variance": {"type": "number", "minimum": 0, "maximum": 1}, "pierce": {"type": "number", "minimum": 0, "maximum": 1}, "crit": {"$ref": "#/$defs/Crit"}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "value"], "properties": {"op": {"const": "heal"}, "value": {"$ref": "#/$defs/Value"}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "status", "duration", "chance"], "properties": {"op": {"const": "apply_status"}, "status": {"$ref": "#/$defs/Id"}, "duration": {"oneOf": [{"type": "integer", "minimum": 1}, {"type": "null"}]}, "potency": {"$ref": "#/$defs/Value"}, "chance": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "statuses"], "properties": {"op": {"const": "cure_status"}, "statuses": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/Id"}}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "stat", "mod", "value"], "properties": {"op": {"const": "modify_stat"}, "stat": {"$ref": "#/$defs/StatRef"}, "mod": {"enum": ["add", "mul", "set"]}, "value": {"$ref": "#/$defs/Value"}, "duration": {"oneOf": [{"type": "integer", "minimum": 1}, {"type": "null"}]}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "pool", "delta"], "properties": {"op": {"const": "resource"}, "pool": {"$ref": "#/$defs/StatRef"}, "delta": {"$ref": "#/$defs/Value"}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "pct"], "properties": {"op": {"const": "revive"}, "pct": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "entity", "duration"], "properties": {"op": {"const": "summon"}, "entity": {"$ref": "#/$defs/Id"}, "duration": {"oneOf": [{"type": "integer", "minimum": 1}, {"type": "null"}]}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "pattern"], "properties": {"op": {"const": "move"}, "pattern": {"$ref": "#/$defs/Id"}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "n"], "properties": {"op": {"const": "knockback"}, "n": {"type": "integer", "minimum": 1}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "table"], "properties": {"op": {"const": "steal"}, "table": {"$ref": "#/$defs/Id"}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "entity"], "properties": {"op": {"const": "transform"}, "entity": {"$ref": "#/$defs/Id"}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "id"], "properties": {"op": {"const": "set_flag"}, "id": {"$ref": "#/$defs/Id"}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "effects"], "properties": {"op": {"const": "seq"}, "effects": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/Effect"}}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "options"], "properties": {"op": {"const": "choice"}, "options": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["weight", "effect"], "properties": {"weight": {"type": "number", "exclusiveMinimum": 0}, "effect": {"$ref": "#/$defs/Effect"}}, "additionalProperties": false}}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "n", "effect"], "properties": {"op": {"const": "repeat"}, "n": {"$ref": "#/$defs/Value"}, "effect": {"$ref": "#/$defs/Effect"}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "if", "then"], "properties": {"op": {"const": "branch"}, "if": {"$ref": "#/$defs/Predicate"}, "then": {"$ref": "#/$defs/Effect"}, "else": {"$ref": "#/$defs/Effect"}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "if", "then"], "properties": {"op": {"const": "conditional"}, "if": {"$ref": "#/$defs/Predicate"}, "then": {"$ref": "#/$defs/Effect"}}, "additionalProperties": false},
+        {"type": "object", "required": ["op", "participants", "effect"], "properties": {"op": {"const": "combo"}, "participants": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/Id"}}, "effect": {"$ref": "#/$defs/Effect"}}, "additionalProperties": false}
+      ]
+    },
+
+    "Costs": {
+      "type": "object",
+      "properties": {
+        "mp": {"type": "integer", "minimum": 0},
+        "hp": {"type": "integer", "minimum": 1},
+        "item": {"$ref": "#/$defs/Id"},
+        "charge": {"type": "integer", "minimum": 1},
+        "cooldown": {"type": "integer", "minimum": 1},
+        "row_lock": {"enum": ["front", "back"]},
+        "range": {"type": "object", "required": ["min", "max"], "properties": {"min": {"type": "integer", "minimum": 0}, "max": {"type": "integer", "minimum": 0}}, "additionalProperties": false},
+        "class_lock": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/Id"}},
+        "once_per_battle": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+
+    "Ability": {
+      "type": "object",
+      "required": ["id", "name", "trigger", "effect"],
+      "properties": {
+        "id": {"$ref": "#/$defs/Id"},
+        "name": {"type": "string", "minLength": 1},
+        "trigger": {"$ref": "#/$defs/Trigger"},
+        "target": {"$ref": "#/$defs/Selector"},
+        "accuracy": {"oneOf": [{"type": "number", "exclusiveMinimum": 0, "maximum": 1}, {"type": "null"}]},
+        "effect": {"$ref": "#/$defs/Effect"},
+        "costs": {"$ref": "#/$defs/Costs"},
+        "anim": {"type": "object", "description": "Animation spec (loose in v0.1; m8-spellbook + m8-atelier contract, tightens at M1)"},
+        "description": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

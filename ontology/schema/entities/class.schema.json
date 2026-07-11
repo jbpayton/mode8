@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mode8.dev/ontology/entities/class",
+  "title": "Class / job collection",
+  "description": "games/<title>/content/classes.json",
+  "type": "object",
+  "required": ["ontology_version", "domain", "entries"],
+  "properties": {
+    "ontology_version": {"type": "string"},
+    "domain": {"const": "classes"},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "base_stats", "growth"],
+        "properties": {
+          "id": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+          "name": {"type": "string"},
+          "description": {"type": "string"},
+          "base_stats": {
+            "type": "object",
+            "description": "stat id -> level-1 value; must cover every stat in the stat model",
+            "additionalProperties": {"type": "number"}
+          },
+          "growth": {
+            "type": "object",
+            "description": "stat id -> growth curve id (value of the stat at a level = curve(level))",
+            "additionalProperties": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"}
+          },
+          "equip_slots": {"type": "array", "items": {"enum": ["weapon", "shield", "head", "body", "accessory"]}},
+          "innate_abilities": {"type": "array", "items": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Ability"}},
+          "promotes_to": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+          "sprite": {"type": "string"},
+          "portrait": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

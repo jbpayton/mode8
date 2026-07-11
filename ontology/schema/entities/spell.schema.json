@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mode8.dev/ontology/entities/spell",
+  "title": "Spell / technique collection",
+  "description": "games/<title>/content/spells.json. A spell is an Ability plus acquisition metadata.",
+  "type": "object",
+  "required": ["ontology_version", "domain", "entries"],
+  "properties": {
+    "ontology_version": {"type": "string"},
+    "domain": {"const": "spells"},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["ability", "tier"],
+        "properties": {
+          "ability": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Ability"},
+          "tier": {"type": "integer", "minimum": 1},
+          "school": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id", "description": "grouping for menus and class permissions (e.g. school.black, school.white)"},
+          "usable_in": {"type": "array", "items": {"enum": ["battle", "menu"]}, "default": ["battle"]},
+          "learn": {
+            "type": "array",
+            "description": "acquisition paths; a spell no class can learn is a defect (m8-balancer orphan check)",
+            "items": {
+              "type": "object",
+              "required": ["class", "at_level"],
+              "properties": {
+                "class": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+                "at_level": {"type": "integer", "minimum": 1}
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

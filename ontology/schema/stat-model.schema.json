@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mode8.dev/ontology/stat-model",
+  "title": "Per-game stat model",
+  "description": "Declared stats, resource pools, derived formulas, and growth curves. Emitted by m8-systems-designer into games/<title>/content/stat-model.json. Formula strings use the Formula DSL (ontology/effect-algebra.md).",
+  "type": "object",
+  "required": ["ontology_version", "stats", "resources", "growth_curves", "damage_formulas"],
+  "properties": {
+    "ontology_version": {"type": "string"},
+    "stats": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name"],
+        "properties": {
+          "id": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/StatRef"},
+          "name": {"type": "string"},
+          "description": {"type": "string"},
+          "range": {"type": "array", "prefixItems": [{"type": "number"}, {"type": "number"}], "minItems": 2, "maxItems": 2}
+        },
+        "additionalProperties": false
+      }
+    },
+    "resources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "max_formula"],
+        "properties": {
+          "id": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/StatRef"},
+          "name": {"type": "string"},
+          "max_formula": {"type": "string", "description": "Formula DSL over source.* — evaluated on the owning entity"},
+          "regen_per_turn": {"type": "string", "description": "Formula DSL; omit for no regen"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "derived": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "formula"],
+        "properties": {
+          "id": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/StatRef"},
+          "name": {"type": "string"},
+          "formula": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "growth_curves": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind"],
+        "properties": {
+          "id": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+          "kind": {"enum": ["formula", "table"]},
+          "expr": {"type": "string", "description": "Formula DSL over source.level (kind=formula)"},
+          "values": {"type": "array", "items": {"type": "number"}, "description": "index = level-1 (kind=table)"}
+        },
+        "additionalProperties": false,
+        "oneOf": [
+          {"properties": {"kind": {"const": "formula"}}, "required": ["expr"]},
+          {"properties": {"kind": {"const": "table"}}, "required": ["values"]}
+        ]
+      }
+    },
+    "damage_formulas": {
+      "type": "object",
+      "description": "How the damage effect's value routes through defenses, per damage type. 'value' is the evaluated Value of the damage node.",
+      "required": ["physical", "magical"],
+      "properties": {
+        "physical": {"type": "string", "description": "Formula DSL with extra var 'value'"},
+        "magical": {"type": "string", "description": "Formula DSL with extra var 'value'"}
+      },
+      "additionalProperties": false
+    },
+    "xp_curve": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id", "description": "growth curve id: total XP required to reach each level"}
+  },
+  "additionalProperties": false
+}

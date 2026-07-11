@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mode8.dev/ontology/world/world",
+  "title": "World index (regions, towns, dungeons, shops, treasure tables)",
+  "description": "games/<title>/content/world.json — the world's table of contents. Maps live in content/maps/. SPEC §2 lists Region/Town/Dungeon/Shop/Treasure as schemas; v0.1 folds them into one index file (RFC-000) — they are groupings of map refs, not deep structures yet.",
+  "type": "object",
+  "required": ["ontology_version", "start", "regions", "shops", "treasure_tables"],
+  "properties": {
+    "ontology_version": {"type": "string"},
+    "start": {
+      "type": "object",
+      "required": ["map", "spawn"],
+      "properties": {
+        "map": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+        "spawn": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"}
+      },
+      "additionalProperties": false
+    },
+    "regions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "tier", "places"],
+        "properties": {
+          "id": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+          "name": {"type": "string"},
+          "tier": {"type": "integer", "minimum": 1, "description": "progression tier — m8-balancer checkpoints sim per region tier"},
+          "places": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "kind", "maps"],
+              "properties": {
+                "id": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+                "kind": {"enum": ["town", "dungeon", "overworld"]},
+                "name": {"type": "string"},
+                "maps": {"type": "array", "minItems": 1, "items": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"}, "description": "dungeon: ordered floors"},
+                "services": {
+                  "type": "object",
+                  "description": "towns",
+                  "properties": {
+                    "shops": {"type": "array", "items": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"}},
+                    "inn_price": {"type": "integer", "minimum": 0},
+                    "save_point": {"type": "boolean"}
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "shops": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "stock"],
+        "properties": {
+          "id": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+          "name": {"type": "string"},
+          "stock": {"type": "array", "minItems": 1, "items": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"}, "description": "item/equipment ids; price from the entity; infinite stock in v0.1"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "treasure_tables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "rolls"],
+        "properties": {
+          "id": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+          "rolls": {
+            "type": "array", "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["weight"],
+              "properties": {
+                "weight": {"type": "number", "exclusiveMinimum": 0},
+                "item": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+                "gold": {"type": "integer", "minimum": 1}
+              },
+              "additionalProperties": false
+            }
+          },
+          "guaranteed": {"type": "boolean", "description": "true = fixed chest contents (first roll entry), no randomness — required-item chests MUST set this so completability is provable"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

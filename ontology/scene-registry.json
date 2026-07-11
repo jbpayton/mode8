@@ -1,0 +1,22 @@
+{
+  "ontology_version": "0.1.0",
+  "description": "The presentation vocabulary (SPEC §2 L2). Every screen in every game is an instance of a registered scene type rendering a slice of game state. m8-engine-smith implements the types a GDD activates; m8-menu-wright owns UX conventions within them. Extend by RFC.",
+  "scene_types": [
+    {"id": "title", "state_slice": "save slots", "inputs": "menu nav", "notes": "new game / continue / (M4+) options"},
+    {"id": "overworld", "state_slice": "current map + party position + flags", "inputs": "4-dir movement, confirm (interact), cancel (menu)", "notes": "tile movement, encounter rolls, entity triggers"},
+    {"id": "battle_menu", "state_slice": "battle state (parties, rows, turn order, statuses)", "inputs": "menu nav", "notes": "FF-style menu battle; turn engine per GDD (v0.1: round-based, agility-ordered)"},
+    {"id": "battle_grid", "state_slice": "battle state + grid geometry", "inputs": "cursor + menu", "notes": "SRPG; activates M4"},
+    {"id": "dialogue", "state_slice": "dialogue script + speaker assets", "inputs": "advance/skip", "notes": "VN presentation tightens M3"},
+    {"id": "shop", "state_slice": "shop stock + party inventory + gold", "inputs": "menu nav", "notes": "buy/sell"},
+    {"id": "status", "state_slice": "one party member full sheet", "inputs": "menu nav", "notes": "stats, equipment, learned spells"},
+    {"id": "inventory", "state_slice": "party inventory + members", "inputs": "menu nav", "notes": "use/equip/discard"},
+    {"id": "party_builder", "state_slice": "roster + class list", "inputs": "menu nav", "notes": "FF1-style start-of-game party creation; GDD cast_model=player_built"},
+    {"id": "save_load", "state_slice": "save slots + current run", "inputs": "menu nav", "notes": "JSON snapshot round-trip is a build-warden gate"}
+  ],
+  "ux_conventions": {
+    "cursor_memory": "each menu remembers last cursor position within a scene visit",
+    "cancel_semantics": "cancel always steps back exactly one level; never destructive without confirm",
+    "input_map": {"confirm": ["Enter", "Z", "gamepad A"], "cancel": ["Escape", "X", "gamepad B"], "move": ["arrows", "WASD", "dpad"]},
+    "text_speed": "instant in v0.1; per-character reveal is an M3 polish item"
+  }
+}

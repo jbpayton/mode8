@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mode8.dev/ontology/statuses",
+  "title": "Per-game status effect registry",
+  "description": "All status effects referenceable by apply_status/cure_status/has_status. games/<title>/content/statuses.json.",
+  "type": "object",
+  "required": ["ontology_version", "domain", "entries"],
+  "properties": {
+    "ontology_version": {"type": "string"},
+    "domain": {"const": "statuses"},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "stacking"],
+        "properties": {
+          "id": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+          "name": {"type": "string"},
+          "description": {"type": "string"},
+          "stacking": {"enum": ["refresh", "stack", "ignore"], "description": "on re-application: reset duration / add a stack / do nothing"},
+          "max_stacks": {"type": "integer", "minimum": 1},
+          "blocks_action": {"type": "boolean", "description": "afflicted entity skips its turn (stun, sleep, stone)"},
+          "tick": {
+            "type": "object",
+            "description": "Effect run automatically while afflicted; source and target are the afflicted entity. potency from apply_status is exposed as source.potency in formulas.",
+            "required": ["trigger", "effect"],
+            "properties": {
+              "trigger": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Trigger"},
+              "effect": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Effect"}
+            },
+            "additionalProperties": false
+          },
+          "stat_mods": {
+            "type": "array",
+            "description": "Passive stat modifications while afflicted",
+            "items": {
+              "type": "object",
+              "required": ["stat", "mod", "value"],
+              "properties": {
+                "stat": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/StatRef"},
+                "mod": {"enum": ["add", "mul", "set"]},
+                "value": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Value"}
+              },
+              "additionalProperties": false
+            }
+          },
+          "clears_on_battle_end": {"type": "boolean", "default": true},
+          "cure_price_hint": {"type": "integer", "description": "for economy checks (m8-balancer)"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

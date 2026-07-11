@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mode8.dev/ontology/gdd",
+  "title": "Game Design Document — machine-readable core",
+  "description": "games/<title>/gdd/gdd.json — the structured compilation of the design conversation (the prose GDD, tone bible, and decision log live beside it as markdown). Every downstream skill reads this first. SPEC §3: genre is configuration, not a fork.",
+  "type": "object",
+  "required": ["ontology_version", "title", "genre_config", "scope", "difficulty", "party"],
+  "properties": {
+    "ontology_version": {"type": "string"},
+    "title": {"type": "string"},
+    "slug": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+    "logline": {"type": "string"},
+    "genre_config": {
+      "type": "object",
+      "required": ["cast_model", "battle_model", "narrative_weight"],
+      "properties": {
+        "cast_model": {"enum": ["player_built", "fixed_cast", "authored_plus_recruits"]},
+        "battle_model": {"enum": ["menu_rows", "grid"]},
+        "narrative_weight": {"enum": ["light", "heavy", "mission_frame"]}
+      },
+      "additionalProperties": false
+    },
+    "scope": {
+      "type": "object",
+      "required": ["target_hours", "content_targets"],
+      "properties": {
+        "target_hours": {"type": "number", "exclusiveMinimum": 0},
+        "content_targets": {
+          "type": "object",
+          "description": "domain -> minimum count (items, monsters, spells, classes, dungeons...)",
+          "additionalProperties": {"type": "integer", "minimum": 0}
+        }
+      },
+      "additionalProperties": false
+    },
+    "difficulty": {
+      "type": "object",
+      "description": "the thresholds m8-balancer gates against (SPEC §7)",
+      "required": ["ttk_band", "wipe_rate_band", "boss_ttk_band"],
+      "properties": {
+        "ttk_band": {"type": "array", "prefixItems": [{"type": "number"}, {"type": "number"}], "minItems": 2, "maxItems": 2, "description": "[min,max] mean rounds to kill a standard encounter at expected level"},
+        "boss_ttk_band": {"type": "array", "prefixItems": [{"type": "number"}, {"type": "number"}], "minItems": 2, "maxItems": 2},
+        "wipe_rate_band": {"type": "array", "prefixItems": [{"type": "number"}, {"type": "number"}], "minItems": 2, "maxItems": 2, "description": "[min,max] party wipe probability per standard encounter at expected level"},
+        "grind_tolerance": {"type": "number", "minimum": 0, "description": "max levels above expected curve a checkpoint may require"}
+      },
+      "additionalProperties": false
+    },
+    "party": {
+      "type": "object",
+      "required": ["size"],
+      "properties": {
+        "size": {"type": "integer", "minimum": 1, "maximum": 6},
+        "rows": {"type": "boolean", "default": true}
+      },
+      "additionalProperties": false
+    },
+    "tone_keywords": {"type": "array", "items": {"type": "string"}},
+    "world_sketch": {"type": "string", "description": "one-paragraph setting seed for m8-cartographer and m8-loremaster"},
+    "references": {
+      "type": "object",
+      "properties": {
+        "style_bible": {"type": "string", "default": "style-bible.json"},
+        "prose_gdd": {"type": "string", "default": "gdd.md"},
+        "decision_log": {"type": "string", "default": "decisions.md"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

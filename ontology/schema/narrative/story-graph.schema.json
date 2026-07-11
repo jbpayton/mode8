@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mode8.dev/ontology/narrative/story-graph",
+  "title": "Story graph",
+  "description": "games/<title>/content/story.json. The game's narrative skeleton: nodes fire from map triggers or on-entry conditions; edges gate on flags/items. m8-playtester's static completability analysis runs over this + maps + treasure tables.",
+  "type": "object",
+  "required": ["ontology_version", "start", "endings", "nodes"],
+  "properties": {
+    "ontology_version": {"type": "string"},
+    "start": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+    "endings": {"type": "array", "minItems": 1, "items": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"}},
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "kind"],
+        "properties": {
+          "id": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+          "kind": {"enum": ["scene", "choice", "battle", "recruit", "flag_gate", "ending"]},
+          "dialogue": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id", "description": "scene/ending: dialogue script id"},
+          "monsters": {"type": "array", "items": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"}, "description": "battle: fixed group"},
+          "on_defeat": {"enum": ["game_over", "retry", "continue"], "default": "game_over", "description": "battle: loss consequence"},
+          "recruit": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id", "description": "recruit: character id"},
+          "options": {
+            "type": "array", "minItems": 2,
+            "description": "choice nodes",
+            "items": {
+              "type": "object",
+              "required": ["text", "next"],
+              "properties": {
+                "text": {"type": "string"},
+                "next": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+                "requires_flags": {"type": "array", "items": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"}}
+              },
+              "additionalProperties": false
+            }
+          },
+          "requires_flags": {"type": "array", "items": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"}, "description": "node cannot fire until all set (flag_gate primary field, legal on any kind)"},
+          "requires_items": {"type": "array", "items": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"}},
+          "sets_flags": {"type": "array", "items": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"}, "description": "set when the node completes (battle: on victory)"},
+          "gives_items": {"type": "array", "items": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"}},
+          "next": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id", "description": "successor (non-choice nodes); omit for ending or return-to-map"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

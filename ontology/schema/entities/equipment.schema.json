@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mode8.dev/ontology/entities/equipment",
+  "title": "Equipment collection (weapons, armor, accessories)",
+  "description": "games/<title>/content/equipment.json",
+  "type": "object",
+  "required": ["ontology_version", "domain", "entries"],
+  "properties": {
+    "ontology_version": {"type": "string"},
+    "domain": {"const": "equipment"},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "slot", "tier"],
+        "properties": {
+          "id": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+          "name": {"type": "string"},
+          "lore": {"type": "string"},
+          "slot": {"enum": ["weapon", "shield", "head", "body", "accessory"]},
+          "tier": {"type": "integer", "minimum": 1},
+          "price": {"type": "integer", "minimum": 0},
+          "stat_mods": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["stat", "mod", "value"],
+              "properties": {
+                "stat": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/StatRef"},
+                "mod": {"enum": ["add", "mul", "set"]},
+                "value": {"type": "number"}
+              },
+              "additionalProperties": false
+            }
+          },
+          "attack": {
+            "type": "object",
+            "description": "weapons only: overrides the basic Attack command's damage node fields",
+            "properties": {
+              "value": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Value"},
+              "element": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+              "accuracy": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+              "crit": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Crit"},
+              "range": {"type": "object", "required": ["min", "max"], "properties": {"min": {"type": "integer"}, "max": {"type": "integer"}}, "additionalProperties": false}
+            },
+            "additionalProperties": false
+          },
+          "granted_abilities": {
+            "type": "array",
+            "description": "passives/procs while equipped (relic economy): triggers other than on_use fire per interpreter; on_use grants a battle command",
+            "items": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Ability"}
+          },
+          "resist": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["element", "relation"],
+              "properties": {
+                "element": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+                "relation": {"enum": ["weak", "resist", "immune", "absorb"]}
+              },
+              "additionalProperties": false
+            }
+          },
+          "status_immunity": {"type": "array", "items": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"}},
+          "class_lock": {"type": "array", "items": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"}, "description": "empty/omitted = any class"},
+          "sprite": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

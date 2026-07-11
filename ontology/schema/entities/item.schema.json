@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mode8.dev/ontology/entities/item",
+  "title": "Item collection (consumables + key items)",
+  "description": "games/<title>/content/items.json. Equipment lives in equipment.json.",
+  "type": "object",
+  "required": ["ontology_version", "domain", "entries"],
+  "properties": {
+    "ontology_version": {"type": "string"},
+    "domain": {"const": "items"},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "kind", "tier"],
+        "properties": {
+          "id": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+          "name": {"type": "string"},
+          "lore": {"type": "string", "description": "one flavor line, shown in menus"},
+          "kind": {"enum": ["consumable", "key"]},
+          "tier": {"type": "integer", "minimum": 1, "description": "progression tier for balance/dominance checks"},
+          "price": {"type": "integer", "minimum": 0, "description": "shop buy price; sell = half. Omit = unsellable/unbuyable"},
+          "use": {
+            "$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Ability",
+            "description": "consumables only; trigger must be on_use. Usable in battle and/or menu per usable_in."
+          },
+          "usable_in": {"type": "array", "items": {"enum": ["battle", "menu"]}, "description": "consumables only"},
+          "stack_max": {"type": "integer", "minimum": 1, "default": 99},
+          "sprite": {"type": "string", "description": "icon asset id (m8-atelier manifest key)"}
+        },
+        "additionalProperties": false,
+        "if": {"properties": {"kind": {"const": "consumable"}}},
+        "then": {"required": ["use", "usable_in"]}
+      }
+    }
+  },
+  "additionalProperties": false
+}

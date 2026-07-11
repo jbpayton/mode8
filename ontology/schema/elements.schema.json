@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mode8.dev/ontology/elements",
+  "title": "Per-game element wheel",
+  "description": "Element ids and default multipliers. Per-entity affinities (weak/resist/immune/absorb lists on monsters, resist gear) override the wheel. games/<title>/content/elements.json.",
+  "type": "object",
+  "required": ["ontology_version", "elements", "multipliers"],
+  "properties": {
+    "ontology_version": {"type": "string"},
+    "elements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name"],
+        "properties": {
+          "id": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"},
+          "name": {"type": "string"},
+          "strong_against": {"type": "array", "items": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"}},
+          "weak_against": {"type": "array", "items": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"}}
+        },
+        "additionalProperties": false
+      }
+    },
+    "multipliers": {
+      "type": "object",
+      "required": ["weak", "resist", "immune", "absorb"],
+      "properties": {
+        "weak": {"type": "number", "exclusiveMinimum": 1},
+        "resist": {"type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1},
+        "immune": {"const": 0},
+        "absorb": {"type": "number", "exclusiveMaximum": 0, "description": "negative multiplier = damage becomes healing"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
