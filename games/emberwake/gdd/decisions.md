@@ -16,3 +16,6 @@ Content phase priced the shop (265g total equipment + consumables) assuming a mo
 
 ## G-005 — Spawn-co-located triggers fire on placement
 A trigger entity sharing a tile with the active spawn fires when the party is placed there (new run or portal arrival), before input. Required for node.intro on the town start tile; one-shot behavior via blocked_by_flag remains the content-side idiom.
+
+## G-006 — Save points: town only at M0 (amends G-003)
+G-003 assumed inn + shaft entrance; the world data only grants the town (inn + save_point service). Conductor call: accept town-only saves for M0 — a 30-minute game with a save before the descent doesn't need a mid-dungeon anchor, and adding one now would invalidate the balance sim's death-cost assumptions. Revisit at M2 scope via m8-cartographer.
