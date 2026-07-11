@@ -1,11 +1,13 @@
 {
   "studio": "MODE 8",
-  "ontology_version": "0.1.0",
+  "ontology_version": "0.1.1",
   "appliances": {
     "godot": {
       "pin": "appliances/godot/PIN.json",
       "bin": "appliances/godot/godot",
-      "headless_args": ["--headless"]
+      "headless_args": [
+        "--headless"
+      ]
     },
     "comfyui": {
       "status": "not_yet_provisioned",
@@ -14,7 +16,10 @@
     }
   },
   "gpu_policy": {
-    "devices": ["cuda:0", "cuda:1"],
+    "devices": [
+      "cuda:0",
+      "cuda:1"
+    ],
     "vram_mb_per_device": 24576,
     "rule": "sequence generation and judging stages; never co-load pipelines that together exceed one device"
   },

@@ -40,10 +40,12 @@ The unit of mechanics. Spells, item-use effects, monster moves, and equipment pa
 expr   := term (('+' | '-') term)*
 term   := unary (('*' | '/' | '//' | '%') unary)*
 unary  := '-' unary | factor
-factor := NUMBER | ref | func '(' expr (',' expr)* ')' | '(' expr ')'
+factor := NUMBER | ref | CONTEXTVAR | func '(' expr (',' expr)* ')' | '(' expr ')'
 ref    := ('source' | 'target' | 'game') '.' IDENT
 func   := min | max | floor | ceil | round | abs | clamp
 ```
+
+`CONTEXTVAR` (RFC-002): a bare identifier valid only where its evaluation context declares it — today only `value` inside the stat model's `damage_formulas`. Parsers reject context vars outside their context.
 
 - `source.X` / `target.X` where `X` is any stat or resource id from the game's stat model, plus built-ins: `level`, `hp`, `max_hp`, `hp_pct`, and each resource pool + `max_` variant.
 - `game.X` reads flag `flag.X` as 0/1.
@@ -111,3 +113,4 @@ Object on the ability: `{"mp": n, "hp": n, "item": "item.x", "charge": turns, "c
 3. Element affinity applied inside `damage` per the game's `elements.json` (weak ×2, resist ×½, immune ×0, absorb = heal), after variance, before clamping to ≥0 (fixed damage skips all of it).
 4. Every atomic effect application emits a structured battle-log event `{turn, source, ability, effect_op, target, rolled, result}` — the balance sim and playtester consume this stream.
 5. Unknown `op` = hard error at content-load time, not battle time.
+6. Resource maxima resolve in priority order (RFC-001): explicit resource id in a monster's `stats` → class `growth` binding a resource to a curve → the stat model's `max_formula`.

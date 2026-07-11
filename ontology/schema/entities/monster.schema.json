@@ -22,7 +22,7 @@
           "family": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id", "description": "palette-swap family (m8-atelier reuses the family's base sprite)"},
           "stats": {
             "type": "object",
-            "description": "stat id -> value; must cover every stat in the stat model; resources computed from max_formula",
+            "description": "stat id -> value; must cover every stat in the stat model. A resource id (e.g. hp) may appear here to override max_formula — hand-shaped bosses (RFC-001)",
             "additionalProperties": {"type": "number"}
           },
           "abilities": {

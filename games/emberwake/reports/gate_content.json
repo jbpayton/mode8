@@ -1,0 +1,23 @@
+{
+  "gate": "content",
+  "status": "red",
+  "errors": [
+    "content/items.json: required content file missing",
+    "content/equipment.json: required content file missing",
+    "content/spells.json: required content file missing",
+    "content/classes.json: required content file missing",
+    "content/monsters.json: required content file missing",
+    "content/encounters.json: required content file missing",
+    "content/world.json: required content file missing",
+    "content/story.json: required content file missing",
+    "content/dialogue.json: required content file missing"
+  ],
+  "warnings": [],
+  "files_checked": [
+    "content/elements.json",
+    "content/stat-model.json",
+    "content/statuses.json",
+    "gdd/gdd.json",
+    "gdd/style-bible.json"
+  ]
+}

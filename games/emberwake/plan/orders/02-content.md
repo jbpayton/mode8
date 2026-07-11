@@ -11,7 +11,16 @@ GAME CONTEXT:
 - Game dir: /home/seraphius/mode8/games/emberwake/ (work here; all paths below relative to it)
 - Read first: gdd/gdd.json, gdd/gdd.md (structure §"Structure (fixed for M0)" is binding), gdd/decisions.md
 - Phase-1 outputs are law: content/stat-model.json (stat ids, curve ids, damage formulas, xp curve), content/elements.json, content/statuses.json. Use ONLY ids declared there.
-- XP budget note from systems phase: {XP_NOTE}
+- XP budget note from systems phase: ~32 XP per party member per on-path fight (e.g. 16/monster in F1 2-packs, up to ~36 on F3); xp thresholds cumulative 0/75/180/315/480 → L2 at fight ~3 (floor 1), L3 at ~6 (floor 2), L4 at ~10 (the vault).
+
+SYSTEMS-PHASE BINDING NOTES (from work order 01's return — treat as law):
+- Ability value baselines the stat model was tuned for: weapon value `source.atk * 2`; tier-1 attack spell `source.mag * 2 + 6`; burn potency `source.mag`; heal `source.mag * 2 + 10`. Deviate only with arithmetic showing bands still hold.
+- Statuses are status.burn (DoT, potency-driven) and status.guard_break (def ×0.5) — expect duration 3 on both when applying.
+- The status-cure item must cure BOTH statuses (suggested name "ember salve"). MP-restore item ("ether"-like) is required — the boss MP economy depends on it.
+- Element coverage constraints: caster's kit sources fire (attack spell + burn); the warden's upgrade weapon should carry frost (coldiron brand) — make the physical-resistant ember-flavored monster frost-weak and the frost-flavored monster fire-weak. THE BOSS MUST BE NEUTRAL TO FIRE AND FROST (fire-resist kills the caster's kit; frost-weak breaks the boss TTK floor). 'none' is the physical carrier on plain weapons.
+- Boss: hand-shape hp ≈ 380 directly in its stats object (RFC-001 accepted: explicit resource id in stats overrides max_formula). Suggested boss block: L5, atk 12, def 9, res 10, hp 380.
+- Regular exemplar the model was tuned against: L2 "whelp": atk 7, def 5, res 4 → hp 53 via formula. Scale floor-2/3 regulars from it along the curves.
+- agi drives turn order (higher first); the fast monster teaches this.
 
 YOUR TASK — produce exactly the GDD's content targets:
 - classes.json: 2 classes — sturdy physical (knight archetype) + fragile caster (mage archetype). Cover EVERY stat in base_stats and growth (curves from stat-model). Knight verb ≠ mage verb; description states it.

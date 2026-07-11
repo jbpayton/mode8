@@ -1,0 +1,64 @@
+{
+  "ontology_version": "0.1.0",
+  "stats": [
+    {
+      "id": "atk",
+      "name": "Attack",
+      "description": "Physical striking power. Weapon/strike ability values scale from it; baseline weapon value shape is source.atk * 2.",
+      "range": [1, 99]
+    },
+    {
+      "id": "def",
+      "name": "Defense",
+      "description": "Physical bulwark. Subtracts point-for-point from incoming physical value (damage_formulas.physical) and is the main driver of max HP via the hp max_formula.",
+      "range": [1, 99]
+    },
+    {
+      "id": "mag",
+      "name": "Magic",
+      "description": "Magical force. Spell values scale from it (baseline tier-1 spell value shape is source.mag * 2 + 6) and it drives max MP via the mp max_formula.",
+      "range": [1, 99]
+    },
+    {
+      "id": "res",
+      "name": "Resistance",
+      "description": "Magical ward. Percent-mitigates magical damage via damage_formulas.magical: value * 100 / (100 + res * 2).",
+      "range": [1, 99]
+    },
+    {
+      "id": "agi",
+      "name": "Agility",
+      "description": "Speed. Engine contract: sets turn order each round, higher acts first, ties random. Also the stat speed/priority selectors read, e.g. lowest(agi, side). The 'fast' monster archetype keys off this.",
+      "range": [1, 99]
+    }
+  ],
+  "resources": [
+    {
+      "id": "hp",
+      "name": "Hit Points",
+      "max_formula": "source.def * 3 + source.level * 12 + 14"
+    },
+    {
+      "id": "mp",
+      "name": "Magic Points",
+      "max_formula": "source.mag * 2 + 8"
+    }
+  ],
+  "growth_curves": [
+    {"id": "curve.stat_major", "kind": "formula", "expr": "6 + source.level * 2"},
+    {"id": "curve.stat_strong", "kind": "formula", "expr": "4 + source.level * 2"},
+    {"id": "curve.stat_steady", "kind": "formula", "expr": "3 + source.level"},
+    {"id": "curve.stat_minor", "kind": "formula", "expr": "2 + source.level"},
+    {"id": "curve.stat_weak", "kind": "formula", "expr": "1 + source.level"},
+    {"id": "curve.hp_sturdy", "kind": "formula", "expr": "34 + source.level * 16"},
+    {"id": "curve.hp_caster", "kind": "formula", "expr": "24 + source.level * 10"},
+    {"id": "curve.mp_caster", "kind": "formula", "expr": "12 + source.level * 6"},
+    {"id": "curve.mp_sturdy", "kind": "formula", "expr": "4 + source.level * 2"},
+    {"id": "curve.xp_main", "kind": "formula", "expr": "15 * (source.level - 1) * (source.level - 1) + 60 * (source.level - 1)"}
+  ],
+  "damage_formulas": {
+    "physical": "max(1, value - target.def)",
+    "magical": "max(1, value * 100 / (100 + target.res * 2))"
+  },
+  "xp_curve": "curve.xp_main"
+}

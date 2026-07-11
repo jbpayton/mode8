@@ -1,0 +1,35 @@
+{
+  "ontology_version": "0.1.0",
+  "domain": "statuses",
+  "entries": [
+    {
+      "id": "status.burn",
+      "name": "Burn",
+      "description": "Clinging embers sear the afflicted at each turn's end for the applied potency (fixed damage: ignores defense and affinity, so it stays relevant against armored and ashen foes). Reapplication refreshes the clock. Cure it, outheal it, or race it.",
+      "stacking": "refresh",
+      "blocks_action": false,
+      "tick": {
+        "trigger": "on_turn_end",
+        "effect": {
+          "op": "damage",
+          "value": {"op": "formula", "expr": "source.potency"},
+          "type": "fixed"
+        }
+      },
+      "clears_on_battle_end": true,
+      "cure_price_hint": 25
+    },
+    {
+      "id": "status.guard_break",
+      "name": "Guard Break",
+      "description": "Guard shattered: defense is halved while it lasts. On a foe it opens the focus-fire window for the physical attacker; on your warden it flips the party's shield into the soft target — cure now or race the duration.",
+      "stacking": "refresh",
+      "blocks_action": false,
+      "stat_mods": [
+        {"stat": "def", "mod": "mul", "value": 0.5}
+      ],
+      "clears_on_battle_end": true,
+      "cure_price_hint": 25
+    }
+  ]
+}

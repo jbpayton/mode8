@@ -24,7 +24,7 @@
           },
           "growth": {
             "type": "object",
-            "description": "stat id -> growth curve id (value of the stat at a level = curve(level))",
+            "description": "stat id -> growth curve id (value of the stat at a level = curve(level)). A resource id (hp/mp) may be bound to a curve to override max_formula (RFC-001)",
             "additionalProperties": {"$ref": "https://mode8.dev/ontology/effect-algebra#/$defs/Id"}
           },
           "equip_slots": {"type": "array", "items": {"enum": ["weapon", "shield", "head", "body", "accessory"]}},

@@ -1,0 +1,29 @@
+{
+  "ontology_version": "0.1.0",
+  "elements": [
+    {
+      "id": "fire",
+      "name": "Fire",
+      "strong_against": ["frost"],
+      "weak_against": ["frost"]
+    },
+    {
+      "id": "frost",
+      "name": "Frost",
+      "strong_against": ["fire"],
+      "weak_against": ["fire"]
+    },
+    {
+      "id": "none",
+      "name": "None",
+      "strong_against": [],
+      "weak_against": []
+    }
+  ],
+  "multipliers": {
+    "weak": 2.0,
+    "resist": 0.5,
+    "immune": 0,
+    "absorb": -1.0
+  }
+}
