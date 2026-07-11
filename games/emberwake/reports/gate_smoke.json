@@ -1,0 +1,19 @@
+{
+  "gate": "integration_smoke",
+  "exit_code": 0,
+  "trace_lines": 49,
+  "scene_types": [
+    "dialogue",
+    "overworld",
+    "party_builder",
+    "save_load",
+    "title"
+  ],
+  "final_event": "quit",
+  "checks": {
+    "exit 0": true,
+    ">=3 scene types": true,
+    "quit line": true
+  },
+  "status": "green"
+}

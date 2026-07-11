@@ -27,6 +27,8 @@ func _initialize() -> void:
 		var inst: Object = script.new()
 		T.current_file = f
 		var seen := {}
+		var before_total := T.total
+		var before_failed := T.failed
 		for m in inst.get_method_list():
 			var name: String = m["name"]
 			if name.begins_with("test_") and m["args"].is_empty() and not seen.has(name):
@@ -37,5 +39,8 @@ func _initialize() -> void:
 			inst.call("cleanup")
 		if inst is Node:
 			inst.free()
+		# per-file line: gate 2 evidence must prove each required file ran (contract §7)
+		var ran := T.total - before_total
+		print("%s: %d/%d" % [f, ran - (T.failed - before_failed), ran])
 	print("TESTS: %d/%d PASSED" % [T.total - T.failed, T.total])
 	quit(0 if T.failed == 0 else 1)

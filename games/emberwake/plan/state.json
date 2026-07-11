@@ -56,22 +56,22 @@
     {
       "id": 4,
       "name": "integration",
-      "status": "pending",
+      "status": "done",
       "outputs": [
         "reports/gate_*.{json,txt,jsonl}"
       ],
-      "gate_evidence": null
+      "gate_evidence": "content GREEN 0/0; tests 428/428 w/ per-file proof incl. test_save 40/40 (runner gained per-file lines \u2014 conductor micro-edit, noted); boot exit 0 no errors; smoke GREEN 5 scene types + quit. Evidence: reports/gate_{content.json,tests.txt,boot.txt,smoke.json,smoke.jsonl}"
     },
     {
       "id": 5,
       "name": "balance",
-      "status": "pending",
+      "status": "done",
       "outputs": [
         "reports/balance-checkpoints.json",
         "reports/balance.json",
         "reports/balance.md"
       ],
-      "gate_evidence": null
+      "gate_evidence": "balance GREEN after 1 patch round: boss wipe 0.230->0.090 (eruption softened + reweighted, data-only), ttk 10.84 in [6,16]; 3300 battles via the game engine, seed 20260711. reports/balance.{json,md}"
     },
     {
       "id": 6,

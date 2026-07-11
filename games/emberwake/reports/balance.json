@@ -1,0 +1,99 @@
+{
+  "gate": "balance",
+  "policy": "heuristic_v1 (competent, not optimal)",
+  "seed": 20260711,
+  "checkpoints": [
+    {
+      "checkpoint": "cp.floor1_L2",
+      "boss": false,
+      "n": 1000,
+      "win_rate": 1.0,
+      "wipe_rate": 0.0,
+      "timeout_rate": 0.0,
+      "ttk_mean": 2.44,
+      "ttk_p95": 4,
+      "hp_end_mean": 0.868,
+      "ability_usage": {
+        "spell.cinder": 2386,
+        "attack": 1523,
+        "spell.mend": 54
+      },
+      "checks": {
+        "ttk in [2, 5]": true,
+        "wipe_rate in [0.0, 0.15]": true,
+        "no timeouts": true
+      },
+      "verdict": "green"
+    },
+    {
+      "checkpoint": "cp.floor2_L3",
+      "boss": false,
+      "n": 1000,
+      "win_rate": 0.999,
+      "wipe_rate": 0.001,
+      "timeout_rate": 0.0,
+      "ttk_mean": 4.08,
+      "ttk_p95": 6,
+      "hp_end_mean": 0.834,
+      "ability_usage": {
+        "attack": 3152,
+        "spell.cinder": 3993,
+        "spell.mend": 53,
+        "item.warm_draught": 26
+      },
+      "checks": {
+        "ttk in [2, 5]": true,
+        "wipe_rate in [0.0, 0.15]": true,
+        "no timeouts": true
+      },
+      "verdict": "green"
+    },
+    {
+      "checkpoint": "cp.floor3_L4",
+      "boss": false,
+      "n": 1000,
+      "win_rate": 1.0,
+      "wipe_rate": 0.0,
+      "timeout_rate": 0.0,
+      "ttk_mean": 2.71,
+      "ttk_p95": 4,
+      "hp_end_mean": 0.906,
+      "ability_usage": {
+        "attack": 1965,
+        "spell.cinder": 2709,
+        "spell.mend": 4,
+        "item.warm_draught": 4
+      },
+      "checks": {
+        "ttk in [2, 5]": true,
+        "wipe_rate in [0.0, 0.15]": true,
+        "no timeouts": true
+      },
+      "verdict": "green"
+    },
+    {
+      "checkpoint": "cp.boss_L4",
+      "boss": true,
+      "n": 300,
+      "win_rate": 0.91,
+      "wipe_rate": 0.09,
+      "timeout_rate": 0.0,
+      "ttk_mean": 10.84,
+      "ttk_p95": 15,
+      "hp_end_mean": 0.434,
+      "ability_usage": {
+        "attack": 2797,
+        "item.warm_draught": 873,
+        "spell.cinder": 2420,
+        "spell.mend": 186
+      },
+      "checks": {
+        "ttk in [6, 16]": true,
+        "wipe_rate in [0.0, 0.15]": true,
+        "no timeouts": true
+      },
+      "verdict": "green"
+    }
+  ],
+  "status": "green"
+}

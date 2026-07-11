@@ -1,0 +1,10 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+test_battle.gd: 80/80
+test_content.gd: 87/87
+test_effects.gd: 89/89
+test_formula.gd: 82/82
+test_predicates.gd: 24/24
+test_save.gd: 40/40
+test_values.gd: 26/26
+TESTS: 428/428 PASSED
