@@ -9,6 +9,7 @@ extends Node
 const Save := preload("res://engine/save.gd")
 const Stats := preload("res://engine/stats.gd")
 const BattleScript := preload("res://engine/battle.gd")
+const Algebra := preload("res://engine/algebra.gd")
 
 var party: Array = []
 var inventory: Dictionary = {}
@@ -65,6 +66,82 @@ func add_party_member(class_id: String, member_name: String) -> Dictionary:
 		member[rid] = int(view["resources"][rid]["max"])
 	party.append(member)
 	return member
+
+# --- 03b flagged additions (API.md gaps; scene layer has no other path) ---
+
+# Work order 03b + G-004: start a fresh run from party_builder picks
+# ([{class, name}]). Purse from m8/run/start_gold (decision G-004: 120g,
+# empty inventory, no equipment — new_game/add_party_member already grant
+# neither equipment nor items).
+func new_run(picks: Array) -> void:
+	new_game()
+	for p in picks:
+		add_party_member(str(p["class"]), str(p["name"]))
+	gold = int(ProjectSettings.get_setting("m8/run/start_gold", 0))
+
+# GDD party.size binding (m8/run/party_size) for the party_builder scene.
+func party_size() -> int:
+	return int(ProjectSettings.get_setting("m8/run/party_size", 2))
+
+# Save-slot visibility for title (Continue) and save_load (slot summaries);
+# scenes may not touch engine/save.gd directly.
+func save_slots() -> Array:
+	return Save.list_slots()
+
+func peek_save(slot: int) -> Dictionary:
+	return Save.load_slot(slot)
+
+# Menu-context item use ("usable_in": ["menu"]): heal/resource/revive apply
+# to the persistent member; cure_status is a no-op outside battle (statuses
+# are battle-scoped, contract §8). Returns {"ok": bool [, "error"]}.
+func use_item_on_member(item_id: String, member_idx: int) -> Dictionary:
+	var use: Dictionary = _db.item(item_id).get("use", {})
+	if use.is_empty() or item_count(item_id) <= 0:
+		return {"ok": false, "error": "item not usable"}
+	if member_idx < 0 or member_idx >= party.size():
+		return {"ok": false, "error": "no such member"}
+	var member: Dictionary = party[member_idx]
+	var wants_dead: bool = use.get("target", {}).get("op", "") == "dead"
+	if wants_dead != (int(member.get("hp", 0)) <= 0):
+		return {"ok": false, "error": "invalid target"}
+	remove_item(item_id)
+	_apply_menu_effect(use.get("effect", {}), member)
+	return {"ok": true}
+
+# Inn service (world place services.inn_price): restore every resource pool
+# to its max for all members.
+func rest_party() -> void:
+	for member in party:
+		var view: Dictionary = stats.member_view(member)
+		for rid in _db.resource_ids():
+			member[rid] = int(view["resources"][rid]["max"])
+
+# Minimal out-of-battle effect walk (seq + heal/resource/revive/cure_status);
+# values evaluate through the algebra against the member's stat view.
+func _apply_menu_effect(e: Dictionary, member: Dictionary) -> void:
+	var view: Dictionary = stats.member_view(member)
+	match e.get("op", ""):
+		"seq":
+			for sub in e["effects"]:
+				_apply_menu_effect(sub, member)
+		"heal":
+			var alg: RefCounted = Algebra.new(_db, get_node("/root/Rng"))
+			var amt: int = roundi(alg.eval_value(e["value"], view, view))
+			member["hp"] = clampi(int(member.get("hp", 0)) + amt, 0, int(view["resources"]["hp"]["max"]))
+		"resource":
+			var alg2: RefCounted = Algebra.new(_db, get_node("/root/Rng"))
+			var delta: int = roundi(alg2.eval_value(e["delta"], view, view))
+			var pool: String = e["pool"]
+			member[pool] = clampi(int(member.get(pool, 0)) + delta, 0, int(view["resources"][pool]["max"]))
+		"revive":
+			if int(member.get("hp", 0)) <= 0:
+				member["hp"] = maxi(1, roundi(float(view["resources"]["hp"]["max"]) * float(e.get("pct", 0.5))))
+		"cure_status":
+			pass  # battle-scoped statuses; nothing persists to cure
+		_:
+			push_warning("Game: unsupported menu effect op " + str(e.get("op", "")))
+
+# ------------------------------------------------------------- flags/items
 
 func set_flag(id: String) -> void:
 	if not (id in flags):

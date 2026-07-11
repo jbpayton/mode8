@@ -2,6 +2,8 @@
 ; Window size + filter from gdd/style-bible.json (640x360, nearest).
 ; m8/battle/speed_stat binds the turn-order stat to the game's stat model
 ; (content id lives in config data, not in .gd code; ContentDB validates it).
+; m8/run/* bind GDD/decision-log run config the same way: party_size from
+; gdd.json party.size, start_gold from decision G-004 (03b flagged addition).
 
 config_version=5
 
@@ -29,6 +31,8 @@ window/stretch/aspect="keep"
 [m8]
 
 battle/speed_stat="agi"
+run/party_size=2
+run/start_gold=120
 
 [rendering]
 

@@ -47,11 +47,11 @@
     {
       "id": 3,
       "name": "engine",
-      "status": "running",
+      "status": "done",
       "outputs": [
         "src/**"
       ],
-      "gate_evidence": "03a core DONE: TESTS 428/428 PASSED (conductor re-ran); sim smoke green + deterministic (byte-identical reruns); API.md handoff written. 03b scenes dispatched."
+      "gate_evidence": "03a: TESTS 428/428. 03b: boot exit 0, tests still 428/428, 40-action smoke green with 5 scene types + quit, byte-identical reruns. Conductor re-verified all three. RFC candidates + G-003 mismatch noted for wrap."
     },
     {
       "id": 4,
