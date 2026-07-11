@@ -47,11 +47,11 @@
     {
       "id": 3,
       "name": "engine",
-      "status": "pending",
+      "status": "running",
       "outputs": [
         "src/**"
       ],
-      "gate_evidence": null
+      "gate_evidence": "03a core DONE: TESTS 428/428 PASSED (conductor re-ran); sim smoke green + deterministic (byte-identical reruns); API.md handoff written. 03b scenes dispatched."
     },
     {
       "id": 4,

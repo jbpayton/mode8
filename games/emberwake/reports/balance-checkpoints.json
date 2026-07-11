@@ -1,0 +1,47 @@
+{
+  "seed": 20260711,
+  "notes": "Loadouts derived from G-004 purse (120g) + on-path gold (~320 total per content phase): stave-first buy order on F1; full 265g equipment set by the vault. Party policy heuristic_v1 (competent, not optimal). Expected curve per G-002: L2 F1, L3 F2, L4 vault/boss.",
+  "checkpoints": [
+    {
+      "id": "cp.floor1_L2",
+      "n_battles": 1000,
+      "encounter_table": "enc.floor1",
+      "max_rounds": 50,
+      "party": [
+        {"class": "class.warden", "level": 2, "equipment": {}, "spells": ["spell.bulwark"], "items": {"item.warm_draught": 2}},
+        {"class": "class.ashcaller", "level": 2, "equipment": {"weapon": "equipment.ashwood_stave"}, "spells": ["spell.cinder", "spell.mend"], "items": {}}
+      ]
+    },
+    {
+      "id": "cp.floor2_L3",
+      "n_battles": 1000,
+      "encounter_table": "enc.floor2",
+      "max_rounds": 50,
+      "party": [
+        {"class": "class.warden", "level": 3, "equipment": {"body": "equipment.shaftplate"}, "spells": ["spell.bulwark"], "items": {"item.warm_draught": 2, "item.ember_salve": 1}},
+        {"class": "class.ashcaller", "level": 3, "equipment": {"weapon": "equipment.ashwood_stave", "body": "equipment.emberweave_shawl"}, "spells": ["spell.cinder", "spell.mend", "spell.smolder"], "items": {"item.emberdew": 1}}
+      ]
+    },
+    {
+      "id": "cp.floor3_L4",
+      "n_battles": 1000,
+      "encounter_table": "enc.floor3",
+      "max_rounds": 50,
+      "party": [
+        {"class": "class.warden", "level": 4, "equipment": {"weapon": "equipment.coldiron_brand", "body": "equipment.shaftplate"}, "spells": ["spell.bulwark"], "items": {"item.warm_draught": 3, "item.ember_salve": 1}},
+        {"class": "class.ashcaller", "level": 4, "equipment": {"weapon": "equipment.ashwood_stave", "body": "equipment.emberweave_shawl"}, "spells": ["spell.cinder", "spell.mend", "spell.smolder"], "items": {"item.emberdew": 1}}
+      ]
+    },
+    {
+      "id": "cp.boss_L4",
+      "boss": true,
+      "n_battles": 300,
+      "monsters": ["monster.ash_tyrant"],
+      "max_rounds": 50,
+      "party": [
+        {"class": "class.warden", "level": 4, "equipment": {"weapon": "equipment.coldiron_brand", "body": "equipment.shaftplate"}, "spells": ["spell.bulwark"], "items": {"item.warm_draught": 3, "item.ember_salve": 1, "item.hearthloaf": 1}},
+        {"class": "class.ashcaller", "level": 4, "equipment": {"weapon": "equipment.ashwood_stave", "body": "equipment.emberweave_shawl"}, "spells": ["spell.cinder", "spell.mend", "spell.smolder"], "items": {"item.emberdew": 2, "item.warm_draught": 1}}
+      ]
+    }
+  ]
+}

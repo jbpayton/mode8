@@ -41,3 +41,10 @@ CONSTRAINTS:
 - Content is data: ZERO game-content ids in .gd files (fixture ids inside test files are exempt but must be clearly fixtures).
 - You may not edit content/, ontology/, skills/, plan/.
 - Return format: (1) file manifest, (2) test summary line + sim smoke output verbatim, (3) any contract ambiguities you resolved (list, one line each — these feed the retrospective), (4) API.md path confirmation. No prose recap.
+
+## ADDENDA (post-content-phase, conductor)
+- The src/content → ../content symlink approach is VALIDATED on this machine (headless FileAccess + DirAccess both work through it). Proceed as specified.
+- RFC-001 (accepted): resource maxima resolve as — explicit resource id in a monster's `stats` (ash_tyrant has "hp": 380) → class `growth` binding a resource to a curve (both classes bind hp/mp) → stat-model max_formula. Implement exactly this order.
+- RFC-002 (accepted): the formula parser accepts CONTEXTVAR `value` ONLY when evaluating stat-model damage_formulas; reject it everywhere else.
+- Status durations arrive via apply_status (content uses duration 3); statuses.json stacking "refresh" resets duration on re-application.
+- Turn order: agility, higher first; ties party-first then list order (contract §5 note from systems phase).

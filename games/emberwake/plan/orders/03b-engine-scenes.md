@@ -36,3 +36,8 @@ CONSTRAINTS:
 - All input via M8Input; all randomness via Rng; scenes mutate battle state only through engine/battle.gd.
 - You may not edit content/, ontology/, skills/, plan/, or core engine/tests except as flagged above.
 - Return format: (1) file manifest, (2) boot/tests/smoke outputs verbatim (summary lines), (3) API.md gaps you hit + what you added, (4) UX-convention deviations if any. No prose recap.
+
+## ADDENDA (post-content-phase, conductor)
+- G-004: Game.new_run grants 120 gold, empty inventory, no equipment (gdd/decisions.md).
+- G-005: a trigger entity sharing the active spawn tile fires on placement (before input), both on new run and portal arrival. node.intro depends on this; one-shot via its blocked_by_flag.
+- node.vault_gate without the key is silent (no barrier dialogue) — acceptable at M0, do not invent UI for it.
