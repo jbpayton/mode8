@@ -1,0 +1,92 @@
+{
+  "ontology_version": "0.1.0",
+  "domain": "spells",
+  "entries": [
+    {
+      "ability": {
+        "id": "spell.cinder",
+        "name": "Cinder",
+        "description": "A fistful of the mountain's own heat, thrown hard. Single-target fire damage.",
+        "trigger": "on_use",
+        "target": {"op": "single", "side": "enemy"},
+        "accuracy": 0.95,
+        "effect": {
+          "op": "damage",
+          "value": {"op": "formula", "expr": "source.mag * 2 + 6"},
+          "element": "fire",
+          "type": "magical",
+          "variance": 0.1
+        },
+        "costs": {"mp": 4},
+        "anim": {"kind": "flash", "color": "#ff6a33"}
+      },
+      "tier": 1,
+      "school": "school.ember",
+      "usable_in": ["battle"],
+      "learn": [{"class": "class.ashcaller", "at_level": 1}]
+    },
+    {
+      "ability": {
+        "id": "spell.mend",
+        "name": "Mend",
+        "description": "Warmth pressed into a wound, the way you'd warm hands over a stove.",
+        "trigger": "on_use",
+        "target": {"op": "single", "side": "ally"},
+        "effect": {
+          "op": "heal",
+          "value": {"op": "formula", "expr": "source.mag * 2 + 10"}
+        },
+        "costs": {"mp": 4},
+        "anim": {"kind": "glow", "color": "#ffd27f"}
+      },
+      "tier": 1,
+      "school": "school.ember",
+      "usable_in": ["battle", "menu"],
+      "learn": [{"class": "class.ashcaller", "at_level": 1}]
+    },
+    {
+      "ability": {
+        "id": "spell.bulwark",
+        "name": "Bulwark",
+        "description": "The Warden plants their feet in front of a friend. Raises defense for a while.",
+        "trigger": "on_use",
+        "target": {"op": "single", "side": "ally"},
+        "effect": {
+          "op": "modify_stat",
+          "stat": "def",
+          "mod": "add",
+          "value": {"op": "formula", "expr": "source.def // 2"},
+          "duration": 3
+        },
+        "costs": {"mp": 3},
+        "anim": {"kind": "flash", "color": "#8fa3b8"}
+      },
+      "tier": 1,
+      "school": "school.ward",
+      "usable_in": ["battle"],
+      "learn": [{"class": "class.warden", "at_level": 2}]
+    },
+    {
+      "ability": {
+        "id": "spell.smolder",
+        "name": "Smolder",
+        "description": "Not the flash — the coal that stays. Sets a lasting burn that gnaws each turn, armor or no.",
+        "trigger": "on_use",
+        "target": {"op": "single", "side": "enemy"},
+        "effect": {
+          "op": "apply_status",
+          "status": "status.burn",
+          "duration": 3,
+          "potency": {"op": "formula", "expr": "source.mag"},
+          "chance": 0.85
+        },
+        "costs": {"mp": 5},
+        "anim": {"kind": "flash", "color": "#c93c1e"}
+      },
+      "tier": 2,
+      "school": "school.ember",
+      "usable_in": ["battle"],
+      "learn": [{"class": "class.ashcaller", "at_level": 3}]
+    }
+  ]
+}

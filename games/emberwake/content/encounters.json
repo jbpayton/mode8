@@ -1,0 +1,37 @@
+{
+  "ontology_version": "0.1.0",
+  "domain": "encounters",
+  "entries": [
+    {
+      "id": "enc.floor1",
+      "steps_per_check": 4,
+      "encounter_chance": 0.3,
+      "groups": [
+        {"weight": 3, "monsters": ["monster.rime_whelp", "monster.rime_whelp"]},
+        {"weight": 1, "monsters": ["monster.rime_whelp"]},
+        {"weight": 2, "monsters": ["monster.rime_whelp", "monster.ash_skitter"]}
+      ]
+    },
+    {
+      "id": "enc.floor2",
+      "steps_per_check": 4,
+      "encounter_chance": 0.34,
+      "groups": [
+        {"weight": 2, "monsters": ["monster.ash_skitter", "monster.ash_skitter"]},
+        {"weight": 2, "monsters": ["monster.slag_crawler"]},
+        {"weight": 2, "monsters": ["monster.slag_crawler", "monster.ash_skitter"]},
+        {"weight": 1, "monsters": ["monster.rime_whelp", "monster.ash_skitter"]}
+      ]
+    },
+    {
+      "id": "enc.floor3",
+      "steps_per_check": 4,
+      "encounter_chance": 0.28,
+      "groups": [
+        {"weight": 2, "monsters": ["monster.slag_crawler"]},
+        {"weight": 2, "monsters": ["monster.slag_crawler", "monster.ash_skitter"]},
+        {"weight": 1, "monsters": ["monster.slag_crawler", "monster.slag_crawler"]}
+      ]
+    }
+  ]
+}

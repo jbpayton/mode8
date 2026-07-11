@@ -1,0 +1,35 @@
+{
+  "ontology_version": "0.1.0",
+  "id": "ember_depth_f2",
+  "name": "Ember Depth — Middle Shaft",
+  "width": 20,
+  "height": 13,
+  "tiles": [
+    "####################",
+    "#....###############",
+    "#.~~~~~~~~~~~~~~~~~#",
+    "##################~#",
+    "#~~~~~~~~~~~~~~~~~~#",
+    "#~######.###########",
+    "#~######...#########",
+    "#~##################",
+    "#~~~~~~~~~~~~~~~~~~#",
+    "##################~#",
+    "#############......#",
+    "#############......#",
+    "####################"
+  ],
+  "legend": {
+    "#": {"terrain": "cave_wall", "walkable": false, "tileset_key": "cave_wall"},
+    ".": {"terrain": "cave_floor", "walkable": true, "tileset_key": "cave_floor"},
+    "~": {"terrain": "cave_floor", "walkable": true, "encounter_table": "enc.floor2", "tileset_key": "cave_floor"}
+  },
+  "entities": [
+    {"id": "portal.f2_to_f1", "kind": "portal", "x": 1, "y": 1, "to_map": "ember_depth_f1", "to_spawn": "spawn.f1_from_f2"},
+    {"id": "spawn.f2_entry", "kind": "spawn", "x": 2, "y": 1},
+    {"id": "chest.ember_key", "kind": "chest", "x": 10, "y": 6, "treasure": "treasure.ember_key"},
+    {"id": "spawn.f2_from_f3", "kind": "spawn", "x": 17, "y": 10},
+    {"id": "portal.f2_to_f3", "kind": "portal", "x": 16, "y": 11, "to_map": "ember_depth_f3", "to_spawn": "spawn.f3_entry"}
+  ],
+  "music": "music.depth"
+}

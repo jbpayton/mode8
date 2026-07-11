@@ -1,0 +1,294 @@
+{
+  "ontology_version": "0.1.0",
+  "domain": "monsters",
+  "entries": [
+    {
+      "id": "monster.rime_whelp",
+      "name": "Rime Whelp",
+      "lore": "A pup of the cold pockets where the shaft breathes in. Its rime coat cracks under flame — burn it before it bites.",
+      "level": 2,
+      "stats": {"atk": 7, "def": 5, "mag": 4, "res": 4, "agi": 4},
+      "affinities": [
+        {"element": "fire", "relation": "weak"}
+      ],
+      "abilities": [
+        {
+          "id": "gnaw",
+          "name": "Gnaw",
+          "trigger": "on_use",
+          "target": {"op": "single", "side": "enemy"},
+          "accuracy": 0.95,
+          "effect": {
+            "op": "damage",
+            "value": {"op": "formula", "expr": "source.atk * 2"},
+            "type": "physical",
+            "variance": 0.1
+          }
+        },
+        {
+          "id": "rime_spit",
+          "name": "Rime Spit",
+          "trigger": "on_use",
+          "target": {"op": "single", "side": "enemy"},
+          "accuracy": 0.9,
+          "effect": {
+            "op": "damage",
+            "value": {"op": "formula", "expr": "source.mag * 2 + 6"},
+            "element": "frost",
+            "type": "magical",
+            "variance": 0.1
+          }
+        }
+      ],
+      "ai": {
+        "rules": [
+          {"weight": 3, "ability": "gnaw"},
+          {"weight": 1, "ability": "rime_spit"}
+        ]
+      },
+      "xp": 16,
+      "gold": 10,
+      "drops": [
+        {"item": "item.warm_draught", "chance": 0.2}
+      ],
+      "sprite": "mon_rime_whelp"
+    },
+    {
+      "id": "monster.ash_skitter",
+      "name": "Ash Skitter",
+      "lore": "Faster than a dropped lamp. It strikes before anyone and shears guard-plate open — answer its speed or lose your shield.",
+      "level": 2,
+      "stats": {"atk": 6, "def": 4, "mag": 3, "res": 3, "agi": 12},
+      "abilities": [
+        {
+          "id": "scuttle_bite",
+          "name": "Scuttle Bite",
+          "trigger": "on_use",
+          "target": {"op": "single", "side": "enemy"},
+          "accuracy": 0.95,
+          "effect": {
+            "op": "damage",
+            "value": {"op": "formula", "expr": "source.atk * 2"},
+            "type": "physical",
+            "variance": 0.1
+          }
+        },
+        {
+          "id": "shell_shear",
+          "name": "Shell Shear",
+          "trigger": "on_use",
+          "target": {"op": "single", "side": "enemy"},
+          "accuracy": 0.9,
+          "effect": {
+            "op": "seq",
+            "effects": [
+              {
+                "op": "damage",
+                "value": {"op": "formula", "expr": "source.atk"},
+                "type": "physical"
+              },
+              {
+                "op": "apply_status",
+                "status": "status.guard_break",
+                "duration": 3,
+                "chance": 0.6
+              }
+            ]
+          }
+        }
+      ],
+      "ai": {
+        "rules": [
+          {"weight": 3, "ability": "scuttle_bite"},
+          {"weight": 2, "ability": "shell_shear"}
+        ]
+      },
+      "xp": 20,
+      "gold": 12,
+      "drops": [
+        {"item": "item.ember_salve", "chance": 0.1}
+      ],
+      "sprite": "mon_ash_skitter"
+    },
+    {
+      "id": "monster.slag_crawler",
+      "name": "Slag Crawler",
+      "lore": "Slag plates turn worked steel aside. Coldiron or spellfire gets through — and its ember spume answers with clinging burns.",
+      "level": 3,
+      "stats": {"atk": 9, "def": 12, "mag": 6, "res": 6, "agi": 3},
+      "affinities": [
+        {"element": "frost", "relation": "weak"}
+      ],
+      "abilities": [
+        {
+          "id": "slag_slam",
+          "name": "Slag Slam",
+          "trigger": "on_use",
+          "target": {"op": "single", "side": "enemy"},
+          "accuracy": 0.9,
+          "effect": {
+            "op": "damage",
+            "value": {"op": "formula", "expr": "source.atk * 2"},
+            "type": "physical",
+            "variance": 0.1
+          }
+        },
+        {
+          "id": "ember_spume",
+          "name": "Ember Spume",
+          "trigger": "on_use",
+          "target": {"op": "single", "side": "enemy"},
+          "accuracy": 0.9,
+          "effect": {
+            "op": "seq",
+            "effects": [
+              {
+                "op": "damage",
+                "value": {"op": "formula", "expr": "source.mag * 2"},
+                "element": "fire",
+                "type": "magical",
+                "variance": 0.1
+              },
+              {
+                "op": "apply_status",
+                "status": "status.burn",
+                "duration": 3,
+                "potency": {"op": "formula", "expr": "source.mag"},
+                "chance": 0.5
+              }
+            ]
+          }
+        },
+        {
+          "id": "harden",
+          "name": "Harden",
+          "trigger": "on_use",
+          "target": "self",
+          "effect": {
+            "op": "modify_stat",
+            "stat": "def",
+            "mod": "add",
+            "value": 4,
+            "duration": 3
+          }
+        }
+      ],
+      "ai": {
+        "rules": [
+          {"weight": 3, "ability": "slag_slam"},
+          {"weight": 2, "ability": "ember_spume"},
+          {"weight": 1, "ability": "harden"}
+        ]
+      },
+      "xp": 30,
+      "gold": 22,
+      "drops": [
+        {"item": "item.emberdew", "chance": 0.15}
+      ],
+      "sprite": "mon_slag_crawler"
+    },
+    {
+      "id": "monster.ash_tyrant",
+      "name": "Ash Tyrant",
+      "lore": "The mountain's heart wears a body of caldera glass. Neither flame nor frost moves it — only stubbornness, and someone to hold the line.",
+      "level": 5,
+      "is_boss": true,
+      "stats": {"atk": 12, "def": 9, "mag": 10, "res": 10, "agi": 8, "hp": 380},
+      "abilities": [
+        {
+          "id": "tyrant_claw",
+          "name": "Tyrant Claw",
+          "trigger": "on_use",
+          "target": {"op": "single", "side": "enemy"},
+          "accuracy": 0.95,
+          "effect": {
+            "op": "damage",
+            "value": {"op": "formula", "expr": "source.atk * 2"},
+            "type": "physical",
+            "variance": 0.1
+          }
+        },
+        {
+          "id": "searing_brand",
+          "name": "Searing Brand",
+          "trigger": "on_use",
+          "target": {"op": "single", "side": "enemy"},
+          "accuracy": 0.9,
+          "effect": {
+            "op": "seq",
+            "effects": [
+              {
+                "op": "damage",
+                "value": {"op": "formula", "expr": "source.mag * 2"},
+                "element": "fire",
+                "type": "magical",
+                "variance": 0.1
+              },
+              {
+                "op": "apply_status",
+                "status": "status.burn",
+                "duration": 3,
+                "potency": {"op": "formula", "expr": "source.mag"},
+                "chance": 0.75
+              }
+            ]
+          }
+        },
+        {
+          "id": "cinder_wave",
+          "name": "Cinder Wave",
+          "trigger": "on_use",
+          "target": {"op": "all", "side": "enemy"},
+          "accuracy": 0.9,
+          "effect": {
+            "op": "damage",
+            "value": {"op": "formula", "expr": "source.mag * 2"},
+            "element": "fire",
+            "type": "magical",
+            "variance": 0.1
+          }
+        },
+        {
+          "id": "eruption",
+          "name": "Eruption",
+          "trigger": "on_use",
+          "target": {"op": "all", "side": "enemy"},
+          "accuracy": 0.9,
+          "effect": {
+            "op": "damage",
+            "value": {"op": "formula", "expr": "source.mag * 3"},
+            "element": "fire",
+            "type": "magical",
+            "variance": 0.1
+          }
+        },
+        {
+          "id": "ashen_roar",
+          "name": "Ashen Roar",
+          "trigger": "on_use",
+          "target": {"op": "all", "side": "enemy"},
+          "effect": {
+            "op": "apply_status",
+            "status": "status.guard_break",
+            "duration": 3,
+            "chance": 0.7
+          }
+        }
+      ],
+      "ai": {
+        "rules": [
+          {"when": {"op": "not", "pred": {"op": "hp_below", "who": "source", "pct": 0.5}}, "weight": 3, "ability": "tyrant_claw"},
+          {"when": {"op": "not", "pred": {"op": "hp_below", "who": "source", "pct": 0.5}}, "weight": 2, "ability": "searing_brand"},
+          {"when": {"op": "not", "pred": {"op": "hp_below", "who": "source", "pct": 0.5}}, "weight": 1, "ability": "cinder_wave"},
+          {"when": {"op": "hp_below", "who": "source", "pct": 0.5}, "weight": 2, "ability": "tyrant_claw"},
+          {"when": {"op": "hp_below", "who": "source", "pct": 0.5}, "weight": 2, "ability": "eruption"},
+          {"when": {"op": "hp_below", "who": "source", "pct": 0.5}, "weight": 2, "ability": "searing_brand"},
+          {"when": {"op": "hp_below", "who": "source", "pct": 0.5}, "weight": 1, "ability": "ashen_roar"}
+        ]
+      },
+      "xp": 150,
+      "gold": 250,
+      "sprite": "mon_ash_tyrant"
+    }
+  ]
+}

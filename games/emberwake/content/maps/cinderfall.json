@@ -1,0 +1,37 @@
+{
+  "ontology_version": "0.1.0",
+  "id": "cinderfall",
+  "name": "Cinderfall",
+  "width": 18,
+  "height": 12,
+  "tiles": [
+    "##################",
+    "#####........#####",
+    "#####........#####",
+    "#................#",
+    "#................#",
+    "#.......oo.......#",
+    "#................#",
+    "#................#",
+    "#................#",
+    "#......##.##.....#",
+    "#......##.##.....#",
+    "##################"
+  ],
+  "legend": {
+    "#": {"terrain": "wall", "walkable": false, "tileset_key": "town_wall"},
+    ".": {"terrain": "floor", "walkable": true, "tileset_key": "town_floor"},
+    "o": {"terrain": "well", "walkable": false, "tileset_key": "town_well"}
+  },
+  "entities": [
+    {"id": "spawn.town_start", "kind": "spawn", "x": 9, "y": 1},
+    {"id": "trigger.intro", "kind": "trigger", "x": 9, "y": 1, "story_node": "node.intro", "blocked_by_flag": "flag.intro_seen"},
+    {"id": "npc.innkeeper", "kind": "npc", "x": 3, "y": 3, "dialogue": "dlg.innkeeper"},
+    {"id": "npc.shopkeeper", "kind": "npc", "x": 14, "y": 3, "dialogue": "dlg.shopkeeper"},
+    {"id": "npc.elder", "kind": "npc", "x": 9, "y": 6, "dialogue": "dlg.elder_bark", "story_node": "node.elder_quest"},
+    {"id": "npc.marta", "kind": "npc", "x": 5, "y": 8, "dialogue": "dlg.marta"},
+    {"id": "spawn.town_from_depth", "kind": "spawn", "x": 9, "y": 9},
+    {"id": "portal.town_to_f1", "kind": "portal", "x": 9, "y": 10, "to_map": "ember_depth_f1", "to_spawn": "spawn.f1_entry"}
+  ],
+  "music": "music.town"
+}

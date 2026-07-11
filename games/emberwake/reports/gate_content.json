@@ -1,22 +1,25 @@
 {
   "gate": "content",
-  "status": "red",
-  "errors": [
-    "content/items.json: required content file missing",
-    "content/equipment.json: required content file missing",
-    "content/spells.json: required content file missing",
-    "content/classes.json: required content file missing",
-    "content/monsters.json: required content file missing",
-    "content/encounters.json: required content file missing",
-    "content/world.json: required content file missing",
-    "content/story.json: required content file missing",
-    "content/dialogue.json: required content file missing"
-  ],
+  "status": "green",
+  "errors": [],
   "warnings": [],
   "files_checked": [
+    "content/classes.json",
+    "content/dialogue.json",
     "content/elements.json",
+    "content/encounters.json",
+    "content/equipment.json",
+    "content/items.json",
+    "content/maps/cinderfall.json",
+    "content/maps/ember_depth_f1.json",
+    "content/maps/ember_depth_f2.json",
+    "content/maps/ember_depth_f3.json",
+    "content/monsters.json",
+    "content/spells.json",
     "content/stat-model.json",
     "content/statuses.json",
+    "content/story.json",
+    "content/world.json",
     "gdd/gdd.json",
     "gdd/style-bible.json"
   ]

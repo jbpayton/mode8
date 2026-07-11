@@ -1,0 +1,66 @@
+{
+  "ontology_version": "0.1.0",
+  "domain": "equipment",
+  "entries": [
+    {
+      "id": "equipment.coldiron_brand",
+      "name": "Coldiron Brand",
+      "lore": "Miners' steel quenched in the deep pools; it never takes the mountain's heat.",
+      "slot": "weapon",
+      "tier": 1,
+      "price": 90,
+      "attack": {
+        "value": {"op": "formula", "expr": "source.atk * 2"},
+        "element": "frost",
+        "accuracy": 0.95
+      },
+      "class_lock": ["class.warden"],
+      "sprite": "icon_coldiron_brand"
+    },
+    {
+      "id": "equipment.shaftplate",
+      "name": "Shaftplate",
+      "lore": "Hammered from cart-rail; it has held up worse than claws.",
+      "slot": "body",
+      "tier": 1,
+      "price": 60,
+      "stat_mods": [
+        {"stat": "def", "mod": "add", "value": 3}
+      ],
+      "class_lock": ["class.warden"],
+      "sprite": "icon_shaftplate"
+    },
+    {
+      "id": "equipment.ashwood_stave",
+      "name": "Ashwood Stave",
+      "lore": "Cut from the one tree that grew back after the last waking.",
+      "slot": "weapon",
+      "tier": 1,
+      "price": 70,
+      "attack": {
+        "value": {"op": "formula", "expr": "source.atk * 2"},
+        "element": "none",
+        "accuracy": 0.95
+      },
+      "stat_mods": [
+        {"stat": "mag", "mod": "add", "value": 2}
+      ],
+      "class_lock": ["class.ashcaller"],
+      "sprite": "icon_ashwood_stave"
+    },
+    {
+      "id": "equipment.emberweave_shawl",
+      "name": "Emberweave Shawl",
+      "lore": "Spun on Cinderfall looms; the weft glows faintly in the dark.",
+      "slot": "body",
+      "tier": 1,
+      "price": 45,
+      "stat_mods": [
+        {"stat": "res", "mod": "add", "value": 2},
+        {"stat": "def", "mod": "add", "value": 1}
+      ],
+      "class_lock": ["class.ashcaller"],
+      "sprite": "icon_emberweave_shawl"
+    }
+  ]
+}

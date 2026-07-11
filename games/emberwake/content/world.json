@@ -1,0 +1,63 @@
+{
+  "ontology_version": "0.1.0",
+  "start": {"map": "cinderfall", "spawn": "spawn.town_start"},
+  "regions": [
+    {
+      "id": "region.caldera_lip",
+      "name": "The Caldera's Lip",
+      "tier": 1,
+      "places": [
+        {
+          "id": "place.cinderfall",
+          "kind": "town",
+          "name": "Cinderfall",
+          "maps": ["cinderfall"],
+          "services": {
+            "shops": ["shop.cinderfall_general"],
+            "inn_price": 10,
+            "save_point": true
+          }
+        },
+        {
+          "id": "place.ember_depth",
+          "kind": "dungeon",
+          "name": "The Ember Depth",
+          "maps": ["ember_depth_f1", "ember_depth_f2", "ember_depth_f3"]
+        }
+      ]
+    }
+  ],
+  "shops": [
+    {
+      "id": "shop.cinderfall_general",
+      "name": "Cinderfall General Stores",
+      "stock": [
+        "equipment.coldiron_brand",
+        "equipment.shaftplate",
+        "equipment.ashwood_stave",
+        "equipment.emberweave_shawl",
+        "item.warm_draught",
+        "item.emberdew",
+        "item.ember_salve",
+        "item.hearthloaf"
+      ]
+    }
+  ],
+  "treasure_tables": [
+    {
+      "id": "treasure.f1_cache",
+      "rolls": [
+        {"weight": 2, "item": "item.warm_draught"},
+        {"weight": 1, "item": "item.emberdew"},
+        {"weight": 1, "item": "item.ember_salve"}
+      ]
+    },
+    {
+      "id": "treasure.ember_key",
+      "guaranteed": true,
+      "rolls": [
+        {"weight": 1, "item": "item.ember_key"}
+      ]
+    }
+  ]
+}

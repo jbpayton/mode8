@@ -1,0 +1,31 @@
+{
+  "ontology_version": "0.1.0",
+  "id": "ember_depth_f3",
+  "name": "Ember Depth — The Vault",
+  "width": 20,
+  "height": 11,
+  "tiles": [
+    "####################",
+    "#....###############",
+    "#.~~~~~~~~~~~~~~~~~#",
+    "##################~#",
+    "#~~~~~~~~~~~~~~~~~~#",
+    "#~##################",
+    "#~~~~~~~~..........#",
+    "##################.#",
+    "#..................#",
+    "#......#############",
+    "####################"
+  ],
+  "legend": {
+    "#": {"terrain": "cave_wall", "walkable": false, "tileset_key": "cave_wall"},
+    ".": {"terrain": "cave_floor", "walkable": true, "tileset_key": "cave_floor"},
+    "~": {"terrain": "cave_floor", "walkable": true, "encounter_table": "enc.floor3", "tileset_key": "cave_floor"}
+  },
+  "entities": [
+    {"id": "portal.f3_to_f2", "kind": "portal", "x": 1, "y": 1, "to_map": "ember_depth_f2", "to_spawn": "spawn.f2_from_f3"},
+    {"id": "spawn.f3_entry", "kind": "spawn", "x": 2, "y": 1},
+    {"id": "trigger.vault_door", "kind": "trigger", "x": 8, "y": 8, "story_node": "node.vault_gate"}
+  ],
+  "music": "music.vault"
+}

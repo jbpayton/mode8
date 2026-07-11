@@ -1,0 +1,40 @@
+{
+  "gate": "static_completability",
+  "completable": true,
+  "endings_reached": [
+    "node.ending"
+  ],
+  "fired_nodes": [
+    "node.elder_quest",
+    "node.ending",
+    "node.tyrant_battle",
+    "node.vault_gate"
+  ],
+  "unreached_nodes": [
+    "node.intro"
+  ],
+  "reachable_maps": [
+    "cinderfall",
+    "ember_depth_f1",
+    "ember_depth_f2",
+    "ember_depth_f3"
+  ],
+  "unreached_maps": [],
+  "obtainable_items": [
+    "equipment.ashwood_stave",
+    "equipment.coldiron_brand",
+    "equipment.emberweave_shawl",
+    "equipment.shaftplate",
+    "item.ember_key",
+    "item.ember_salve",
+    "item.emberdew",
+    "item.hearthloaf",
+    "item.warm_draught"
+  ],
+  "orphaned_items": [],
+  "errors": [],
+  "warnings": [
+    "non-monotone: cinderfall/trigger.intro has blocked_by_flag 'flag.intro_seen' \u2014 excluded from proof"
+  ],
+  "status": "green"
+}

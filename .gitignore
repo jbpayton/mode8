@@ -7,6 +7,7 @@ appliances/comfyui/output/
 # Godot caches (per generated game project)
 games/*/src/.godot/
 *.import
+*.uid
 
 # Scratch
 __pycache__/

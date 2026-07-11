@@ -1,0 +1,39 @@
+{
+  "ontology_version": "0.1.0",
+  "start": "node.intro",
+  "endings": ["node.ending"],
+  "nodes": [
+    {
+      "id": "node.intro",
+      "kind": "scene",
+      "dialogue": "dlg.intro",
+      "sets_flags": ["flag.intro_seen"]
+    },
+    {
+      "id": "node.elder_quest",
+      "kind": "scene",
+      "dialogue": "dlg.elder_quest",
+      "sets_flags": ["flag.quest_started"]
+    },
+    {
+      "id": "node.vault_gate",
+      "kind": "flag_gate",
+      "requires_flags": ["flag.quest_started"],
+      "requires_items": ["item.ember_key"],
+      "next": "node.tyrant_battle"
+    },
+    {
+      "id": "node.tyrant_battle",
+      "kind": "battle",
+      "monsters": ["monster.ash_tyrant"],
+      "on_defeat": "game_over",
+      "sets_flags": ["flag.tyrant_down"],
+      "next": "node.ending"
+    },
+    {
+      "id": "node.ending",
+      "kind": "ending",
+      "dialogue": "dlg.ending"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "ontology_version": "0.1.0",
+  "id": "ember_depth_f1",
+  "name": "Ember Depth — First Shaft",
+  "width": 20,
+  "height": 13,
+  "tiles": [
+    "####################",
+    "#.....##############",
+    "#.....##############",
+    "#..~~~~~~~~~~~~~~~~#",
+    "##################~#",
+    "#~~~~~~~~~~~~~~~~~~#",
+    "#~##########~~######",
+    "#~##########~~######",
+    "#~~~~~~~~~~~~~~~~~~#",
+    "##################~#",
+    "##############.....#",
+    "##############.....#",
+    "####################"
+  ],
+  "legend": {
+    "#": {"terrain": "cave_wall", "walkable": false, "tileset_key": "cave_wall"},
+    ".": {"terrain": "cave_floor", "walkable": true, "tileset_key": "cave_floor"},
+    "~": {"terrain": "cave_floor", "walkable": true, "encounter_table": "enc.floor1", "tileset_key": "cave_floor"}
+  },
+  "entities": [
+    {"id": "portal.f1_to_town", "kind": "portal", "x": 1, "y": 1, "to_map": "cinderfall", "to_spawn": "spawn.town_from_depth"},
+    {"id": "spawn.f1_entry", "kind": "spawn", "x": 2, "y": 2},
+    {"id": "chest.f1_cache", "kind": "chest", "x": 13, "y": 7, "treasure": "treasure.f1_cache"},
+    {"id": "spawn.f1_from_f2", "kind": "spawn", "x": 17, "y": 11},
+    {"id": "portal.f1_to_f2", "kind": "portal", "x": 16, "y": 11, "to_map": "ember_depth_f2", "to_spawn": "spawn.f2_entry"}
+  ],
+  "music": "music.depth"
+}

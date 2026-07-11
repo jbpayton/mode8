@@ -10,3 +10,9 @@ L1 town → L2 clearing F1 → L3 clearing F2 → L4 at the vault. Encounter XP 
 
 ## G-003 — Boss loss consequence
 Ash Tyrant defeat = game over → title (on_defeat: game_over). Regular encounters likewise; there is no retry crutch at M0 because save points (inn + shaft entrance) make runs cheap.
+
+## G-004 — Starting purse: 120 gold, no starting equipment or items
+Content phase priced the shop (265g total equipment + consumables) assuming a modest purse so first purchases land before/during F1. Conductor call: Game.new_run grants 120g, empty inventory, no equipment — the first player decision is a shopping decision, which teaches the economy. m8-balancer sims must use this purse for the L1/L2 checkpoint.
+
+## G-005 — Spawn-co-located triggers fire on placement
+A trigger entity sharing a tile with the active spawn fires when the party is placed there (new run or portal arrival), before input. Required for node.intro on the town start tile; one-shot behavior via blocked_by_flag remains the content-side idiom.

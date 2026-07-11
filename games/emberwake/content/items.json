@@ -1,0 +1,83 @@
+{
+  "ontology_version": "0.1.0",
+  "domain": "items",
+  "entries": [
+    {
+      "id": "item.warm_draught",
+      "name": "Warm Draught",
+      "lore": "Kettle-warm broth in a stoppered tin; it tastes like the inn's hearth.",
+      "kind": "consumable",
+      "tier": 1,
+      "price": 15,
+      "use": {
+        "id": "use.warm_draught",
+        "name": "Warm Draught",
+        "trigger": "on_use",
+        "target": {"op": "single", "side": "ally"},
+        "effect": {"op": "heal", "value": 35}
+      },
+      "usable_in": ["battle", "menu"],
+      "sprite": "icon_warm_draught"
+    },
+    {
+      "id": "item.emberdew",
+      "name": "Emberdew",
+      "lore": "Condensed vent-breath, bottled where the deep rock sweats light.",
+      "kind": "consumable",
+      "tier": 1,
+      "price": 30,
+      "use": {
+        "id": "use.emberdew",
+        "name": "Emberdew",
+        "trigger": "on_use",
+        "target": {"op": "single", "side": "ally"},
+        "effect": {"op": "resource", "pool": "mp", "delta": 20}
+      },
+      "usable_in": ["battle", "menu"],
+      "sprite": "icon_emberdew"
+    },
+    {
+      "id": "item.ember_salve",
+      "name": "Ember Salve",
+      "lore": "Marta's recipe: wax, ash-lily, patience. Draws out burns and steadies a shattered guard.",
+      "kind": "consumable",
+      "tier": 1,
+      "price": 25,
+      "use": {
+        "id": "use.ember_salve",
+        "name": "Ember Salve",
+        "trigger": "on_use",
+        "target": {"op": "single", "side": "ally"},
+        "effect": {"op": "cure_status", "statuses": ["status.burn", "status.guard_break"]}
+      },
+      "usable_in": ["battle", "menu"],
+      "sprite": "icon_ember_salve"
+    },
+    {
+      "id": "item.ember_key",
+      "name": "Ember Key",
+      "lore": "A key of cooled ember, warm as a held hand. It remembers the vault it was cut for.",
+      "kind": "key",
+      "tier": 1,
+      "stack_max": 1,
+      "sprite": "icon_ember_key"
+    },
+    {
+      "id": "item.hearthloaf",
+      "name": "Hearthloaf",
+      "lore": "Left at the shaft-house door, the way you do for people who might not come back.",
+      "kind": "consumable",
+      "tier": 2,
+      "price": 50,
+      "use": {
+        "id": "use.hearthloaf",
+        "name": "Hearthloaf",
+        "trigger": "on_use",
+        "target": {"op": "dead", "side": "ally"},
+        "effect": {"op": "revive", "pct": 0.5}
+      },
+      "usable_in": ["battle", "menu"],
+      "sprite": "icon_hearthloaf"
+    }
+  ]
+}

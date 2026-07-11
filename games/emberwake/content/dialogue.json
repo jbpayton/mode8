@@ -1,0 +1,52 @@
+{
+  "ontology_version": "0.1.0",
+  "domain": "dialogue",
+  "entries": [
+    {
+      "id": "dlg.intro",
+      "lines": [
+        {"speaker": "*", "text": "Ash on the rooftops again. The wells ran warm all week, and this morning the shaft-house door stood open."},
+        {"speaker": "*", "text": "Two loaves sat on the step — Marta's, still warm. Nobody watched you take up your packs. That is how Cinderfall says come back."}
+      ]
+    },
+    {
+      "id": "dlg.elder_bark",
+      "lines": [
+        {"speaker": "Elder Bren", "text": "The mountain's heart is stirring. Hear me out before you go down."}
+      ]
+    },
+    {
+      "id": "dlg.elder_quest",
+      "lines": [
+        {"speaker": "Elder Bren", "text": "The old crews sealed the vault at the third shaft when the mountain last woke. The key — cooled ember, cut by steadier hands than ours — was lost on the middle floor when the lift fell."},
+        {"speaker": "Elder Bren", "text": "Find it. Open the vault. Still the heart. The inn will keep your beds made. Cinderfall doesn't forget its own."}
+      ]
+    },
+    {
+      "id": "dlg.marta",
+      "lines": [
+        {"speaker": "Marta", "text": "I bake two extra now, mornings. Mind the burns down there — wax, ash-lily, patience. Come back and complain about my bread."}
+      ]
+    },
+    {
+      "id": "dlg.innkeeper",
+      "lines": [
+        {"speaker": "Innkeeper", "text": "Beds are warm and cheap for shaft-crews. Sleep before you go down; the deep doesn't forgive tired."}
+      ]
+    },
+    {
+      "id": "dlg.shopkeeper",
+      "lines": [
+        {"speaker": "Shopkeeper", "text": "Coldiron, plate, and what keeps you standing. Pay what's marked — I don't haggle with people saving my roof."}
+      ]
+    },
+    {
+      "id": "dlg.ending",
+      "lines": [
+        {"speaker": "*", "text": "The mountain's heart cooled slowly, like a kettle taken off the fire. You came up with ash in your hair and the key still warm."},
+        {"speaker": "*", "text": "Marta's loaves were waiting at the shaft-house door. Nobody said much. The wells ran cool by morning."},
+        {"speaker": "*", "text": "EMBERWAKE — for Cinderfall, which waited."}
+      ]
+    }
+  ]
+}

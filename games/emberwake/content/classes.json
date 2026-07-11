@@ -1,0 +1,42 @@
+{
+  "ontology_version": "0.1.0",
+  "domain": "classes",
+  "entries": [
+    {
+      "id": "class.warden",
+      "name": "Warden",
+      "description": "Holds the line. The Warden's turn soaks the hit somebody else couldn't and answers with worked steel — shield the soft, break the hard. No one else in the party can stand where the Warden stands.",
+      "base_stats": {"atk": 8, "def": 6, "mag": 2, "res": 3, "agi": 4},
+      "growth": {
+        "atk": "curve.stat_major",
+        "def": "curve.stat_strong",
+        "mag": "curve.stat_weak",
+        "res": "curve.stat_minor",
+        "agi": "curve.stat_steady",
+        "hp": "curve.hp_sturdy",
+        "mp": "curve.mp_sturdy"
+      },
+      "equip_slots": ["weapon", "body"],
+      "sprite": "chr_warden",
+      "portrait": "por_warden"
+    },
+    {
+      "id": "class.ashcaller",
+      "name": "Ashcaller",
+      "description": "Reads the mountain's moods. The Ashcaller's turn burns what steel can't bite and mends what the deep breaks — first to act, fragile as lamp-glass, never idle. No one else in the party can burn or heal at all.",
+      "base_stats": {"atk": 2, "def": 3, "mag": 8, "res": 4, "agi": 6},
+      "growth": {
+        "atk": "curve.stat_weak",
+        "def": "curve.stat_minor",
+        "mag": "curve.stat_major",
+        "res": "curve.stat_steady",
+        "agi": "curve.stat_strong",
+        "hp": "curve.hp_caster",
+        "mp": "curve.mp_caster"
+      },
+      "equip_slots": ["weapon", "body"],
+      "sprite": "chr_ashcaller",
+      "portrait": "por_ashcaller"
+    }
+  ]
+}
