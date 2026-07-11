@@ -1,0 +1,172 @@
+{
+ "personas": {
+  "rusher": {
+   "status": "pass",
+   "seed": 1101,
+   "script": "reports/playtest/rusher/actions.json",
+   "trace": "reports/playtest/rusher/trace.jsonl",
+   "ending_reached": true,
+   "defects": [
+    "PT-001",
+    "PT-002"
+   ],
+   "final_party_levels": [
+    6,
+    6
+   ],
+   "party_levels_entering_boss": [
+    5,
+    5
+   ],
+   "total_actions": 1184,
+   "quit_scene": "title",
+   "flags_at_end": [
+    "flag.intro_seen",
+    "flag.quest_started",
+    "flag.tyrant_down"
+   ],
+   "gold_at_end": 484,
+   "determinism_check": "identical trace on full rerun with same seed+script"
+  }
+ },
+ "proxies": {
+  "trace_lines": 1495,
+  "scene_share_by_lines": {
+   "battle_menu": 0.577,
+   "dialogue": 0.011,
+   "ending": 0.009,
+   "inventory": 0.016,
+   "overworld": 0.357,
+   "party_builder": 0.005,
+   "save_load": 0.004,
+   "shop": 0.018,
+   "title": 0.004
+  },
+  "scene_share_by_frames": {
+   "battle_menu": 0.499,
+   "dialogue": 0.01,
+   "ending": 0.009,
+   "inventory": 0.019,
+   "overworld": 0.424,
+   "party_builder": 0.006,
+   "save_load": 0.004,
+   "shop": 0.021,
+   "title": 0.009
+  },
+  "battles": {
+   "total": 23,
+   "won": 16,
+   "fled": 7,
+   "length_turns_per_battle": [
+    16,
+    1,
+    13,
+    14,
+    1,
+    9,
+    9,
+    19,
+    4,
+    3,
+    5,
+    4,
+    11,
+    17,
+    4,
+    13,
+    4,
+    15,
+    5,
+    5,
+    2,
+    5,
+    23
+   ],
+   "length_turns_by_map": {
+    "ember_depth_f1": [
+     1,
+     1,
+     3,
+     4,
+     5,
+     9,
+     13,
+     14,
+     16
+    ],
+    "ember_depth_f2": [
+     4,
+     4,
+     4,
+     9,
+     11,
+     13,
+     15,
+     17,
+     19
+    ],
+    "ember_depth_f3": [
+     2,
+     5,
+     5,
+     5,
+     23
+    ]
+   },
+   "boss_turns": 23
+  },
+  "reward_events": [
+   {
+    "step": 50,
+    "kind": "gear",
+    "what": "equip"
+   },
+   {
+    "step": 276,
+    "kind": "level_up",
+    "what": "2->2"
+   },
+   {
+    "step": 308,
+    "kind": "chest",
+    "what": "chest.f1_cache"
+   },
+   {
+    "step": 391,
+    "kind": "chest",
+    "what": "chest.ember_key"
+   },
+   {
+    "step": 611,
+    "kind": "level_up",
+    "what": "3->3"
+   },
+   {
+    "step": 774,
+    "kind": "level_up",
+    "what": "4->4"
+   },
+   {
+    "step": 968,
+    "kind": "level_up",
+    "what": "5->5"
+   },
+   {
+    "step": 1173,
+    "kind": "level_up",
+    "what": "6->6"
+   }
+  ],
+  "steps_between_rewards": [
+   50,
+   226,
+   32,
+   83,
+   220,
+   163,
+   194,
+   205
+  ],
+  "notes": "Battle share dominated by scripted menu steps; overworld share includes 2 town round-trips (inn/mp economy). Reward cadence clusters at levels L2-L5 on the descent; boss grants L6 post-fight."
+ }
+}

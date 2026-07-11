@@ -1,0 +1,4738 @@
+[
+ {
+  "do": "wait",
+  "frames": 5
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 5
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 5
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 5
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 4
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 4
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 5
+ },
+ {
+  "do": "press",
+  "action": "menu"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 4
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "cancel"
+ },
+ {
+  "do": "press",
+  "action": "cancel"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 4
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "cancel"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "cancel"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 5
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 5
+ },
+ {
+  "do": "press",
+  "action": "menu"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "cancel"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "cancel"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 5
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 5
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 5
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 5
+ },
+ {
+  "do": "press",
+  "action": "menu"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "cancel"
+ },
+ {
+  "do": "press",
+  "action": "cancel"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "cancel"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "cancel"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 5
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 5
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 5
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "menu"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "cancel"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "cancel"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "wait",
+  "frames": 4
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 4
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 5
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 4
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 6
+ },
+ {
+  "do": "wait",
+  "frames": 10
+ }
+]

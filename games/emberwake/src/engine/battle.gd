@@ -246,7 +246,7 @@ func _do_party_action(ent: Dictionary, action: Dictionary) -> void:
 		"item":
 			var iid: String = action["id"]
 			if inventory.get(iid, 0) > 0 and db.item(iid).has("use"):
-				inventory[iid] = int(inventory[iid]) - 1
+				_consume_item(iid)
 				metrics["items_used"][iid] = int(metrics["items_used"].get(iid, 0)) + 1
 				_count_use(iid)
 				use_ability(ent, db.item(iid)["use"], tgt)
@@ -300,6 +300,13 @@ func use_ability(src: Dictionary, ability: Dictionary, designated: Variant) -> v
 				continue
 		alg.apply_effect(ability["effect"], src, tgt, str(ability.get("id", "?")))
 
+# Decrement a shared-inventory count, erasing at <=0 so snapshots never
+# carry phantom zero-count stacks (PT-001; mirrors Game.add_item semantics).
+func _consume_item(iid: String) -> void:
+	inventory[iid] = int(inventory.get(iid, 0)) - 1
+	if int(inventory.get(iid, 0)) <= 0:
+		inventory.erase(iid)
+
 func costs_payable(ent: Dictionary, ability: Dictionary) -> bool:
 	var costs: Dictionary = ability.get("costs", {})
 	for k in costs:
@@ -332,7 +339,7 @@ func pay_costs(ent: Dictionary, ability: Dictionary) -> void:
 	for k in costs:
 		match k:
 			"item":
-				inventory[costs["item"]] = int(inventory.get(costs["item"], 0)) - 1
+				_consume_item(costs["item"])
 			"once_per_battle":
 				ent["used_once"][ability.get("id", "")] = true
 			"cooldown":

@@ -256,6 +256,16 @@ func test_heuristic_heals_with_item_then_attacks() -> void:
 	T.eq(party_evs[1]["ability"], "spell.fix_bolt", "rule 2: sage picks best expected damage (30 > fists 1)")
 	T.eq(party_evs[1]["source"], "p1", "sage acted after heal resolved the emergency")
 
+func test_item_consumption_zero_erases() -> void:
+	# PT-001 regression: consuming the last item must erase the key (no
+	# phantom {"id": 0} stacks in the shared inventory / later snapshots).
+	var hurt := _member("class.fix_bruiser", {"hp": 5})
+	var inv := {"item.fix_tonic": 1}
+	var b := _battle([hurt], ["monster.fix_sponge"], inv, 42, {"max_rounds": 1})
+	b.run(BattleScript.HeuristicV1.new())
+	T.eq(b.metrics["items_used"], {"item.fix_tonic": 1}, "last tonic consumed")
+	T.ok(not inv.has("item.fix_tonic"), "zero-count key erased from shared inventory")
+
 func test_heuristic_spell_heal_and_mp_spent() -> void:
 	var hurt := _member("class.fix_bruiser", {"hp": 5, "equipment": {"weapon": "equip.fix_club"}})
 	var sage := _member("class.fix_sage", {"spells": ["spell.fix_mend", "spell.fix_bolt"]})

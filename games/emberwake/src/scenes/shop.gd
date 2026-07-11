@@ -117,7 +117,9 @@ func _sell_input() -> void:
 		"confirm":
 			var id: String = _sell.selected()["data"]
 			var d := _goods_def(id)
-			_game.remove_item(id)
+			if not _game.remove_item(id):  # PT-001: never credit gold for a phantom stack
+				_msg.text = "Nothing to sell."
+				return
 			_game.gold += int(d.get("price", 0)) / 2
 			_msg.text = "Sold %s." % d.get("name", id)
 			var cur := _sell.cursor
