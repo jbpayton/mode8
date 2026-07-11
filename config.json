@@ -1,0 +1,34 @@
+{
+  "studio": "MODE 8",
+  "ontology_version": "0.1.0",
+  "appliances": {
+    "godot": {
+      "pin": "appliances/godot/PIN.json",
+      "bin": "appliances/godot/godot",
+      "headless_args": ["--headless"]
+    },
+    "comfyui": {
+      "status": "not_yet_provisioned",
+      "milestone": "M1",
+      "pin": "appliances/comfyui/PIN.json"
+    }
+  },
+  "gpu_policy": {
+    "devices": ["cuda:0", "cuda:1"],
+    "vram_mb_per_device": 24576,
+    "rule": "sequence generation and judging stages; never co-load pipelines that together exceed one device"
+  },
+  "model_endpoints": {
+    "frontier": {
+      "provider": "claude-code-session",
+      "notes": "the session's own model handles escalation and all agentic work"
+    },
+    "local_vlm_judge": {
+      "status": "not_yet_provisioned",
+      "milestone": "M1",
+      "protocol": "openai-compatible",
+      "base_url": null,
+      "model": null
+    }
+  }
+}

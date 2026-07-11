@@ -1,0 +1,9 @@
+{
+  "appliance": "godot",
+  "version": "4.7-stable",
+  "asset": "Godot_v4.7-stable_linux.x86_64.zip",
+  "url": "https://github.com/godotengine/godot/releases/download/4.7-stable/Godot_v4.7-stable_linux.x86_64.zip",
+  "sha256": "0b1a6c54c2c619c12e169fe9241edda4b81080b519451cec2984bf0d2c6cb73c",
+  "binary": "Godot_v4.7-stable_linux.x86_64",
+  "notes": "Headless-capable editor binary. Invoke as `appliances/godot/godot --headless`. Binaries are gitignored; run fetch.sh to restore from pin."
+}

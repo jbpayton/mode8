@@ -1,0 +1,14 @@
+# Appliance blobs — restored from PIN.json via fetch.sh, never committed
+appliances/godot/Godot_v*
+appliances/godot/godot
+appliances/comfyui/models/
+appliances/comfyui/output/
+
+# Godot caches (per generated game project)
+games/*/src/.godot/
+*.import
+
+# Scratch
+__pycache__/
+*.pyc
+.DS_Store
