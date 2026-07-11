@@ -1,0 +1,16 @@
+{
+  "milestone": "M0",
+  "game": "emberwake",
+  "ontology_version": "0.1.0",
+  "phases": [
+    {"id": 0, "name": "gdd", "status": "done", "outputs": ["gdd/gdd.json", "gdd/gdd.md", "gdd/style-bible.json", "gdd/decisions.md"], "gate_evidence": "stub copy of skills/m8-design-compiler/assets/m0-gdd (fixed micro-GDD)"},
+    {"id": 1, "name": "systems", "status": "pending", "outputs": ["content/stat-model.json", "content/elements.json", "content/statuses.json"], "gate_evidence": null},
+    {"id": 2, "name": "content", "status": "pending", "outputs": ["content/items.json", "content/equipment.json", "content/spells.json", "content/classes.json", "content/monsters.json", "content/encounters.json", "content/world.json", "content/story.json", "content/dialogue.json", "content/maps/*.json"], "gate_evidence": null},
+    {"id": 3, "name": "engine", "status": "pending", "outputs": ["src/**"], "gate_evidence": null},
+    {"id": 4, "name": "integration", "status": "pending", "outputs": ["reports/gate_*.{json,txt,jsonl}"], "gate_evidence": null},
+    {"id": 5, "name": "balance", "status": "pending", "outputs": ["reports/balance-checkpoints.json", "reports/balance.json", "reports/balance.md"], "gate_evidence": null},
+    {"id": 6, "name": "playtest", "status": "pending", "outputs": ["reports/completability.json", "reports/playtest/rusher/*", "reports/playtest/summary.json"], "gate_evidence": null},
+    {"id": 7, "name": "wrap", "status": "pending", "outputs": ["plan/log.md closed", "retrospectives/queue.md entry"], "gate_evidence": null}
+  ],
+  "repair_counts": {}
+}
