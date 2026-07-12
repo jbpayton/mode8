@@ -19,3 +19,6 @@ A trigger entity sharing a tile with the active spawn fires when the party is pl
 
 ## G-006 — Save points: town only at M0 (amends G-003)
 G-003 assumed inn + shaft entrance; the world data only grants the town (inn + save_point service). Conductor call: accept town-only saves for M0 — a 30-minute game with a save before the descent doesn't need a mid-dungeon anchor, and adding one now would invalidate the balance sim's death-cost assumptions. Revisit at M2 scope via m8-cartographer.
+
+## G-007 — Style bible gains validated prompt scaffolds from M1 smoke tests
+The icon scaffold (gate-passing warm-draught run) and the town-music scaffold (human Tier-3 approved: "good calming town theme") are promoted into prompt_scaffolds as the canonical templates; dungeon/battle music scaffolds derived from the approved direction pending their own approval. Per m8-atelier rules, scaffolds are now the ONLY prompt source for these asset classes.

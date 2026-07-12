@@ -12,9 +12,34 @@
   "character_proportions": {
     "head_ratio": "1:2 chibi",
     "sprite_px_height": 24,
-    "portrait_px": [96, 96]
+    "portrait_px": [
+      96,
+      96
+    ]
   },
   "line_weight": "n/a at M0 (placeholder art: flat colored rects, 1px darker outline)",
-  "tone_keywords": ["ember orange on soot black", "warm highlights", "cool shadow blues"],
-  "prompt_scaffolds": {}
+  "tone_keywords": [
+    "ember orange on soot black",
+    "warm highlights",
+    "cool shadow blues"
+  ],
+  "prompt_scaffolds": {
+    "item_icon": {
+      "template": "pixel art, game item icon, {subject}, centered single object, flat colors, clean silhouette, dark plain background",
+      "negative": "photo, realistic, 3d render, blurry, soft focus, text, watermark, frame, border, gradient background, multiple objects",
+      "workflow": "skills/m8-atelier/assets/workflows/icon_sdxl_pixel.json"
+    },
+    "bgm_town": {
+      "template": "instrumental, fantasy village theme, warm, gentle, calming, acoustic guitar, flute, soft strings, {bpm} bpm, consistent tempo, seamless loop, game music",
+      "workflow": "skills/m8-soundsmith/assets/workflows/bgm_ace.json"
+    },
+    "bgm_dungeon": {
+      "template": "instrumental, dark dungeon ambience, quiet dread, low strings, sparse percussion, distant rumble, slow, {bpm} bpm, consistent tempo, seamless loop, game music",
+      "workflow": "skills/m8-soundsmith/assets/workflows/bgm_ace.json"
+    },
+    "bgm_battle": {
+      "template": "instrumental, fast battle theme, driving percussion, urgent strings, brass hits, energetic, {bpm} bpm, consistent tempo, seamless loop, game music",
+      "workflow": "skills/m8-soundsmith/assets/workflows/bgm_ace.json"
+    }
+  }
 }
