@@ -381,6 +381,106 @@
         "chr_ashcaller"
       ],
       "identity": "clothed (EmberMender)"
+    },
+    {
+      "key": "mon_rime_whelp",
+      "class": "battle_sprite",
+      "file": "assets/sprites/battle/mon_rime_whelp.png",
+      "sha256": "f61f03437c3d2dc23a29a8e88f43d36061c07c47855c24ea13e26607d3bdded0",
+      "aliases": [
+        "mon_rime_whelp"
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "workflow": "skills/m8-atelier/assets/workflows/monster_battle_sdxl.json",
+      "workflow_sha256": "ceae60438e70850e8c8ddacbb55572edab6eeb8fa44743aea3781363dcc74dc6",
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "seed_provenance": "20260713",
+      "gates": {
+        "tier1_image": "green (single component, <=64 colors, size ok)"
+      },
+      "status": "installed \u2014 partial seed provenance (generating agent ran out of credits before writing final manifest; assets gate-green and human-reviewed; exact winning seed recoverable by re-running the candidate range and hash-matching)",
+      "generated": "2026-07-12"
+    },
+    {
+      "key": "mon_ash_skitter",
+      "class": "battle_sprite",
+      "file": "assets/sprites/battle/mon_ash_skitter.png",
+      "sha256": "5988bc32125c8d623478e22fbb2daf4470ab81873c641a8127afdc2a8a3f63e6",
+      "aliases": [
+        "mon_ash_skitter"
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "workflow": "skills/m8-atelier/assets/workflows/monster_battle_sdxl.json",
+      "workflow_sha256": "ceae60438e70850e8c8ddacbb55572edab6eeb8fa44743aea3781363dcc74dc6",
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "seed_provenance": "seed in 20260712-15 range, touched-up",
+      "gates": {
+        "tier1_image": "green (single component, <=64 colors, size ok)"
+      },
+      "status": "installed \u2014 partial seed provenance (generating agent ran out of credits before writing final manifest; assets gate-green and human-reviewed; exact winning seed recoverable by re-running the candidate range and hash-matching)",
+      "generated": "2026-07-12"
+    },
+    {
+      "key": "mon_slag_crawler",
+      "class": "battle_sprite",
+      "file": "assets/sprites/battle/mon_slag_crawler.png",
+      "sha256": "5464e0067b544aa4e92030de32244a749eef39e21d6977914feb596dc3aa7edf",
+      "aliases": [
+        "mon_slag_crawler"
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "workflow": "skills/m8-atelier/assets/workflows/monster_battle_sdxl.json",
+      "workflow_sha256": "ceae60438e70850e8c8ddacbb55572edab6eeb8fa44743aea3781363dcc74dc6",
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "seed_provenance": "seed in 20260712-15 range, touched-up",
+      "gates": {
+        "tier1_image": "green (single component, <=64 colors, size ok)"
+      },
+      "status": "installed \u2014 partial seed provenance (generating agent ran out of credits before writing final manifest; assets gate-green and human-reviewed; exact winning seed recoverable by re-running the candidate range and hash-matching)",
+      "generated": "2026-07-12"
+    },
+    {
+      "key": "mon_ash_tyrant",
+      "class": "battle_sprite",
+      "file": "assets/sprites/battle/mon_ash_tyrant.png",
+      "sha256": "0fedc88a589da551924651f6d5f7300074b8557fb80a1f3ee321155bec44de7d",
+      "aliases": [
+        "mon_ash_tyrant"
+      ],
+      "size": [
+        224,
+        224
+      ],
+      "workflow": "skills/m8-atelier/assets/workflows/monster_battle_sdxl.json",
+      "workflow_sha256": "ceae60438e70850e8c8ddacbb55572edab6eeb8fa44743aea3781363dcc74dc6",
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "seed_provenance": "v2 seed 20260716-19 range, touched-up",
+      "gates": {
+        "tier1_image": "green (single component, <=64 colors, size ok)"
+      },
+      "status": "installed \u2014 partial seed provenance (generating agent ran out of credits before writing final manifest; assets gate-green and human-reviewed; exact winning seed recoverable by re-running the candidate range and hash-matching)",
+      "generated": "2026-07-12"
     }
   ]
 }

@@ -1,0 +1,47 @@
+{
+  "_meta": {
+    "name": "monster_battle_sdxl",
+    "stage": "single static battle sprite for non-humanoid monsters (Emberwake bestiary), 1024x1024 generation -> deterministic post-chain -> 128/224 transparent PNG",
+    "date": "2026-07-12",
+    "status": "draft — lessons appended at end of job"
+  },
+  "1": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {"ckpt_name": "sd_xl_base_1.0.safetensors"}
+  },
+  "2": {
+    "class_type": "LoraLoader",
+    "inputs": {"model": ["1", 0], "clip": ["1", 1],
+               "lora_name": "pixel-art-xl.safetensors",
+               "strength_model": 0.9, "strength_clip": 0.9}
+  },
+  "3": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {"clip": ["2", 1],
+               "text": "pixel art, game monster battle sprite, {subject}, full body side view, single creature, flat colors, clean silhouette, {tone}, standing alone, plain solid green screen background"}
+  },
+  "4": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {"clip": ["2", 1],
+               "text": "photo, realistic, 3d render, blurry, soft focus, text, watermark, frame, border, gradient background, multiple creatures, human, humanoid, cropped, ground shadow, grass, scenery"}
+  },
+  "5": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {"width": 1024, "height": 1024, "batch_size": 1}
+  },
+  "6": {
+    "class_type": "KSampler",
+    "inputs": {"model": ["2", 0], "positive": ["3", 0], "negative": ["4", 0],
+               "latent_image": ["5", 0], "seed": 20260712, "steps": 24,
+               "cfg": 6.5, "sampler_name": "dpmpp_2m", "scheduler": "karras",
+               "denoise": 1.0}
+  },
+  "7": {
+    "class_type": "VAEDecode",
+    "inputs": {"samples": ["6", 0], "vae": ["1", 2]}
+  },
+  "8": {
+    "class_type": "SaveImage",
+    "inputs": {"images": ["7", 0], "filename_prefix": "m8_mon_battle"}
+  }
+}
