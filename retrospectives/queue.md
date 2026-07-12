@@ -23,6 +23,10 @@
 - m8-balancer: checkpoint authoring guidance could include "verify spike-kill margin vs. heal threshold" — the boss wipe was a heal-threshold jump, likely a recurring pattern.
 - m8-conductor: briefing addenda worked well (systems→content→engine relay); formalize the "BINDING NOTES relay" step in the skill body.
 
+### M0 exit test (fresh session, 2026-07-11): PASSED
+- All gates re-ran green cold, zero human edits; smoke/rusher traces and balance report bit-identical to committed evidence.
+- Resumability gaps found: (1) smoke-gate evidence records no seed or exact command (rerun matched with seed 1101, but only luck/seed-independence guaranteed it); (2) `m8-balancer/scripts/simulate.py` regenerates `balance.md` wholesale, destroying the balancer's appended patch-log narrative on re-verification runs (restored from git); (3) committed `gate_tests.txt` was stale (428/428 phase-4 era) vs. post-PT-001 suite (430/430) — wrap didn't refresh gate evidence after the playtest-phase engine fix.
+
 ### Thin-batteries audit
 - No script deleted this cycle; none encoding judgment models have overtaken (all three are gate math / proof / harness).
 

@@ -20,7 +20,7 @@ Read [SPEC.md](SPEC.md) — the founding charter — for the full architecture a
 
 | Milestone | Description | Status |
 |---|---|---|
-| **M0** | Walking skeleton: ontology v0, effect-algebra interpreter, a completable micro-RPG, ugly on purpose | ✅ build green — [Emberwake](games/emberwake/): 430 unit tests, completability proven, 3.3k sim battles in-band, rusher persona finishes deterministically. Fresh-session exit test pending |
+| **M0** | Walking skeleton: ontology v0, effect-algebra interpreter, a completable micro-RPG, ugly on purpose | ✅ build green — [Emberwake](games/emberwake/): 430 unit tests, completability proven, 3.3k sim battles in-band, rusher persona finishes deterministically. Fresh-session exit test passed 2026-07-11 — M0 complete |
 | M1 | The Atelier: full asset pipeline + gate cascade | — |
 | M2 | Depth: 150+ items, 60+ monsters, balance simulation | — |
 | M3 | Story: VN interludes, character arcs, branch soundness proofs | — |
