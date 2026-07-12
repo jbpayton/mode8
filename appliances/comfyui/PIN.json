@@ -154,6 +154,16 @@
         "for": "REQUIRED by VNCCS_CharacterGenerator pose stage (hard RuntimeError if absent from pipe lora_entries); maps grey pose-mannequin renders to the character; path must match the packaged control_center.json local_path exactly"
       },
       {
+        "key": "vnccs_clothes_core_qie2511_lora",
+        "file": "ComfyUI/models/loras/qwen/VNCCS/VNCCS_QIE2511_ClothesCore-RC3.5.safetensors",
+        "source": "https://huggingface.co/MIUProject/VNCCS_v3.0/resolve/4ff0bdccfb29d7fd9cf31ae10ae64c80eba413ec/models/loras/qwen/VNCCS/VNCCS_QIE2511_ClothesCore-RC3.5.safetensors",
+        "hf_revision": "4ff0bdccfb29d7fd9cf31ae10ae64c80eba413ec",
+        "license": "Apache 2.0",
+        "license_file": "none at pinned revision (README cardData: apache-2.0); derivative finetune of Qwen-Image-Edit-2511 (Apache 2.0)",
+        "sha256": "8acf6fc95bd156bd4dfd6cb7429db8890269da1075ed5801ff7eff748dbd74b9",
+        "for": "VNCCS clothes stage (ClothesDesigner dress step). RC3.5 chosen, NOT the RC3.6 named in clothes_designer.py's WORKFLOW_CLOTHES_CORE_LORA constant — that constant is dead code; the designer resolves the LoRA from the Control Center pipe, whose packaged control_center.json pins 'VNCCS Clothes Core' to the RC3.5 local_path. Path must match that local_path exactly. RC3/RC3.6/RC3.7 exist upstream at the same revision if a re-pin is ever wanted"
+      },
+      {
         "key": "apisr_4x_grl_gan_upscaler",
         "file": "ComfyUI/models/upscale_models/4x_APISR_GRL_GAN_generator.pth",
         "source": "https://github.com/Kiteretsu77/APISR/releases/download/v0.1.0/4x_APISR_GRL_GAN_generator.pth",
