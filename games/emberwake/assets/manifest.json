@@ -60,9 +60,9 @@
       "key": "warden_walk",
       "class": "sprite_sheet",
       "file": "assets/sprites/warden_walk.png",
-      "sha256": "c13440198fd3956ad440f0df959b1ce25f62d3d90bd4b6bd65494ac695b94d91",
+      "sha256": "a6f91191c83ab8a4af77848b49acf16f5819f38c919474b33bbf8945c7ab10cd",
       "workflow": "skills/m8-atelier/assets/workflows/walk_cycle_vnccs.json",
-      "workflow_sha256": "af67ae701afdd2962a2904fd194127ef25fe6adfdc91c4fdc9d5e21444ffab43",
+      "workflow_sha256": "e812375b583a795ad2b8aae3b36140f8d1021d8ee39cf50c89f7690395b40e08",
       "layout": {
         "frame_box": [
           24,
@@ -100,45 +100,45 @@
         "mannequin_canvases": "embedded base64 in workflow (offline corrected-units render of VNCCS_Utils MakeHuman CharacterData; gait keyframes in workflow _meta)",
         "identity_refs": {
           "down": {
-            "source": "sprite_pose_0005.png",
-            "sha256_prepared": "e6bcd06ed7274518c1daa1787068f86b77c6f6d7a10739e750682e5fb2abf337"
+            "source": "ShaftWarden/Neutral/sprite_pose_0005.png (front)",
+            "sha256_prepared": "979ee610a0101badcb4adaecabe0459a436de8cdca2f5bd4e597caf989d4566b"
           },
           "left": {
-            "source": "sprite_pose_0006.png",
-            "sha256_prepared": "699b4f2a34a68a8b7f8e9d5bae3fa28c467835823331696b942b081aa2b0250c"
+            "source": "ShaftWarden/Neutral/sprite_pose_0006.png (left profile)",
+            "sha256_prepared": "4ec8a29c284691151a28987fbf8ea674d20367b8ceb35b483dc9c35405fdfb2f"
           },
           "right": {
-            "source": "sprite_pose_0006.png (mirrored)",
-            "sha256_prepared": "461cc77b26bcf42a65acd4e220336a5774762277f957c528e97bfbc3a0de04ec"
+            "source": "ShaftWarden/Neutral/sprite_pose_0006.png (mirrored; true right profile 0003 rejected: warm rim light bakes jacket brown + face in shadow, would mismatch the left row)",
+            "sha256_prepared": "56c5ba5d43ec265abbfd3122c23d5a60ccc37f10ebfacd3fcd7e3e9dca192a03"
           },
           "up": {
-            "source": "sprite_pose_0004.png",
-            "sha256_prepared": "170ba75f29a42a2e812b29da5ddc108af4823d9db14b179ba3c6175693a9fd04"
+            "source": "ShaftWarden/Neutral/sprite_pose_0004.png (back)",
+            "sha256_prepared": "eb65784a56147ff847ca58d763ce96540c075fe7533e6694f551a7d1a0c99f85"
           }
         }
       },
       "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
       "style_bible_version": "0.1.0",
-      "post_chain": "green chroma key -> ground-shadow scrub (sole-protected) -> fixed 4-col frame cut -> shared per-direction registration (median feet baseline, mean x-centroid, one global scale char->24px) -> 35%-coverage area downsample to 24x32 -> hard alpha + largest component -> shared baseline snap to row 29 -> mediancut <=64 colors/direction",
+      "post_chain": "green chroma key -> ground-shadow scrub v2.1 (ink-chain protection: suspect px below 78% height survive only if chained to above-band ink, <=6-row gaps, +-1 px/row drift; hard cut below 92% \u2014 v1 brightness-based sole protection ate the near-black boot bottoms, and QIE paints shadow blobs above the old 82.5% band start) -> fixed 4-col frame cut -> shared per-direction registration (median feet baseline, mean x-centroid, one global scale char->24px) -> 35%-coverage area downsample to 24x32 -> hard alpha + largest component -> shared baseline snap to row 29 -> mediancut <=64 colors/direction",
       "gates": {
         "tier1_sheet": {
           "all_green": true,
           "down": {
-            "feet_dev": 0.5,
-            "baseline": 28.5,
+            "feet_dev": 0.0,
+            "baseline": 28.0,
             "height": [
-              22,
-              23,
-              22,
-              23
+              24,
+              24,
+              24,
+              24
             ],
             "fill": [
-              0.128,
-              0.125,
-              0.129,
-              0.129
+              0.147,
+              0.151,
+              0.146,
+              0.155
             ],
-            "colors": 63,
+            "colors": 64,
             "green": true
           },
           "left": {
@@ -146,57 +146,57 @@
             "baseline": 28.0,
             "height": [
               22,
+              24,
               22,
-              22,
-              23
+              24
             ],
             "fill": [
-              0.116,
-              0.096,
-              0.118,
-              0.1
+              0.132,
+              0.113,
+              0.128,
+              0.115
+            ],
+            "colors": 61,
+            "green": true
+          },
+          "right": {
+            "feet_dev": 0.0,
+            "baseline": 28.0,
+            "height": [
+              24,
+              24,
+              24,
+              24
+            ],
+            "fill": [
+              0.128,
+              0.115,
+              0.129,
+              0.107
             ],
             "colors": 64,
             "green": true
           },
-          "right": {
-            "feet_dev": 1.0,
-            "baseline": 28.0,
-            "height": [
-              22,
-              24,
-              23,
-              23
-            ],
-            "fill": [
-              0.115,
-              0.105,
-              0.118,
-              0.1
-            ],
-            "colors": 63,
-            "green": true
-          },
           "up": {
-            "feet_dev": 1.0,
+            "feet_dev": 0.0,
             "baseline": 28.0,
             "height": [
-              22,
-              21,
-              22,
-              23
+              24,
+              24,
+              24,
+              24
             ],
             "fill": [
-              0.135,
-              0.128,
-              0.126,
-              0.13
+              0.142,
+              0.155,
+              0.142,
+              0.15
             ],
-            "colors": 63,
+            "colors": 64,
             "green": true
           }
         },
-        "tier3": "agent judge: all 16 frames correct facing per direction, gait reads at game res in all 4 rows; weakest: up row frame1 dark residue on trailing foot; identity is the canonical Naked/boxers base (clothing stage not yet run) \u2014 conductor + human are final judges"
+        "tier3": "agent judge (identity v2): all 16 frames correct facing, clothed ShaftWarden identity consistent across rows (dark quilted jacket, charcoal cargo pants, black boots, amber face); gait reads at game res in all 4 rows, left/right scissor strides strongest; weakest: left row contact frames drawn ~1px airborne (feet_dev 1.0, tiny bounce on loop) and down-row stride is subtle at 1x; outfit is near-black \u2014 check contrast on the darkest mine tilesets. Conductor + human are final judges"
       },
       "previews": [
         "assets/sprites/previews/warden_walk_down_full.gif",
@@ -208,12 +208,13 @@
         "assets/sprites/previews/warden_walk_up_full.gif",
         "assets/sprites/previews/warden_walk_up_game.gif"
       ],
-      "repair_rounds": 3,
-      "repair_note": "down: repair1 anti-back-view prompt FAILED (2 frames flipped), reseed 20260713 fixed facing, repair2 feet-planted prompt FAILED (slipper artifact), scaffold fix (flat-feet mannequins on down/up rows) -> green; up: repair1 flat-feet scaffold -> green; left/right: green at first seed. Post-chain tooling iterated 4x (scrub band, sole protection, area downsample, baseline snap) \u2014 deterministic, not candidate burns",
+      "repair_rounds": 0,
+      "repair_note": "identity v2 re-cut: all 4 canvases green at the v1 pinned seeds on the first generation (refs swapped only \u2014 seeds/mannequins/prompts untouched); 0 generation repairs, 0 reseeds. Post-chain repaired 2x (deterministic, not candidate burns): scrub v2 ink-chain protection (v1 brightness sole protection ate near-black boot bottoms in contact frames -> feet_dev/baseline fails), scrub v2.1 band 82.5%->78% + above-band-only seeds (QIE shadow blobs sat above the band and seeded their own tails -> horizontal streaks at feet). v1 (underwear base) history: workflow _meta run_record",
       "generated": "2026-07-12",
       "aliases": [
         "chr_warden"
-      ]
+      ],
+      "identity": "clothed v2 (ShaftWarden)"
     }
   ]
 }
