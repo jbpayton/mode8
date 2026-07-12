@@ -1,0 +1,35 @@
+{
+  "ontology_version": "0.1.1",
+  "assets": [
+    {
+      "key": "item_warm_draught_64",
+      "class": "item_icon",
+      "file": "assets/icons/item_warm_draught_64.png",
+      "sha256": "5d1e7804b2087dbeda81e37842a6fea385c85d37bb73e0f80c2afdbced53571a",
+      "workflow": "skills/m8-atelier/assets/workflows/icon_sdxl_pixel.json",
+      "workflow_sha256": "d7429065d62fe7104ac72ded54896a715fc62aabb435ea357682a5211031366a",
+      "workflow_overrides": {
+        "3.text": "pixel art, game item icon, glass potion bottle filled with glowing warm amber liquid, cork stopper, small ember sparks, warm orange glow, centered single object, flat colors, clean silhouette, dark plain background",
+        "6.seed": 20260711
+      },
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "post_chain": "corner-flood alpha key (tol 90) -> bbox crop +6% margin square -> 64x64 nearest -> mediancut quantize 32 (fg only)",
+      "gates": {
+        "tier1": {
+          "all_green": true,
+          "fill": 0.317,
+          "fg_colors": 20,
+          "components": 1
+        },
+        "tier3": "frontier judge: generation excellent, silhouette legible at 64px (smoke-test judgment, rubric formalizes with asset-warden scripts)"
+      },
+      "repair_rounds": 1,
+      "repair_note": "round 1: fill 0.095 + 388 colors -> post-chain repair (crop-to-content + quantize), no re-roll needed",
+      "generated": "2026-07-12"
+    }
+  ]
+}
