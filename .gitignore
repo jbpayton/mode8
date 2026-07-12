@@ -1,6 +1,7 @@
 # Appliance blobs — restored from PIN.json via fetch.sh, never committed
 appliances/godot/Godot_v*
 appliances/godot/godot
+appliances/comfyui/ComfyUI/
 appliances/comfyui/models/
 appliances/comfyui/output/
 

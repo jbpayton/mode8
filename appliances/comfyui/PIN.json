@@ -1,1 +1,56 @@
-{"appliance":"comfyui","status":"not_yet_provisioned","milestone":"M1","notes":"Pinned container + node packs (VNCCS) land in M1. Interface contract: skills/m8-atelier."}
+{
+  "appliance": "comfyui",
+  "status": "provisioning",
+  "milestone": "M1",
+  "research": "appliances/RESEARCH-M1.md",
+  "runtime": {
+    "repo": "https://github.com/comfyanonymous/ComfyUI.git",
+    "commit": "8f40b43e0204d5b9780f3e9618e140e929e80594",
+    "tag": "v0.9.2",
+    "license": "GPL-3.0 (application only; irrelevant to outputs)",
+    "python": "venv inside ComfyUI/, torch cu124",
+    "serve": "ComfyUI/venv/bin/python ComfyUI/main.py --listen 127.0.0.1 --port 8188 --cuda-device 0",
+    "api": "http://127.0.0.1:8188 — POST /prompt, GET /history/<id>, GET /view"
+  },
+  "models": {
+    "provisioned": [
+      {
+        "key": "sdxl_base",
+        "file": "ComfyUI/models/checkpoints/sd_xl_base_1.0.safetensors",
+        "source": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/sd_xl_base_1.0.safetensors",
+        "hf_revision": "462165984030d82259a11f4367a4eed129e94a7b",
+        "license": "CreativeML OpenRAIL++-M",
+        "sha256": "PENDING_DOWNLOAD"
+      },
+      {
+        "key": "pixel_art_xl_lora",
+        "file": "ComfyUI/models/loras/pixel-art-xl.safetensors",
+        "source": "https://huggingface.co/nerijs/pixel-art-xl/resolve/8bf4a4d9ea283e00a51fafda8e0539f8248ea037/pixel-art-xl.safetensors",
+        "hf_revision": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037",
+        "license": "CreativeML OpenRAIL-M",
+        "notes": "no trigger word; low guidance (~1.5); 8x nearest-neighbor downscale post-step",
+        "sha256": "4234637cb80c998f41e348e6a6cb6bc20d8d038b2b0f256b6129b3b5e353eef7"
+      }
+    ],
+    "planned_next": [
+      {"key": "illustrious_xl_v2", "hf": "OnomaAIResearch/Illustrious-XL-v2.0", "rev": "69459c1fe6f46db41ab31e6114f05acc0e06bcaa", "for": "characters/portraits via VNCCS"},
+      {"key": "cn_openpose_sdxl", "hf": "xinsir/controlnet-openpose-sdxl-1.0", "rev": "23f966cd5cfdd3f7729c903e243d87152162d2b7", "for": "pose conditioning (REQUIRED)"},
+      {"key": "cn_union_promax_sdxl", "hf": "xinsir/controlnet-union-sdxl-1.0", "rev": "801a4a3fa3d4c936f4feea95b98607bc6726f80c", "for": "repaint/inpaint repair"},
+      {"key": "ip_adapter", "hf": "h94/IP-Adapter", "rev": "018e402774aeeddd60609b4ecdb7e298259dc729", "for": "identity conditioning (NOT FaceID variants — NC)"},
+      {"key": "qwen_image_edit_2509_fp8", "hf": "Comfy-Org/Qwen-Image-Edit_ComfyUI", "rev": "e9e85de74a8f48c1e3e2656617626348675a2f21", "for": "identity-preserving repair (own 20GB stage, never co-loaded)"},
+      {"key": "birefnet", "hf": "ZhengPeng7/BiRefNet", "rev": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4", "for": "alpha extraction (try deterministic keying first for pixel sprites)"},
+      {"key": "ace_step_15_aio", "hf": "Comfy-Org/ace_step_1.5_ComfyUI_files", "rev": "54b2ef4d8af5582f54c7e6b84c22b679a194bc4b", "for": "music BGM (m8-soundsmith)"}
+    ],
+    "node_packs_planned": [
+      {"key": "vnccs", "repo": "https://github.com/AHEKOT/ComfyUI_VNCCS", "commit": "050cb4b15875a7eefc180d1f00b97bf5e8b17104", "tag": "3.0.1", "license": "MIT"},
+      {"key": "vnccs_utils", "repo": "https://github.com/AHEKOT/ComfyUI_VNCCS_Utils", "commit": "1908ddfa8a5084a360783ca596f27678743c5496", "license": "MIT"},
+      {"key": "controlnet_aux", "repo": "https://github.com/Fannovel16/comfyui_controlnet_aux", "commit": "e8b689a513c3e6b63edc44066560ca5919c0576e", "license": "Apache 2.0"}
+    ]
+  },
+  "gpu_policy": "generation on cuda:0; judge tier reserves cuda:1; Qwen-Edit stage runs alone (fp8 ~20GB)",
+  "rules": [
+    "models restored ONLY via fetch.sh from this file — never via ComfyUI Manager or VNCCS Control Center after first snapshot",
+    "every new model: add here with source+revision+sha256+license BEFORE first use in a workflow",
+    "treat the UI as nonexistent; API only (SPEC L1)"
+  ]
+}
