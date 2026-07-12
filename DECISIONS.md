@@ -30,3 +30,6 @@ SPEC §7 wants ≥10k Monte Carlo battles; the obvious build is a fast Python re
 
 ## D-009 — Playtester drive model: batch script → trace → extend, not interactive sockets (2026-07-11)
 SPEC §8 requires "injected inputs" + state API. v0: personas run the game headless with an input-action script (JSON) and a fixed seed, read the emitted JSONL state trace, then extend/correct the script and rerun — iterating to the ending. No TCP debug server, no interactive plumbing; every defect automatically has a full repro (script + seed). Revisit if trace-iterate proves too slow at M2 scope. Screenshot sampling (VLM QA) lands at M1 via xvfb-run windowed capture, since true `--headless` cannot render.
+
+## D-010 — ACE-Step v1-3.5B active; v1.5 shelved until the next ComfyUI re-pin (2026-07-12)
+The pinned ComfyUI v0.9.2 supports the ACE-Step v1 architecture but not v1.5 (new decoder + Qwen3 text encoders; support landed in a later ComfyUI). Per the research report's fallback design: activate ACE-Step v1-3.5B (Apache 2.0, same native serving path, checkpoint swap only) rather than re-pin the appliance runtime mid-milestone — image workflows are already validated on v0.9.2 and "boring, pinned" wins. The v1.5 AIO stays on disk, marked inactive in PIN.json; re-evaluate at the next deliberate appliance upgrade.

@@ -26,7 +26,7 @@ def main(argv):
     host = argv[argv.index("--host") + 1] if "--host" in argv else "http://127.0.0.1:8188"
     out_dir = pathlib.Path(argv[argv.index("--out-dir") + 1])
     timeout = int(argv[argv.index("--timeout") + 1]) if "--timeout" in argv else 600
-    wf = json.load(open(wf_path))
+    wf = {k: v for k, v in json.load(open(wf_path)).items() if not k.startswith("_")}
 
     for i, a in enumerate(argv):
         if a == "--set":

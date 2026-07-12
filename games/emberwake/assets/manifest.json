@@ -30,6 +30,28 @@
       "repair_rounds": 1,
       "repair_note": "round 1: fill 0.095 + 388 colors -> post-chain repair (crop-to-content + quantize), no re-roll needed",
       "generated": "2026-07-12"
+    },
+    {
+      "key": "music.town.candidate",
+      "class": "bgm",
+      "file": "assets/audio/music.town.candidate.mp3",
+      "sha256": "4d5b96306e003e436f36fd7c8f513e0f4e956e8db7b6defa54a7c128cbb7de30",
+      "workflow": "skills/m8-soundsmith/assets/workflows/bgm_ace.json",
+      "workflow_sha256": "72744c38b5f1eaf48664b0ab9e9f2604312260aa1ddb7fe872f18bf7c7bd32bf",
+      "models": {
+        "ace_step_v1_aio": "9496247418317321988fb3a14fd44c5141bfc767"
+      },
+      "seed": 20260711,
+      "gates": {
+        "tier1_audio": {
+          "all_green": true,
+          "duration_s": 89.9,
+          "rms": 0.1177,
+          "peak": 0.651
+        }
+      },
+      "status": "candidate \u2014 human Tier-3 pending; loop post-process (A.4 battery) not yet applied",
+      "generated": "2026-07-12"
     }
   ]
 }

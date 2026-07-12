@@ -1,0 +1,41 @@
+{
+  "_comment": "ACE-Step v1-3.5B AIO (research fallback, active — D-010: v1.5 needs newer ComfyUI than the v0.9.2 pin). Native nodes, ModelSamplingSD3 shift=5 per the v1 ComfyUI template.",
+  "1": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {"ckpt_name": "ace_step_v1_3.5b.safetensors"}
+  },
+  "9": {
+    "class_type": "ModelSamplingSD3",
+    "inputs": {"model": ["1", 0], "shift": 5.0}
+  },
+  "2": {
+    "class_type": "TextEncodeAceStepAudio",
+    "inputs": {"clip": ["1", 1],
+               "tags": "instrumental, fantasy village theme, warm, gentle, acoustic guitar, flute, soft strings, 90 bpm, consistent tempo, seamless loop, game music",
+               "lyrics": "[instrumental]",
+               "lyrics_strength": 1.0}
+  },
+  "3": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {"conditioning": ["2", 0]}
+  },
+  "4": {
+    "class_type": "EmptyAceStepLatentAudio",
+    "inputs": {"seconds": 90.0, "batch_size": 1}
+  },
+  "5": {
+    "class_type": "KSampler",
+    "inputs": {"model": ["9", 0], "positive": ["2", 0], "negative": ["3", 0],
+               "latent_image": ["4", 0], "seed": 20260711, "steps": 50,
+               "cfg": 5.0, "sampler_name": "euler", "scheduler": "simple",
+               "denoise": 1.0}
+  },
+  "6": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {"samples": ["5", 0], "vae": ["1", 2]}
+  },
+  "7": {
+    "class_type": "SaveAudioMP3",
+    "inputs": {"audio": ["6", 0], "filename_prefix": "m8_bgm", "quality": "V0"}
+  }
+}
