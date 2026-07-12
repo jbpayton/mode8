@@ -10,7 +10,7 @@
     "license": "GPL-3.0 (application only; irrelevant to outputs)",
     "python": "venv inside ComfyUI/, torch cu124",
     "serve": "ComfyUI/venv/bin/python ComfyUI/main.py --listen 127.0.0.1 --port 8188 --cuda-device 0",
-    "api": "http://127.0.0.1:8188 \u2014 POST /prompt, GET /history/<id>, GET /view"
+    "api": "http://127.0.0.1:8188 — POST /prompt, GET /history/<id>, GET /view"
   },
   "models": {
     "provisioned": [
@@ -30,33 +30,69 @@
         "license": "CreativeML OpenRAIL-M",
         "notes": "no trigger word; low guidance (~1.5); 8x nearest-neighbor downscale post-step",
         "sha256": "4234637cb80c998f41e348e6a6cb6bc20d8d038b2b0f256b6129b3b5e353eef7"
-      }
-    ],
-    "planned_next": [
+      },
       {
         "key": "illustrious_xl_v2",
-        "hf": "OnomaAIResearch/Illustrious-XL-v2.0",
-        "rev": "69459c1fe6f46db41ab31e6114f05acc0e06bcaa",
+        "file": "ComfyUI/models/checkpoints/Illustrious-XL-v2.0.safetensors",
+        "source": "https://huggingface.co/OnomaAIResearch/Illustrious-XL-v2.0/resolve/69459c1fe6f46db41ab31e6114f05acc0e06bcaa/Illustrious-XL-v2.0.safetensors",
+        "hf_revision": "69459c1fe6f46db41ab31e6114f05acc0e06bcaa",
+        "license": "CreativeML OpenRAIL-M",
+        "license_file": "none at pinned revision (no LICENSE/LICENSE.md; README.md cardData: creativeml-openrail-m)",
+        "sha256": "c2a1a3eaa13d4c107dc7e00c3fe830cab427aa026362740ea094745b3422a331",
         "for": "characters/portraits via VNCCS"
       },
       {
         "key": "cn_openpose_sdxl",
-        "hf": "xinsir/controlnet-openpose-sdxl-1.0",
-        "rev": "23f966cd5cfdd3f7729c903e243d87152162d2b7",
+        "file": "ComfyUI/models/controlnet/controlnet-openpose-sdxl-1.0.safetensors",
+        "source": "https://huggingface.co/xinsir/controlnet-openpose-sdxl-1.0/resolve/23f966cd5cfdd3f7729c903e243d87152162d2b7/diffusion_pytorch_model.safetensors",
+        "hf_revision": "23f966cd5cfdd3f7729c903e243d87152162d2b7",
+        "license": "Apache 2.0",
+        "license_file": "none at pinned revision (no LICENSE/LICENSE.md; README.md cardData: apache-2.0)",
+        "sha256": "b8524e557a7df60d081f5d4a0eb109967d107df217943bf88c2d99b9ebcc06c5",
         "for": "pose conditioning (REQUIRED)"
       },
       {
         "key": "cn_union_promax_sdxl",
-        "hf": "xinsir/controlnet-union-sdxl-1.0",
-        "rev": "801a4a3fa3d4c936f4feea95b98607bc6726f80c",
-        "for": "repaint/inpaint repair"
+        "file": "ComfyUI/models/controlnet/controlnet-union-sdxl-1.0-promax.safetensors",
+        "source": "https://huggingface.co/xinsir/controlnet-union-sdxl-1.0/resolve/801a4a3fa3d4c936f4feea95b98607bc6726f80c/diffusion_pytorch_model_promax.safetensors",
+        "hf_revision": "801a4a3fa3d4c936f4feea95b98607bc6726f80c",
+        "license": "Apache 2.0",
+        "license_file": "none at pinned revision (no LICENSE/LICENSE.md; README.md cardData: apache-2.0)",
+        "sha256": "9fae2e50cb431bfcbe05822b59ec2228df545ef27f711dea8949e9f4ed9f7cdc",
+        "for": "repaint/inpaint repair (ProMax variant)"
       },
       {
         "key": "ip_adapter",
-        "hf": "h94/IP-Adapter",
-        "rev": "018e402774aeeddd60609b4ecdb7e298259dc729",
-        "for": "identity conditioning (NOT FaceID variants \u2014 NC)"
+        "file": "ComfyUI/models/ipadapter/ip-adapter-plus_sdxl_vit-h.safetensors",
+        "source": "https://huggingface.co/h94/IP-Adapter/resolve/018e402774aeeddd60609b4ecdb7e298259dc729/sdxl_models/ip-adapter-plus_sdxl_vit-h.safetensors",
+        "hf_revision": "018e402774aeeddd60609b4ecdb7e298259dc729",
+        "license": "Apache 2.0",
+        "license_file": "none at pinned revision (no LICENSE/LICENSE.md; README.md cardData: apache-2.0)",
+        "sha256": "3f5062b8400c94b7159665b21ba5c62acdcd7682262743d7f2aefedef00e6581",
+        "for": "identity conditioning (NOT FaceID variants — NC)"
       },
+      {
+        "key": "ip_adapter_clip_vision",
+        "file": "ComfyUI/models/clip_vision/clip_vision_vit_h.safetensors",
+        "source": "https://huggingface.co/h94/IP-Adapter/resolve/018e402774aeeddd60609b4ecdb7e298259dc729/models/image_encoder/model.safetensors",
+        "hf_revision": "018e402774aeeddd60609b4ecdb7e298259dc729",
+        "license": "Apache 2.0",
+        "license_file": "none at pinned revision (no LICENSE/LICENSE.md; README.md cardData: apache-2.0)",
+        "sha256": "6ca9667da1ca9e0b0f75e46bb030f7e011f44f86cbfb8d5a36590fcd7507b030",
+        "for": "ViT-H CLIP image encoder required by SDXL vit-h IP-Adapter"
+      },
+      {
+        "key": "ace_step_15_aio",
+        "file": "ComfyUI/models/checkpoints/ace_step_1.5_turbo_aio.safetensors",
+        "source": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/54b2ef4d8af5582f54c7e6b84c22b679a194bc4b/checkpoints/ace_step_1.5_turbo_aio.safetensors",
+        "hf_revision": "54b2ef4d8af5582f54c7e6b84c22b679a194bc4b",
+        "license": "Apache 2.0 (repack; weights MIT)",
+        "license_file": "none at pinned revision (no LICENSE/LICENSE.md; README.md cardData: apache-2.0)",
+        "sha256": "67b0f43aa5c51c840bd0228e6a935d8ff416ec87e5df2fc0637da17a561252bc",
+        "for": "music BGM (m8-soundsmith) — turbo AIO checkpoint"
+      }
+    ],
+    "planned_next": [
       {
         "key": "qwen_image_edit_2509_fp8",
         "hf": "Comfy-Org/Qwen-Image-Edit_ComfyUI",
@@ -68,12 +104,6 @@
         "hf": "ZhengPeng7/BiRefNet",
         "rev": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4",
         "for": "alpha extraction (try deterministic keying first for pixel sprites)"
-      },
-      {
-        "key": "ace_step_15_aio",
-        "hf": "Comfy-Org/ace_step_1.5_ComfyUI_files",
-        "rev": "54b2ef4d8af5582f54c7e6b84c22b679a194bc4b",
-        "for": "music BGM (m8-soundsmith)"
       }
     ],
     "node_packs_planned": [
@@ -100,7 +130,7 @@
   },
   "gpu_policy": "generation on cuda:0; judge tier reserves cuda:1; Qwen-Edit stage runs alone (fp8 ~20GB)",
   "rules": [
-    "models restored ONLY via fetch.sh from this file \u2014 never via ComfyUI Manager or VNCCS Control Center after first snapshot",
+    "models restored ONLY via fetch.sh from this file — never via ComfyUI Manager or VNCCS Control Center after first snapshot",
     "every new model: add here with source+revision+sha256+license BEFORE first use in a workflow",
     "treat the UI as nonexistent; API only (SPEC L1)"
   ],
