@@ -7,11 +7,15 @@ const UI := preload("res://scenes/ui.gd")
 
 @onready var _game: Node = get_node("/root/Game")
 @onready var _input: Node = get_node("/root/M8Input")
+@onready var _audio: Node = get_node("/root/M8Audio")
 
 var _menu := UI.Menu.new()
 var _leaving := false
 
 func _ready() -> void:
+	# Title slot per the m8-soundsmith convention (skill interface, not
+	# game content); missing asset = silence.
+	_audio.play_slot("music.title")
 	UI.fill(self, UI.COL_BG)
 	UI.label(self, Vector2(200, 90), "E M B E R W A K E", 36, UI.COL_EMBER)
 	UI.label(self, Vector2(160, 140), "The wells run warm. The mountain is waking.", 14, UI.COL_BLUE)
@@ -36,4 +40,5 @@ func m8_scene_type() -> String:
 	return "title"
 
 func m8_detail() -> Dictionary:
-	return {"cursor": _menu.cursor, "rows": _menu.entries.size()}
+	return {"cursor": _menu.cursor, "rows": _menu.entries.size(),
+			"music": _audio.detail.duplicate()}

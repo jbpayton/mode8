@@ -11,6 +11,7 @@ const UI := preload("res://scenes/ui.gd")
 @onready var _db: Node = get_node("/root/ContentDB")
 @onready var _game: Node = get_node("/root/Game")
 @onready var _input: Node = get_node("/root/M8Input")
+@onready var _assets: Node = get_node("/root/M8Assets")
 
 var _phase := "list"      # list | action | member | discard
 var _list := UI.Menu.new()
@@ -41,11 +42,20 @@ func _goods_name(id: String) -> String:
 		d = _db.equip(id)
 	return str(d.get("name", id))
 
+# Icon when the goods' sprite key resolves in the asset manifest (work order
+# 07); null keeps the M0 text-only row.
+func _goods_icon(id: String) -> Texture2D:
+	var d: Dictionary = _db.item(id)
+	if d.is_empty():
+		d = _db.equip(id)
+	return _assets.icon_texture(str(d.get("sprite", "")))
+
 func _rebuild_list() -> void:
 	_gold.text = "Gold: %d" % _game.gold
 	var rows: Array = []
 	for id in _game.inventory:
-		rows.append({"label": "%s x%d" % [_goods_name(id), _game.item_count(id)], "data": id})
+		rows.append({"label": "%s x%d" % [_goods_name(id), _game.item_count(id)], "data": id,
+				"icon": _goods_icon(id)})
 	if rows.is_empty():
 		rows.append({"label": "(nothing carried)", "data": "", "disabled": true})
 	_list.set_entries(rows)

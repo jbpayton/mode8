@@ -5,6 +5,10 @@
 # fires on placement (scene_args.arrive, set on new run + portal arrival).
 # menu key opens the pause menu (scenes/pause_menu.gd component): Items /
 # Status / town services (shop/inn/save from world place data) / Quit.
+# Work order 07: the map's music slot plays on map change (missing asset =
+# silence); the party leader renders from its class walk sheet when the
+# sprite key resolves in the asset manifest — render-only, no Rng, no Game
+# writes, so traces are unaffected (contract §3).
 extends Control
 
 const UI := preload("res://scenes/ui.gd")
@@ -12,17 +16,27 @@ const Story := preload("res://scenes/story.gd")
 const PauseMenu := preload("res://scenes/pause_menu.gd")
 const TILE := 16
 const REPEAT_FRAMES := 8
+const SPRITE_H := 24  # walk-sheet convention: 24px sprite on the 16px grid,
+					  # bottom-anchored, overhang upward
 const DIRS := {"move_up": Vector2i(0, -1), "move_down": Vector2i(0, 1),
 		"move_left": Vector2i(-1, 0), "move_right": Vector2i(1, 0)}
+const FACING_NAMES := {Vector2i(0, 1): "down", Vector2i(-1, 0): "left",
+		Vector2i(1, 0): "right", Vector2i(0, -1): "up"}
 
 @onready var _db: Node = get_node("/root/ContentDB")
 @onready var _game: Node = get_node("/root/Game")
 @onready var _input: Node = get_node("/root/M8Input")
 @onready var _rng: Node = get_node("/root/Rng")
+@onready var _assets: Node = get_node("/root/M8Assets")
+@onready var _audio: Node = get_node("/root/M8Audio")
 
 var _map: Dictionary = {}
 var _origin := Vector2.ZERO
 var _player: Label = null
+var _sprite: TextureRect = null   # walk-sheet leader (replaces _player glyph)
+var _sheet: Dictionary = {}
+var _atlas: AtlasTexture = null
+var _walk_steps := 0              # movement-step counter drives the 4-frame cycle
 var _ent_nodes: Dictionary = {}   # entity id -> Label
 var _facing := Vector2i(0, 1)
 var _move_cd := 0
@@ -33,6 +47,7 @@ var _leaving := false
 
 func _ready() -> void:
 	_map = _db.map_def(_game.map)
+	_audio.play_slot(str(_map.get("music", "")))
 	UI.fill(self, UI.COL_BG)
 	var w: int = int(_map.get("width", 1))
 	var h: int = int(_map.get("height", 1))
@@ -41,7 +56,7 @@ func _ready() -> void:
 	_draw_tiles()
 	for e in _map.get("entities", []):
 		_place_entity(e)
-	_player = UI.label(self, _tile_px(Vector2i(_game.pos[0], _game.pos[1])), "@", 14, UI.COL_EMBER)
+	_make_player()
 	_msg = UI.label(self, Vector2(16, 336), "", 14, UI.COL_WARM)
 	_pause.setup(self, _db, _game, _input)
 	var args: Dictionary = _game.scene_args
@@ -75,6 +90,49 @@ func _place_entity(e: Dictionary) -> void:
 func _tile_px(t: Vector2i) -> Vector2:
 	return _origin + Vector2(t.x * TILE + 3, t.y * TILE - 3)
 
+# Party leader: animated walk sheet when the leader class's sprite key
+# resolves to a sprite_sheet asset, else the M0 "@" glyph placeholder.
+func _make_player() -> void:
+	var key := ""
+	if not _game.party.is_empty():
+		key = str(_db.cls(str(_game.party[0]["class"])).get("sprite", ""))
+	_sheet = _assets.sheet(key)
+	var t := Vector2i(_game.pos[0], _game.pos[1])
+	if _sheet.is_empty():
+		_player = UI.label(self, _tile_px(t), "@", 14, UI.COL_EMBER)
+		return
+	_atlas = AtlasTexture.new()
+	_atlas.atlas = _sheet["texture"]
+	_sprite = TextureRect.new()
+	_sprite.texture = _atlas
+	_sprite.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_sprite.stretch_mode = TextureRect.STRETCH_SCALE  # nearest via project default
+	var scale := float(SPRITE_H) / float(_sheet["frame_h"])
+	_sprite.size = Vector2(float(_sheet["frame_w"]) * scale, float(SPRITE_H))
+	add_child(_sprite)
+	_update_sprite()
+
+# Bottom edge sits on the tile's bottom edge; extra height overhangs upward;
+# frame centered horizontally on the tile.
+func _sprite_px(t: Vector2i) -> Vector2:
+	return _origin + Vector2(t.x * TILE + (TILE - _sprite.size.x) / 2.0,
+			(t.y + 1) * TILE - SPRITE_H)
+
+# Row by facing; 4-frame cycle indexed by the movement-step counter while a
+# move key is held (steps land every REPEAT_FRAMES frames = ~8 fps), frame 0
+# when idle. No wall time, no Rng (contract §3).
+func _update_sprite() -> void:
+	if _sprite == null:
+		return
+	var moving := false
+	for action in DIRS:
+		if _input.is_pressed(action):
+			moving = true
+			break
+	var frame := (_walk_steps % 4) if moving else 0
+	_atlas.region = _assets.sheet_region(_sheet, str(FACING_NAMES.get(_facing, "down")), frame)
+	_sprite.position = _sprite_px(Vector2i(_game.pos[0], _game.pos[1]))
+
 func _active(e: Dictionary) -> bool:
 	if e.has("requires_flag") and not _game.has_flag(e["requires_flag"]):
 		return false
@@ -106,6 +164,7 @@ func _process(_delta: float) -> void:
 			_leaving = true
 		return
 	_walk_input()
+	_update_sprite()
 
 func _walk_input() -> void:
 	if _input.is_just_pressed("menu"):
@@ -134,7 +193,9 @@ func _step(dir: Vector2i) -> void:
 	if not bool(_legend_at(t).get("walkable", false)) or _solid_at(t):
 		return
 	_game.pos = [t.x, t.y]
-	_player.position = _tile_px(t)
+	_walk_steps += 1
+	if _player != null:
+		_player.position = _tile_px(t)
 	if _fire_triggers_at(t):
 		return
 	_roll_encounter(t)
@@ -230,4 +291,5 @@ func m8_scene_type() -> String:
 func m8_detail() -> Dictionary:
 	return {"map": _game.map, "pos": _game.pos.duplicate(),
 			"facing": [_facing.x, _facing.y], "menu_open": _pause.open,
-			"menu_cursor": _pause.menu.cursor, "msg": _msg.text if _msg != null else ""}
+			"menu_cursor": _pause.menu.cursor, "msg": _msg.text if _msg != null else "",
+			"music": _audio.detail.duplicate()}

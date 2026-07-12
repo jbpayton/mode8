@@ -10,6 +10,7 @@ const UI := preload("res://scenes/ui.gd")
 @onready var _db: Node = get_node("/root/ContentDB")
 @onready var _game: Node = get_node("/root/Game")
 @onready var _input: Node = get_node("/root/M8Input")
+@onready var _assets: Node = get_node("/root/M8Assets")
 
 var _shop: Dictionary = {}
 var _phase := "top"       # top | buy | sell
@@ -40,6 +41,11 @@ func _goods_def(id: String) -> Dictionary:
 	var d: Dictionary = _db.item(id)
 	return d if not d.is_empty() else _db.equip(id)
 
+# Icon when the goods' sprite key resolves in the asset manifest (work order
+# 07); null keeps the M0 text-only row.
+func _goods_icon(id: String) -> Texture2D:
+	return _assets.icon_texture(str(_goods_def(id).get("sprite", "")))
+
 func _refresh() -> void:
 	_gold.text = "Gold: %d" % _game.gold
 	var buy_rows: Array = []
@@ -47,7 +53,7 @@ func _refresh() -> void:
 		var d := _goods_def(id)
 		var price := int(d.get("price", 0))
 		buy_rows.append({"label": "%-24s %4d g" % [d.get("name", id), price], "data": id,
-				"disabled": _game.gold < price})
+				"disabled": _game.gold < price, "icon": _goods_icon(id)})
 	_buy.set_entries(buy_rows)
 	var sell_rows: Array = []
 	for id in _game.inventory:
@@ -56,7 +62,7 @@ func _refresh() -> void:
 			continue  # unpriced (key items): not sellable
 		var sp := int(d.get("price", 0)) / 2  # ints: floor(price/2)
 		sell_rows.append({"label": "%-20s x%d  %4d g" % [d.get("name", id), _game.item_count(id), sp],
-				"data": id})
+				"data": id, "icon": _goods_icon(id)})
 	if sell_rows.is_empty():
 		sell_rows.append({"label": "(nothing to sell)", "data": "", "disabled": true})
 	_sell.set_entries(sell_rows)

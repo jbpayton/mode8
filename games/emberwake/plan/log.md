@@ -14,3 +14,4 @@
 - 2026-07-12 · M1 day-one: ComfyUI appliance provisioned (v0.9.2 + SDXL + pixel-art LoRA, all pinned+hashed); icon smoke test PASS through the gate cascade; first manifest-pinned asset installed.
 - 2026-07-12 · M1: music path live — ACE-Step v1 fallback activated (D-010), 90s town-theme candidate through Tier-1 audio gates in 18.9s generation.
 - 2026-07-12 · music.town APPROVED by human Tier-3; style bible scaffolds promoted (G-007).
+- 2026-07-12 · M1: engine asset-loading layer done — M8Assets (manifest+alias resolution, runtime textures, walk-sheet frames), M8Audio (soft-fail music slots), icon rows, animated leader sprite. 493/493 tests; rusher trace byte-identical with assets active (determinism preserved). Icon alias reconciled by conductor.

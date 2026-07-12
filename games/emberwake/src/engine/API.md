@@ -34,6 +34,22 @@ Error convention: fallible calls return a Dictionary with `"error"` (and/or `"ok
 ## M8Input (autoload) — the only way scenes read input (contract §6)
 - `is_just_pressed(action) -> bool` / `is_pressed(action) -> bool` — actions: `move_up move_down move_left move_right confirm cancel menu`. Delegates to Input, or to the injected schedule in script mode. Never call `Input` directly.
 
+## M8Assets (autoload) — asset manifest + runtime textures (work order 07, M1)
+- Loads `assets/manifest.json` at boot (via the `src/assets -> ../assets` symlink). Absent/malformed manifest = empty manifest: everything below returns null/{} and scenes keep their M0 placeholders. Never a hard dependency on an asset.
+- `manifest_loaded: bool` / `entries: Dictionary` — manifest state; `load_manifest(path := "res://assets/manifest.json")` re-loads (tests use fixture manifests).
+- `resolve(key) -> Dictionary | null` — resolution rule: content sprite key -> manifest entry whose `key` equals it OR whose `aliases` array contains it (key match wins). Returns `{"key", "class", "path"}`; game-dir-relative `file` fields land under `res://`.
+- `texture(key) -> Texture2D | null` — runtime image load (`Image.load_from_file` + `ImageTexture`, no import pipeline), cached per manifest key (misses too).
+- `icon_texture(key) -> Texture2D | null` — class-gated to `item_icon`; null = keep the glyph/text fallback. Scene lists pass it as the Menu entry `icon` (UI.Menu draws it 16px, nearest, before the label).
+- `sheet(key) -> Dictionary` — class-gated to `sprite_sheet`: `{"texture", "frame_w", "frame_h"}`, uniform frame box = image_size/4 (4 facing rows down/left/right/up x 4 walk-cycle columns). `{}` = placeholder.
+- `sheet_region(sheet, facing, frame) -> Rect2` — frame box for a facing row + cycle column (frame wraps mod 4). Pure math.
+- Determinism (contract §3): consumes no Rng, writes no Game state — traces are identical whether or not assets exist.
+
+## M8Audio (autoload) — music slot player (m8-soundsmith interface)
+- `play_slot(slot_id)` — resolves the slot through M8Assets (`bgm` class), builds an `AudioStreamMP3` from bytes at runtime (loop on, −6 dB), plays it. The same slot keeps playing across scene changes (idempotent); streams are cached per manifest key.
+- Missing slot / unresolved key / absent file = stop -> silence, NEVER an error; the miss is recorded in `detail`.
+- `detail: Dictionary` — `{"slot", "playing"}`, the one trace-visible field (surfaced by the wired scenes' `m8_detail().music`). `stop()` silences and resets it; `current_stream() -> AudioStream` for tests.
+- Wiring: overworld plays the map's `music` field on map change; battle_menu plays `music.battle` (`music.boss` when any monster `is_boss`); title plays `music.title`; ending plays `music.victory` (silence while that asset is missing). Slot ids are soundsmith interface conventions, not game content.
+
 ## M8Debug (autoload) — CLI args, script driver, trace writer (contract §6)
 - Parses `--m8-script/--m8-trace/--m8-seed/--m8-max-frames`; drives M8Input one step per frame group; quits(0) with a final `quit`/`timeout` line.
 - `trace_scene(type, args)` — called by `Game.goto_scene` (scenes don't call it directly).

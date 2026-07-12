@@ -18,6 +18,8 @@ const LOG_LINES := 7
 @onready var _game: Node = get_node("/root/Game")
 @onready var _input: Node = get_node("/root/M8Input")
 @onready var _m8d: Node = get_node("/root/M8Debug")
+@onready var _assets: Node = get_node("/root/M8Assets")
+@onready var _audio: Node = get_node("/root/M8Audio")
 
 var _battle: RefCounted = null
 var _story_node_id := ""
@@ -41,6 +43,11 @@ var _leaving := false
 func _ready() -> void:
 	UI.fill(self, UI.COL_BG)
 	_story_node_id = str(_game.scene_args.get("story_node", ""))
+	# Battle music slots per the m8-soundsmith convention (skill interface,
+	# not game content): music.boss when any monster in the group is a boss.
+	var boss: bool = _game.scene_args.get("monsters", []).any(
+			func(mid: Variant) -> bool: return bool(_db.monster(str(mid)).get("is_boss", false)))
+	_audio.play_slot("music.boss" if boss else "music.battle")
 	_battle = _game.start_battle(_game.scene_args.get("monsters", []), {})
 	_battle.event_cb = _on_event
 	for e in _battle.party + _battle.monsters:
@@ -152,7 +159,8 @@ func _open_items() -> void:
 	_phase = "item"
 	_items.set_entries(_battle_items().map(func(iid: String) -> Dictionary:
 		return {"label": "%s x%d" % [_db.item(iid).get("name", iid), _game.item_count(iid)],
-				"data": iid}))
+				"data": iid,
+				"icon": _assets.icon_texture(str(_db.item(iid).get("sprite", "")))}))
 	_show_only(_items)
 
 func _cost_tag(ab: Dictionary) -> String:
@@ -296,4 +304,5 @@ func m8_detail() -> Dictionary:
 	var cursors := {"spell": _spells.cursor, "item": _items.cursor, "target": _targets.cursor}
 	return {"phase": _phase, "round": int(_battle.round_no) if _battle != null else 0,
 			"actor": actor.get("key", ""), "outcome": str(_battle.outcome) if _battle != null else "",
-			"cursor": int(cursors.get(_phase, _cmd.cursor)), "story_node": _story_node_id}
+			"cursor": int(cursors.get(_phase, _cmd.cursor)), "story_node": _story_node_id,
+			"music": _audio.detail.duplicate()}

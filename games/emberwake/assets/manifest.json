@@ -29,7 +29,10 @@
       },
       "repair_rounds": 1,
       "repair_note": "round 1: fill 0.095 + 388 colors -> post-chain repair (crop-to-content + quantize), no re-roll needed",
-      "generated": "2026-07-12"
+      "generated": "2026-07-12",
+      "aliases": [
+        "icon_warm_draught"
+      ]
     },
     {
       "key": "music.town",

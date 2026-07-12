@@ -20,6 +20,8 @@ Game="*res://autoload/game.gd"
 Rng="*res://autoload/rng.gd"
 M8Input="*res://autoload/m8_input.gd"
 M8Debug="*res://autoload/m8_debug.gd"
+M8Assets="*res://autoload/m8_assets.gd"
+M8Audio="*res://autoload/m8_audio.gd"
 
 [display]
 

@@ -78,12 +78,18 @@ static func label(parent: Node, pos: Vector2, text: String, size := 16, col: Col
 
 # Vertical cursor menu over Labels. nav() returns "confirm" | "cancel" | "";
 # cursor wraps; disabled rows are selectable but refuse confirm (grayed).
+# Optional entry key "icon" (Texture2D, work order 07): drawn before the
+# label at ICON_PX square, nearest-scaled (project default filter); entries
+# without one render exactly as at M0 (glyph/text fallback).
 class Menu:
-	var entries: Array = []  # {"label": String, "data": Variant, "disabled": bool}
+	const ICON_PX := 16
+
+	var entries: Array = []  # {"label": String, "data": Variant, "disabled": bool, "icon": Texture2D?}
 	var cursor := 0
 	var font_size := 16
 	var holder: VBoxContainer = null
 	var _labels: Array = []
+	var _rows: Array = []
 
 	func attach(parent: Node, pos: Vector2, p_font_size := 16) -> void:
 		holder = VBoxContainer.new()
@@ -94,13 +100,28 @@ class Menu:
 	func set_entries(list: Array) -> void:
 		entries = list
 		cursor = clampi(cursor, 0, maxi(0, entries.size() - 1))
-		for l in _labels:
-			l.queue_free()
+		for r in _rows:
+			r.queue_free()
+		_rows = []
 		_labels = []
 		for e in entries:
 			var l := Label.new()
 			l.add_theme_font_size_override("font_size", font_size)
-			holder.add_child(l)
+			var row: Control = l
+			var icon: Variant = e.get("icon")
+			if icon is Texture2D:
+				var box := HBoxContainer.new()
+				var tr := TextureRect.new()
+				tr.texture = icon
+				tr.custom_minimum_size = Vector2(ICON_PX, ICON_PX)
+				tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+				tr.stretch_mode = TextureRect.STRETCH_SCALE
+				tr.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+				box.add_child(tr)
+				box.add_child(l)
+				row = box
+			holder.add_child(row)
+			_rows.append(row)
 			_labels.append(l)
 		render()
 

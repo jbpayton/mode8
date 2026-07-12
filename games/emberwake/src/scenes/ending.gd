@@ -13,6 +13,7 @@ const CREDITS := "MODE 8 — built by the studio, not by hands"
 @onready var _game: Node = get_node("/root/Game")
 @onready var _input: Node = get_node("/root/M8Input")
 @onready var _m8d: Node = get_node("/root/M8Debug")
+@onready var _audio: Node = get_node("/root/M8Audio")
 
 var _id := ""
 var _lines: Array = []
@@ -24,6 +25,10 @@ var _center: Label = null
 var _leaving := false
 
 func _ready() -> void:
+	# Victory slot per the m8-soundsmith convention (skill interface, not
+	# game content); while the asset is missing this stops the current track
+	# and the ending keeps silence.
+	_audio.play_slot("music.victory")
 	UI.fill(self, UI.COL_BG)
 	_id = str(_game.scene_args.get("dialogue", ""))
 	_lines = _db.dialogue(_id).get("lines", [])
@@ -69,4 +74,5 @@ func m8_scene_type() -> String:
 	return "ending"
 
 func m8_detail() -> Dictionary:
-	return {"dialogue": _id, "line": _line, "credits": _credits}
+	return {"dialogue": _id, "line": _line, "credits": _credits,
+			"music": _audio.detail.duplicate()}
