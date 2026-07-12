@@ -55,6 +55,165 @@
       },
       "status": "approved \u2014 human Tier-3 pass 2026-07-12: \"works well enough for the job, good calming town theme\". Loop post-process still pending (A.4 battery) before engine integration.",
       "generated": "2026-07-12"
+    },
+    {
+      "key": "warden_walk",
+      "class": "sprite_sheet",
+      "file": "assets/sprites/warden_walk.png",
+      "sha256": "c13440198fd3956ad440f0df959b1ce25f62d3d90bd4b6bd65494ac695b94d91",
+      "workflow": "skills/m8-atelier/assets/workflows/walk_cycle_vnccs.json",
+      "workflow_sha256": "af67ae701afdd2962a2904fd194127ef25fe6adfdc91c4fdc9d5e21444ffab43",
+      "layout": {
+        "frame_box": [
+          24,
+          32
+        ],
+        "rows": [
+          "down",
+          "left",
+          "right",
+          "up"
+        ],
+        "cols": [
+          "contactA",
+          "passingA",
+          "contactB",
+          "passingB"
+        ],
+        "baseline_row": 29,
+        "fps_hint": 7
+      },
+      "models": {
+        "qwen_image_edit_2511_fp8": "e9e85de74a8f48c1e3e2656617626348675a2f21",
+        "qwen25_vl_7b_fp8_text_encoder": "46839d338df81ce625d5fae27d7e370314c0fbc9",
+        "qwen_image_vae": "46839d338df81ce625d5fae27d7e370314c0fbc9",
+        "qie2511_lightning_4step_lora": "d74eba145674fd7e31b949324e148e21e7118abd",
+        "vnccs_pose_studio_qie2511_lora": "ba45075903203e511b054443d9e1c2c313b719ef"
+      },
+      "seeds": {
+        "down": 20260713,
+        "left": 20260712,
+        "right": 20260712,
+        "up": 20260712
+      },
+      "conditioning_inputs": {
+        "mannequin_canvases": "embedded base64 in workflow (offline corrected-units render of VNCCS_Utils MakeHuman CharacterData; gait keyframes in workflow _meta)",
+        "identity_refs": {
+          "down": {
+            "source": "sprite_pose_0005.png",
+            "sha256_prepared": "e6bcd06ed7274518c1daa1787068f86b77c6f6d7a10739e750682e5fb2abf337"
+          },
+          "left": {
+            "source": "sprite_pose_0006.png",
+            "sha256_prepared": "699b4f2a34a68a8b7f8e9d5bae3fa28c467835823331696b942b081aa2b0250c"
+          },
+          "right": {
+            "source": "sprite_pose_0006.png (mirrored)",
+            "sha256_prepared": "461cc77b26bcf42a65acd4e220336a5774762277f957c528e97bfbc3a0de04ec"
+          },
+          "up": {
+            "source": "sprite_pose_0004.png",
+            "sha256_prepared": "170ba75f29a42a2e812b29da5ddc108af4823d9db14b179ba3c6175693a9fd04"
+          }
+        }
+      },
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "post_chain": "green chroma key -> ground-shadow scrub (sole-protected) -> fixed 4-col frame cut -> shared per-direction registration (median feet baseline, mean x-centroid, one global scale char->24px) -> 35%-coverage area downsample to 24x32 -> hard alpha + largest component -> shared baseline snap to row 29 -> mediancut <=64 colors/direction",
+      "gates": {
+        "tier1_sheet": {
+          "all_green": true,
+          "down": {
+            "feet_dev": 0.5,
+            "baseline": 28.5,
+            "height": [
+              22,
+              23,
+              22,
+              23
+            ],
+            "fill": [
+              0.128,
+              0.125,
+              0.129,
+              0.129
+            ],
+            "colors": 63,
+            "green": true
+          },
+          "left": {
+            "feet_dev": 1.0,
+            "baseline": 28.0,
+            "height": [
+              22,
+              22,
+              22,
+              23
+            ],
+            "fill": [
+              0.116,
+              0.096,
+              0.118,
+              0.1
+            ],
+            "colors": 64,
+            "green": true
+          },
+          "right": {
+            "feet_dev": 1.0,
+            "baseline": 28.0,
+            "height": [
+              22,
+              24,
+              23,
+              23
+            ],
+            "fill": [
+              0.115,
+              0.105,
+              0.118,
+              0.1
+            ],
+            "colors": 63,
+            "green": true
+          },
+          "up": {
+            "feet_dev": 1.0,
+            "baseline": 28.0,
+            "height": [
+              22,
+              21,
+              22,
+              23
+            ],
+            "fill": [
+              0.135,
+              0.128,
+              0.126,
+              0.13
+            ],
+            "colors": 63,
+            "green": true
+          }
+        },
+        "tier3": "agent judge: all 16 frames correct facing per direction, gait reads at game res in all 4 rows; weakest: up row frame1 dark residue on trailing foot; identity is the canonical Naked/boxers base (clothing stage not yet run) \u2014 conductor + human are final judges"
+      },
+      "previews": [
+        "assets/sprites/previews/warden_walk_down_full.gif",
+        "assets/sprites/previews/warden_walk_down_game.gif",
+        "assets/sprites/previews/warden_walk_left_full.gif",
+        "assets/sprites/previews/warden_walk_left_game.gif",
+        "assets/sprites/previews/warden_walk_right_full.gif",
+        "assets/sprites/previews/warden_walk_right_game.gif",
+        "assets/sprites/previews/warden_walk_up_full.gif",
+        "assets/sprites/previews/warden_walk_up_game.gif"
+      ],
+      "repair_rounds": 3,
+      "repair_note": "down: repair1 anti-back-view prompt FAILED (2 frames flipped), reseed 20260713 fixed facing, repair2 feet-planted prompt FAILED (slipper artifact), scaffold fix (flat-feet mannequins on down/up rows) -> green; up: repair1 flat-feet scaffold -> green; left/right: green at first seed. Post-chain tooling iterated 4x (scrub band, sole protection, area downsample, baseline snap) \u2014 deterministic, not candidate burns",
+      "generated": "2026-07-12",
+      "aliases": [
+        "chr_warden"
+      ]
     }
   ]
 }

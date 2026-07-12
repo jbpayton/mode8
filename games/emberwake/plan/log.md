@@ -15,3 +15,4 @@
 - 2026-07-12 · M1: music path live — ACE-Step v1 fallback activated (D-010), 90s town-theme candidate through Tier-1 audio gates in 18.9s generation.
 - 2026-07-12 · music.town APPROVED by human Tier-3; style bible scaffolds promoted (G-007).
 - 2026-07-12 · M1: engine asset-loading layer done — M8Assets (manifest+alias resolution, runtime textures, walk-sheet frames), M8Audio (soft-fail music slots), icon rows, animated leader sprite. 493/493 tests; rusher trace byte-identical with assets active (determinism preserved). Icon alias reconciled by conductor.
+- 2026-07-12 · M1: Warden 4-dir walk cycles GREEN through the new sheet gate (feet baseline ≤1px, drift <0.7px); bit-exact regenerable (132s all 4 canvases); chr_warden alias live — overworld leader now animates; rusher trace still byte-identical; 496/496 tests.
