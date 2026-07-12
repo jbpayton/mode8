@@ -6,7 +6,7 @@ description: The MODE 8 asset gate cascade — deterministic geometry checks, me
 # m8-asset-warden — Asset Warden (SPEC §6) — M1 SKILL, INTERFACE FIXED NOW
 
 ## Status
-Stub until M1. The cascade below is the committed design; scripts land with the first real asset.
+ACTIVE as of M1 (2026-07-12). Tier 1 scripted and validated; Tiers 2–4 land with the character pipeline (pose deviation needs conditioning skeletons; identity embeddings need approved character references; in-engine differential needs real art in the engine).
 
 ## The cascade (cheapest first; any failure → structured defect report, never bare rejection)
 1. **Tier 1 — deterministic geometry (ms; `scripts/gate_tier1_image.py` + `gate_tier1_audio.py`, promoted from the M1 smoke tests):** alpha QA (single connected component, no islands/halos), sheet registration (feet baseline, centroid drift, bbox variance across frames), palette conformance (histogram distance vs. style-bible anchors), scale conformance (px height vs. spec), format checks. Bit-identical verdicts — pure scripts.
