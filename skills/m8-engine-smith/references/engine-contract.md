@@ -72,7 +72,7 @@ Ties break by list order. Item use allowed only for rule 1.
 
 ## 7. Test harness
 
-`tests/run_tests.gd` (SceneTree script): loads each `tests/unit/test_*.gd`, instantiates, calls every zero-arg method starting `test_`, passing nothing; test classes get assert helpers from `tests/unit/_t.gd` (`T.eq(a, b, msg)`, `T.ok(cond, msg)`, `T.err(callable, msg)` — count failures, print `file:method: message`). Summary line `TESTS: <pass>/<total> PASSED`, exit 1 on any failure.
+`tests/run_tests.gd` (SceneTree script): loads each `tests/unit/test_*.gd`, instantiates, calls every zero-arg method starting `test_`, passing nothing; test classes get assert helpers from `tests/unit/_t.gd` (`T.eq(a, b, msg)`, `T.ok(cond, msg)`, `T.err(callable, msg)` — count failures, print `file:method: message`). One summary line per test file (`test_x.gd: n/n`) followed by `TESTS: <pass>/<total> PASSED`, exit 1 on any failure — gate 2 evidence must prove each required file ran.
 
 Required files (a missing one fails build-warden):
 - `test_formula.gd` — parser: precedence, `//`, unary minus, funcs, source/target/game refs, parse errors

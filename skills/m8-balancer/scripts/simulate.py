@@ -107,7 +107,12 @@ def main(argv):
                   f"TTK mean {c['ttk_mean']} (p95 {c['ttk_p95']}), hp end {c['hp_end_mean']}")
         for k, ok in c["checks"].items(): md.append(f"- {'✓' if ok else '✗'} {k}")
         md.append("")
-    (game_dir / "reports" / "balance.md").write_text("\n".join(md) + "\n")
+    md_path = game_dir / "reports" / "balance.md"
+    if md_path.exists() and "## Patch log" in md_path.read_text():
+        # preserve the balancer's hand-appended patch-log audit trail (retro: emberwake/M0 gap 2)
+        md.append("## Patch log" + md_path.read_text().split("## Patch log", 1)[1].rstrip())
+        md.append("")
+    md_path.write_text("\n".join(md) + "\n")
     print(f"balance gate: {report['status'].upper()} -> {rp}")
     return 0 if report["status"] == "green" else 1
 

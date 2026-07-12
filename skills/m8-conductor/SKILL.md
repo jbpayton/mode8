@@ -50,4 +50,5 @@ Run independent specialists in parallel (single message, multiple Task calls) on
 - Schema friction from any specialist → they file an RFC draft in `ontology/RFCS.md`; you adjudicate acceptance ONLY if it's RFC-000-grade clarification; anything vocabulary-level stays draft for the human. Never let a specialist silently extend the algebra.
 - All game decisions you make (scope trims, ambiguity calls) go in `gdd/decisions.md` with rationale, numbered G-NNN.
 - Commit at every phase boundary: `git add games/<title> && git commit` with the phase and gate evidence in the message. Push if a remote exists.
+- Wrap (phase 7) re-runs any gate whose evidence predates a later repair (stale-evidence check: engine fixed during playtest ⇒ refresh gate 2/3 evidence before closing; retro: emberwake/M0 gap 3).
 - After phase 7, append metrics to `retrospectives/queue.md` (gate hit-rates, repair counts, sub-agent count, wall time) for `m8-newgame-plus`.

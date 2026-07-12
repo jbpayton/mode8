@@ -31,3 +31,4 @@ Party policy: heuristic_v1 (competent, not optimal). Seed 20260711.
 - **Diagnosis:** phase-2 `eruption` (AoE, mag*3 ≈ 26/target post-mitigation) at ai weight 2/7, stacking with burn ticks + claw — kills the ashcaller (64 hp) from above heuristic_v1's 35% heal threshold in consecutive turns.
 - **Patch (data only):** eruption value `source.mag * 3` → `source.mag * 2 + 4`; ai weight 2 → 1. monsters.json.
 - **After re-sim (same seed):** wipe 0.090 ∈ [0, 0.15]; ttk 10.84 ∈ [6, 16]; other checkpoints unchanged. GREEN.
+
