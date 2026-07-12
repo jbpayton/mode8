@@ -8,3 +8,5 @@
 - 2026-07-11 · phase 3b (scenes) done — 10 scene types + shared helpers, zero content-id leaks; boot/tests/smoke green, deterministic; conductor re-verified. Notes: menu spellcasting unsurfaced (menu-wright M1), ending scene type + npc→service binding are registry/schema RFC candidates, G-003 save-point mismatch (town-only in data).
 - 2026-07-11 · phase 4 (integration) done — all 5 build-warden gates green with evidence files. Conductor made one micro-edit as engine-smith: per-file summary lines in run_tests.gd (gate-2 evidence requirement); tests re-run green.
 - 2026-07-11 · phase 5 (balance) done — sim caught boss over-lethality (wipe 23%), one data patch (eruption mag*3→mag*2+4, weight 2→1) brought it to 9%; all checkpoints green. The verification moat works.
+- 2026-07-11 · phase 6 (playtest) done — rusher PASS end-to-end, deterministic; PT-001 found by persona, fixed by engine-smith, re-verified in repaired run. PT-002 deferred M1.
+- 2026-07-11 · phase 7 (wrap) done — M0 build complete: all 7 phases green with evidence. Remaining for M0 sign-off per SPEC §12: fresh-session exit test.

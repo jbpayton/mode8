@@ -1681,10 +1681,6 @@
  },
  {
   "do": "press",
-  "action": "move_down"
- },
- {
-  "do": "press",
   "action": "confirm"
  },
  {
@@ -4362,6 +4358,10 @@
  {
   "do": "wait",
   "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "move_down"
  },
  {
   "do": "press",

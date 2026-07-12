@@ -26,16 +26,21 @@
     "flag.tyrant_down"
    ],
    "gold_at_end": 484,
-   "determinism_check": "identical trace on full rerun with same seed+script"
+   "determinism_check": "identical trace on full rerun with same seed+script",
+   "defect_notes": {
+    "PT-001": "fixed, verified no zero-count stacks in repaired trace",
+    "PT-002": "open (minor)"
+   },
+   "repair_note": "Script repaired after PT-001 engine fix: item-key zero-erase reordered inventory keys; 2 item-menu navigations adjusted (B8 r1 emberdew idx 1->0, pre-boss inventory emberdew idx 1->2). All 226 battle events replay identically to the pre-fix run; outcome unchanged."
   }
  },
  "proxies": {
   "trace_lines": 1495,
   "scene_share_by_lines": {
-   "battle_menu": 0.577,
+   "battle_menu": 0.576,
    "dialogue": 0.011,
    "ending": 0.009,
-   "inventory": 0.016,
+   "inventory": 0.017,
    "overworld": 0.357,
    "party_builder": 0.005,
    "save_load": 0.004,
@@ -43,7 +48,7 @@
    "title": 0.004
   },
   "scene_share_by_frames": {
-   "battle_menu": 0.499,
+   "battle_menu": 0.498,
    "dialogue": 0.01,
    "ending": 0.009,
    "inventory": 0.019,
@@ -137,17 +142,17 @@
     "what": "chest.ember_key"
    },
    {
-    "step": 611,
+    "step": 610,
     "kind": "level_up",
     "what": "3->3"
    },
    {
-    "step": 774,
+    "step": 773,
     "kind": "level_up",
     "what": "4->4"
    },
    {
-    "step": 968,
+    "step": 967,
     "kind": "level_up",
     "what": "5->5"
    },
@@ -162,10 +167,10 @@
    226,
    32,
    83,
-   220,
+   219,
    163,
    194,
-   205
+   206
   ],
   "notes": "Battle share dominated by scripted menu steps; overworld share includes 2 town round-trips (inn/mp economy). Reward cadence clusters at levels L2-L5 on the descent; boss grants L6 post-fight."
  }

@@ -76,23 +76,23 @@
     {
       "id": 6,
       "name": "playtest",
-      "status": "pending",
+      "status": "done",
       "outputs": [
         "reports/completability.json",
         "reports/playtest/rusher/*",
         "reports/playtest/summary.json"
       ],
-      "gate_evidence": null
+      "gate_evidence": "static completability GREEN; rusher PASS seed 1101: 1184 actions, ending+credits+quit, deterministic (conductor rerun trace sha-identical to committed artifact), party L5 at boss (grind cap ok). Defects: PT-001 found->fixed->regression-tested->re-verified (1 repair round-trip); PT-002 deferred M1. reports/playtest/summary.json"
     },
     {
       "id": 7,
       "name": "wrap",
-      "status": "pending",
+      "status": "done",
       "outputs": [
         "plan/log.md closed",
         "retrospectives/queue.md entry"
       ],
-      "gate_evidence": null
+      "gate_evidence": "log closed; retrospectives/queue.md stocked; README milestone updated. M0 exit test (fresh session) queued as next action."
     }
   ],
   "repair_counts": {}

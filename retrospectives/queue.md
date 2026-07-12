@@ -7,7 +7,8 @@
 - completability: GREEN first-try; 1 benign orphan pattern (one-shot intro via blocked_by_flag excluded from monotone proof) — prover could learn the idiom.
 - engine: 428/428 unit tests; 0 defects routed back post-delivery; conductor made 1 micro-edit (per-file evidence lines in run_tests.gd — gate-2 requirement the generated runner missed).
 - balance: 1 violation caught (boss wipe 0.230 > 0.15), 1 data-patch round to green (0.090). Sim ran 3300 battles via the game engine; interpreter-vs-design-arithmetic agreement was exact on first contact.
-- playtest: static green; rusher run pending at queue time (see summary.json for outcome).
+- playtest: static green; rusher PASS (seed 1101, 1184 actions, 23 encounters 16W/7F, boss 23 turns, deterministic byte-identical incl. conductor rerun). Found PT-001 (real engine bug: phantom zero-count stacks + shop gold dupe) -> engine-smith fix + regression test (suite 430/430) -> rusher script repaired in 1 round-trip (2 cursor segments; battle events replayed identically). PT-002 deferred to M1 menu-wright.
+- full persona-loop stat: 1 defect found by dynamic play that static analysis + 430 unit tests + 3300 sim battles all missed — personas earn their seat.
 
 ### RFC candidates surfaced by specialists (not yet filed)
 1. stat-model needs a turn-order/speed role marker (engine bound it via project setting `m8/battle/speed_stat` — data, but engine-local).
