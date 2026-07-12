@@ -93,6 +93,14 @@ func _process(_delta: float) -> void:
 				_hold_action = ""
 		"wait":
 			_idle_left = maxi(1, int(step.get("frames", 1))) - 1
+		"screenshot":
+			# Tier-4 capture (engine contract §6; no-op under --headless where
+			# nothing renders — run via xvfb for real pixels). Reads no Rng,
+			# writes no Game state: traces stay byte-identical for scripts
+			# that don't use this action.
+			var img := get_viewport().get_texture().get_image()
+			var sp := str(step.get("path", "user://screenshot.png"))
+			img.save_png(sp)
 		_:
 			push_error("M8Debug: bad step " + str(step))
 	trace_line("step", step)

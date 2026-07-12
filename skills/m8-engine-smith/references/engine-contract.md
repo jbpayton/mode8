@@ -68,6 +68,7 @@ Ties break by list order. Item use allowed only for rule 1.
 - Trace (`--m8-trace`, JSONL): one line per executed step and per scene transition:
   `{"frame": n, "event": "step"|"scene"|"battle_event"|"dialogue"|"timeout"|"quit", "scene": "<scene_type>", "detail": {...}, "state": Game.snapshot() minus playtime}`
   plus, in battle, the interpreter's battle-log events (`effect-algebra.md` §Interpreter contract) as `battle_event` lines. Every scene implements `m8_scene_type() -> String` and `m8_detail() -> Dictionary` (cursor position, open menu, current dialogue id/line, battle turn...).
+- `{"do": "screenshot", "path": "<abs path>"}` — saves the viewport (real pixels only under xvfb-run windowed capture; silent no-op pixels under --headless). Tier-4 and playtest VLM QA hook. Consumes no Rng, writes no state.
 - Script exhausted or max-frames reached → write final line, `quit(0)`.
 
 ## 7. Test harness
