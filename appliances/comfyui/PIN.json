@@ -101,6 +101,83 @@
         "license": "Apache 2.0 (weights ACE-Step/ACE-Step-v1-3.5B)",
         "for": "music BGM \u2014 ACTIVE (research fallback promoted per D-010)",
         "sha256": "f07cad74c4adce52ca14ca1bdf74cf3c14cbafb0823b95eca4459467fa369f40"
+      },
+      {
+        "key": "qwen_image_edit_2511_fp8",
+        "file": "ComfyUI/models/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors",
+        "source": "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/e9e85de74a8f48c1e3e2656617626348675a2f21/split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors",
+        "hf_revision": "e9e85de74a8f48c1e3e2656617626348675a2f21",
+        "license": "Apache 2.0",
+        "license_file": "none at pinned revision (README cardData: apache-2.0; upstream Qwen/Qwen-Image-Edit-2511 cardData: apache-2.0)",
+        "sha256": "c9fdc158e46d3b61ef75f21ae866ca2fe808bf4a53643120d1c1e87c19280a4e",
+        "for": "VNCCS 3.0.1 sheet stages (Character/Clothes/Pose generators run on a QIE2511 pipe \u2014 not on Illustrious). Loaded via core UNETLoader through VNCCS Control Center custom mode; VNCCS's own manifest offers only GGUF quants, which would require the uninstalled city96/ComfyUI-GGUF pack.",
+        "vram_note": "~20.5GB fp8 weights \u2014 own stage on cuda:0, partial offload, never co-load judge/aux; candidate to also serve the repair-loop role planned for qwen_image_edit_2509_fp8"
+      },
+      {
+        "key": "qwen25_vl_7b_fp8_text_encoder",
+        "file": "ComfyUI/models/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+        "source": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/46839d338df81ce625d5fae27d7e370314c0fbc9/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+        "hf_revision": "46839d338df81ce625d5fae27d7e370314c0fbc9",
+        "license": "Apache 2.0",
+        "license_file": "none at pinned revision (README cardData: apache-2.0; upstream Qwen2.5-VL-7B-Instruct: apache-2.0)",
+        "sha256": "cb5636d852a0ea6a9075ab1bef496c0db7aef13c02350571e388aea959c5c0b4",
+        "for": "text/vision encoder for the QIE2511 pipe (VNCCS_QWEN_Encoder conditioning width 3584); NOT the f5aiteam/CLIP rehost VNCCS's manifest points at \u2014 same filename, canonical Comfy-Org source"
+      },
+      {
+        "key": "qwen_image_vae",
+        "file": "ComfyUI/models/vae/qwen_image_vae.safetensors",
+        "source": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/46839d338df81ce625d5fae27d7e370314c0fbc9/split_files/vae/qwen_image_vae.safetensors",
+        "hf_revision": "46839d338df81ce625d5fae27d7e370314c0fbc9",
+        "license": "Apache 2.0",
+        "license_file": "none at pinned revision (README cardData: apache-2.0)",
+        "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+        "for": "VAE for the QIE2511 pipe"
+      },
+      {
+        "key": "qie2511_lightning_4step_lora",
+        "file": "ComfyUI/models/loras/qwen/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors",
+        "source": "https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/d74eba145674fd7e31b949324e148e21e7118abd/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors",
+        "hf_revision": "d74eba145674fd7e31b949324e148e21e7118abd",
+        "license": "Apache 2.0",
+        "license_file": "none at pinned revision (README cardData: apache-2.0)",
+        "sha256": "22226e8d05d354bb356627d428809f5afd7819399b077238a2b70a82883a904f",
+        "for": "4-step turbo LoRA for QIE2511 (VNCCS runs sheet stages at steps=4 cfg=1); canonical lightx2v source, same file the VNCCS manifest rehosts from MIUProject/VNCCS_v3.0; path must stay under loras/qwen/ for Control Center auto-apply"
+      },
+      {
+        "key": "vnccs_pose_studio_qie2511_lora",
+        "file": "ComfyUI/models/loras/qwen/VNCCS/VNCCS_QIE2511_PoseStudio_ART_V5.9.5.safetensors",
+        "source": "https://huggingface.co/MIUProject/VNCCS_PoseStudio/resolve/ba45075903203e511b054443d9e1c2c313b719ef/models/loras/qwen/VNCCS/VNCCS_QIE2511_PoseStudio_ART_V5.9.5.safetensors",
+        "hf_revision": "ba45075903203e511b054443d9e1c2c313b719ef",
+        "license": "MIT",
+        "license_file": "none at pinned revision (README cardData: mit); derivative finetune of Qwen-Image-Edit-2511 (Apache 2.0)",
+        "sha256": "f81f7f446f56188d96a1094ffe5d4183e7e4473d27eebb43e4c9555d3537bbb8",
+        "for": "REQUIRED by VNCCS_CharacterGenerator pose stage (hard RuntimeError if absent from pipe lora_entries); maps grey pose-mannequin renders to the character; path must match the packaged control_center.json local_path exactly"
+      },
+      {
+        "key": "apisr_4x_grl_gan_upscaler",
+        "file": "ComfyUI/models/upscale_models/4x_APISR_GRL_GAN_generator.pth",
+        "source": "https://github.com/Kiteretsu77/APISR/releases/download/v0.1.0/4x_APISR_GRL_GAN_generator.pth",
+        "release_tag": "v0.1.0",
+        "license": "GPL-3.0 (repo license; tool-only upscaler \u2014 does not touch output IP)",
+        "sha256": "56fff250139563dea59c4ca81af19cc098d94dc3abaad23640f14cec488e5da1",
+        "for": "VNCCS sheet upscaler in GAN mode via core UpscaleModelLoader/spandrel. VNCCS's default upscaler is SeedVR2, which needs the uninstalled numz/ComfyUI-SeedVR2_VideoUpscaler node pack + seedvr2 GGUF weights \u2014 GAN mode avoids that surface"
+      }
+    ],
+    "refused_or_avoided": [
+      {
+        "key": "anima_base_v1",
+        "hf": "circlestone-labs/Anima",
+        "reason": "NOT DOWNLOADED \u2014 flagged non-commercial (CircleStone Labs license, NVIDIA Cosmos-Predict2 derivative) per RESEARCH-M1 \u00a7B.1; Illustrious path used instead"
+      },
+      {
+        "key": "sam3",
+        "hf": "yolain/sam3-safetensors (rehost of Meta SAM 3)",
+        "reason": "NOT DOWNLOADED \u2014 Meta SAM custom license unverified; VNCCS silently hf-downloads it when chroma-key 'SAM3 details recovery' is enabled, so all atelier workflows must keep use_sam3_details_recovery=false until the license is read and this entry is promoted"
+      },
+      {
+        "key": "qie2511_gguf_quants",
+        "hf": "unsloth/Qwen-Image-Edit-2511-GGUF",
+        "reason": "NOT DOWNLOADED \u2014 not a license refusal; requires the uninstalled city96/ComfyUI-GGUF node pack (out of scope for this provisioning pass). fp8mixed safetensors via core UNETLoader used instead. Revisit if VRAM pressure demands Q5"
       }
     ],
     "planned_next": [

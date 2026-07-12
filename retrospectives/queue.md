@@ -32,3 +32,10 @@
 
 ### Cost notes (approximate, this build)
 - 4 specialist sub-agents (systems 77k, content 127k, engine-core 281k, scenes 256k tokens) + rusher (pending) + conductor orchestration in main session.
+
+## emberwake / M1 in-progress findings (2026-07-12)
+- Character pipeline live: VNCCS 3.0.1 sheet stage runs on Qwen-Image-Edit-2511 (+PoseStudio LoRA, lightning 4-step), NOT Illustrious — research pinned 2509; 2511 required by VNCCS's LoRA. 458s/sheet on one 3090 (fp8, 19.6GB).
+- Pose Studio 3D is UI-locked with two server-side bugs (deg→rad double conversion, np.matrix crash); workaround = inject pre-rendered mannequins via pose_data.captured_images. Consider upstreaming fixes or vendoring a renderer at M1 wrap.
+- Prompt-scaffold lessons (workflow _meta has full detail): bare "chibi" on the 640x1536 canvas collapses into sticker collages; palette words dye skin; blue screen contaminates, green doesn't; mannequin facing cue too weak → front/back flips.
+- Repair-loop candidates for the sheet stage: facing cue on mannequin renders (eye/nose markers), "no shadow on the ground" prompt term, chibi proportions via dedicated stylization stage or license-checked LoRA (NOT base prompt tags).
+- SAM3 remains refused (silent-download path disabled in all workflows); Anima remains refused (NC).
