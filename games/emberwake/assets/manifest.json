@@ -850,7 +850,7 @@
       "models": {
         "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b"
       },
-      "model_note": "SDXL base 1.0 ALONE, NO pixel-art-xl LoRA — painterly HD-2D backdrop that recedes behind pixel sprites; full rationale in workflow _meta.model_choice",
+      "model_note": "SDXL base 1.0 ALONE, NO pixel-art-xl LoRA \u2014 painterly HD-2D backdrop that recedes behind pixel sprites; full rationale in workflow _meta.model_choice",
       "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
       "style_bible_version": "0.1.0",
       "post_chain": "bg_post_chain.py --quant 192: center-crop 1344x768 gen to exact 16:9 -> LANCZOS downscale to 640x360 -> mediancut quantize 192 -> flatten to opaque RGBA (alpha 255). post_chain_sha256=820436567d72b5f34c2dbabd4c1e86505cfd0a040051a1beb857800522fb213e",
@@ -865,11 +865,11 @@
           "fill": 1.0,
           "fg_colors": 192
         },
-        "tier3": "agent judge: reads as a dark volcanic cavern interior — rough basalt walls, ember-orange lava fissures/river receding into depth, cool-blue foreground boulders (style-bible cool shadow blues); no characters/monsters/text; dark enough that pixel monster sprites pop against it. Human is final judge."
+        "tier3": "agent judge: reads as a dark volcanic cavern interior \u2014 rough basalt walls, ember-orange lava fissures/river receding into depth, cool-blue foreground boulders (style-bible cool shadow blues); no characters/monsters/text; dark enough that pixel monster sprites pop against it. Human is final judge."
       },
       "repair_rounds": 0,
       "repair_note": "0 generation re-rolls; winner chosen from a 4-seed contact sheet (20260712-15) at seed 20260713; post-chain green on first pass.",
-      "engine_wiring": "NOT YET WIRED — content maps do not reference battle backgrounds yet. A separate engine order must map this key to the Ember Depth dungeon (F1-F3) battle scenes.",
+      "engine_wiring": "NOT YET WIRED \u2014 content maps do not reference battle backgrounds yet. A separate engine order must map this key to the Ember Depth dungeon (F1-F3) battle scenes.",
       "generated": "2026-07-12",
       "aliases": [
         "bg_ember_depth"
@@ -893,7 +893,7 @@
       "models": {
         "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b"
       },
-      "model_note": "SDXL base 1.0 ALONE, NO pixel-art-xl LoRA — painterly HD-2D backdrop that recedes behind pixel sprites; full rationale in workflow _meta.model_choice",
+      "model_note": "SDXL base 1.0 ALONE, NO pixel-art-xl LoRA \u2014 painterly HD-2D backdrop that recedes behind pixel sprites; full rationale in workflow _meta.model_choice",
       "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
       "style_bible_version": "0.1.0",
       "post_chain": "bg_post_chain.py --quant 192: center-crop 1344x768 gen to exact 16:9 -> LANCZOS downscale to 640x360 -> mediancut quantize 192 -> flatten to opaque RGBA (alpha 255). post_chain_sha256=820436567d72b5f34c2dbabd4c1e86505cfd0a040051a1beb857800522fb213e",
@@ -908,11 +908,11 @@
           "fill": 1.0,
           "fg_colors": 192
         },
-        "tier3": "agent judge: reads as the Ash Tyrant's vault — a vast molten cathedral of stone and fire, arched basalt galleries receding into depth, a central glowing altar-gate, lava rivers and a cool reflecting pool with steps in the foreground; ominous and grander than bg_ember_depth (larger chamber, architectural); no characters/monsters/text; the darker foreground ledge gives the boss sprite a place to stand. Human is final judge."
+        "tier3": "agent judge: reads as the Ash Tyrant's vault \u2014 a vast molten cathedral of stone and fire, arched basalt galleries receding into depth, a central glowing altar-gate, lava rivers and a cool reflecting pool with steps in the foreground; ominous and grander than bg_ember_depth (larger chamber, architectural); no characters/monsters/text; the darker foreground ledge gives the boss sprite a place to stand. Human is final judge."
       },
       "repair_rounds": 0,
       "repair_note": "0 generation re-rolls; winner chosen from a 4-seed contact sheet (20260712-15) at seed 20260715; post-chain green on first pass.",
-      "engine_wiring": "NOT YET WIRED — content maps do not reference battle backgrounds yet. A separate engine order must map this key to the Ember Depth F3 vault / Ash Tyrant boss battle scene.",
+      "engine_wiring": "NOT YET WIRED \u2014 content maps do not reference battle backgrounds yet. A separate engine order must map this key to the Ember Depth F3 vault / Ash Tyrant boss battle scene.",
       "generated": "2026-07-12",
       "aliases": [
         "bg_vault"
@@ -927,7 +927,7 @@
         96,
         96
       ],
-      "derivation": "crop-from-canonical-identity (no new generation) — head-and-shoulders bust cut from the accepted clothed ShaftWarden front view.",
+      "derivation": "crop-from-canonical-identity (no new generation) \u2014 head-and-shoulders bust cut from the accepted clothed ShaftWarden front view.",
       "source_sprite": {
         "file": "appliances/comfyui/ComfyUI/output/VNCCS/Characters/Warden/Sprites/ShaftWarden/Neutral/sprite_pose_0005.png",
         "view": "front (0005)",
@@ -971,11 +971,11 @@
           "fill": 1.0,
           "fg_colors": 256
         },
-        "tier3": "agent judge: reads as the Warden bust in dialogue/status — dark spiky hair, amber-lit face (canonical ShaftWarden lighting, matches the walk-cycle 'amber face'), dark quilted jacket with ember-orange collar trim; identity consistent with chr_warden; simple cool-dark gradient bg. Face is moody/backlit (his established look) but clearly legible at 96px. Human is final judge."
+        "tier3": "agent judge: reads as the Warden bust in dialogue/status \u2014 dark spiky hair, amber-lit face (canonical ShaftWarden lighting, matches the walk-cycle 'amber face'), dark quilted jacket with ember-orange collar trim; identity consistent with chr_warden; simple cool-dark gradient bg. Face is moody/backlit (his established look) but clearly legible at 96px. Human is final judge."
       },
       "repair_rounds": 0,
       "repair_note": "0 re-rolls; bust fraction chosen from a 3-value contact sheet (0.32/0.38/0.44), 0.38 gives the cleanest head-and-shoulders. Gate green first pass.",
-      "engine_wiring": "NOT YET WIRED beyond content — classes.json class.warden.portrait already declares key 'por_warden'; the dialogue/status engine must load & render it (which VN/status panels, at what size).",
+      "engine_wiring": "NOT YET WIRED beyond content \u2014 classes.json class.warden.portrait already declares key 'por_warden'; the dialogue/status engine must load & render it (which VN/status panels, at what size).",
       "generated": "2026-07-12",
       "aliases": [
         "por_warden"
@@ -990,7 +990,7 @@
         96,
         96
       ],
-      "derivation": "crop-from-canonical-identity (no new generation) — head-and-shoulders bust cut from the accepted clothed EmberMender front view.",
+      "derivation": "crop-from-canonical-identity (no new generation) \u2014 head-and-shoulders bust cut from the accepted clothed EmberMender front view.",
       "source_sprite": {
         "file": "appliances/comfyui/ComfyUI/output/VNCCS/Characters/Ashcaller/Sprites/EmberMender/Neutral/sprite_pose_0001.png",
         "view": "front (0001)",
@@ -1034,15 +1034,284 @@
           "fill": 1.0,
           "fg_colors": 256
         },
-        "tier3": "agent judge: reads cleanly as the Ashcaller bust in dialogue/status — white layered hair, pale skin, ember-orange eyes, pale ash-grey robe with a red collar tie and ember-orange trim; identity consistent with chr_ashcaller; strong contrast against the dark gradient bg (design goal vs the darker Warden). Best-reading portrait of the pair. Human is final judge."
+        "tier3": "agent judge: reads cleanly as the Ashcaller bust in dialogue/status \u2014 white layered hair, pale skin, ember-orange eyes, pale ash-grey robe with a red collar tie and ember-orange trim; identity consistent with chr_ashcaller; strong contrast against the dark gradient bg (design goal vs the darker Warden). Best-reading portrait of the pair. Human is final judge."
       },
       "repair_rounds": 0,
       "repair_note": "0 re-rolls; bust fraction chosen from a 3-value contact sheet (0.32/0.38/0.44), 0.38 gives the cleanest head-and-shoulders. Gate green first pass.",
-      "engine_wiring": "NOT YET WIRED beyond content — classes.json class.ashcaller.portrait already declares key 'por_ashcaller'; the dialogue/status engine must load & render it (which VN/status panels, at what size).",
+      "engine_wiring": "NOT YET WIRED beyond content \u2014 classes.json class.ashcaller.portrait already declares key 'por_ashcaller'; the dialogue/status engine must load & render it (which VN/status panels, at what size).",
       "generated": "2026-07-12",
       "aliases": [
         "por_ashcaller"
       ]
+    },
+    {
+      "key": "icon_emberdew",
+      "class": "item_icon",
+      "file": "assets/icons/icon_emberdew.png",
+      "sha256": "acc7901def2e54f20db978362f399dfb69d8ce4191354203ea609a6ed605880b",
+      "workflow": "skills/m8-atelier/assets/workflows/icon_sdxl_pixel.json",
+      "workflow_sha256": "d7429065d62fe7104ac72ded54896a715fc62aabb435ea357682a5211031366a",
+      "workflow_overrides": {
+        "3.text": "pixel art, game item icon, a small glass vial filled with dewy blue-green liquid, cork stopper, cool teal glow, glistening droplets, centered single object, flat colors, clean silhouette, dark plain background",
+        "6.seed": 20260712
+      },
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "post_chain": "icon_post_chain.py --size 64 --margin 3 --quant 32: adaptive border-flood alpha key (ring median, adaptive tol) -> keep largest 4-conn component -> bbox crop -> NEAREST scale to fit 58px box -> center on 64x64 transparent -> binary alpha + largest component -> mediancut <=32 fg colors. post_chain_sha256=c9f484c556a43e36ea37b978e6000f05eea6e7093d2bed490e8625a926b085d6",
+      "gates": {
+        "tier1": {
+          "all_green": true,
+          "fill": 0.344,
+          "fg_colors": 32,
+          "components": 1
+        },
+        "tier3": "agent judge: reads as a cool MP-restore vial - teal glass bottle, cork stopper, dewy blue-green liquid with a cool glow; deliberate cool counterpart to the warm_draught potion; single component, transparent bg, legible at 64px. Human is final judge."
+      },
+      "repair_rounds": 0,
+      "generated": "2026-07-12",
+      "aliases": [
+        "icon_emberdew"
+      ]
+    },
+    {
+      "key": "icon_ember_salve",
+      "class": "item_icon",
+      "file": "assets/icons/icon_ember_salve.png",
+      "sha256": "a8f6eca1191f43b73a68d9816f977a65bb76d6204b38858a2ea4697f38449882",
+      "workflow": "skills/m8-atelier/assets/workflows/icon_sdxl_pixel.json",
+      "workflow_sha256": "d7429065d62fe7104ac72ded54896a715fc62aabb435ea357682a5211031366a",
+      "workflow_overrides": {
+        "3.text": "pixel art, game item icon, a small round metal tin jar of glowing ember-orange healing salve, open lid, warm glowing ointment, centered single object, flat colors, clean silhouette, dark plain background",
+        "6.seed": 20260712
+      },
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "post_chain": "icon_post_chain.py --size 64 --margin 3 --quant 32: adaptive border-flood alpha key (ring median, adaptive tol) -> keep largest 4-conn component -> bbox crop -> NEAREST scale to fit 58px box -> center on 64x64 transparent -> binary alpha + largest component -> mediancut <=32 fg colors. post_chain_sha256=c9f484c556a43e36ea37b978e6000f05eea6e7093d2bed490e8625a926b085d6",
+      "gates": {
+        "tier1": {
+          "all_green": true,
+          "fill": 0.626,
+          "fg_colors": 31,
+          "components": 1
+        },
+        "tier3": "agent judge: reads as a status-cure salve - open copper/bronze tin jar with a dark rim and glowing ember-orange ointment inside; warm palette on-theme; single component, transparent bg, legible at 64px. Human is final judge."
+      },
+      "repair_rounds": 0,
+      "generated": "2026-07-12",
+      "aliases": [
+        "icon_ember_salve"
+      ]
+    },
+    {
+      "key": "icon_ember_key",
+      "class": "item_icon",
+      "file": "assets/icons/icon_ember_key.png",
+      "sha256": "55633e5d225fe64eafa13d4c51e164b98d871532ea349cf739d4168000167b01",
+      "workflow": "skills/m8-atelier/assets/workflows/icon_sdxl_pixel.json",
+      "workflow_sha256": "d7429065d62fe7104ac72ded54896a715fc62aabb435ea357682a5211031366a",
+      "workflow_overrides": {
+        "3.text": "pixel art, game item icon, an ornate old key forged of cooled ember, soot-dark blackened metal, faint warm orange glow in the cracks, held diagonally across the frame, centered single object, flat colors, clean silhouette, dark plain background",
+        "6.seed": 20260712
+      },
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "post_chain": "icon_post_chain.py --size 64 --margin 3 --quant 32: adaptive border-flood alpha key (ring median, adaptive tol) -> keep largest 4-conn component -> bbox crop -> NEAREST scale to fit 58px box -> center on 64x64 transparent -> binary alpha + largest component -> mediancut <=32 fg colors. post_chain_sha256=c9f484c556a43e36ea37b978e6000f05eea6e7093d2bed490e8625a926b085d6",
+      "gates": {
+        "tier1": {
+          "all_green": true,
+          "fill": 0.165,
+          "fg_colors": 32,
+          "components": 1
+        },
+        "tier3": "agent judge: reads as the ember key item - ornate soot-dark blackened key, glowing ember-orange cross at the bow and warm glow flecks in the metal, toothed bit; single component, transparent bg, legible at 64px. Vertical thin key silhouette puts fill (0.165) near the [0.15,0.85] floor by design - lowest fill margin of the batch. Human is final judge."
+      },
+      "repair_rounds": 0,
+      "generated": "2026-07-12",
+      "aliases": [
+        "icon_ember_key"
+      ]
+    },
+    {
+      "key": "icon_hearthloaf",
+      "class": "item_icon",
+      "file": "assets/icons/icon_hearthloaf.png",
+      "sha256": "c7e38a45cffb8f60cecb042c4d5ee7c7abf22b1151c5680289fd54bf1bafd06d",
+      "workflow": "skills/m8-atelier/assets/workflows/icon_sdxl_pixel.json",
+      "workflow_sha256": "d7429065d62fe7104ac72ded54896a715fc62aabb435ea357682a5211031366a",
+      "workflow_overrides": {
+        "3.text": "pixel art, game item icon, a round rustic loaf of bread, warm golden-brown crust, homey freshly baked, scored cross on top, dusting of flour, centered single object, flat colors, clean silhouette, dark plain background",
+        "6.seed": 20260712
+      },
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "post_chain": "icon_post_chain.py --size 64 --margin 3 --quant 32: adaptive border-flood alpha key (ring median, adaptive tol) -> keep largest 4-conn component -> bbox crop -> NEAREST scale to fit 58px box -> center on 64x64 transparent -> binary alpha + largest component -> mediancut <=32 fg colors. post_chain_sha256=c9f484c556a43e36ea37b978e6000f05eea6e7093d2bed490e8625a926b085d6",
+      "gates": {
+        "tier1": {
+          "all_green": true,
+          "fill": 0.63,
+          "fg_colors": 32,
+          "components": 1
+        },
+        "tier3": "agent judge: reads as a homey revive loaf - round rustic bread, warm golden-brown scored crust with flour dusting; warm on-theme palette; single component, transparent bg, legible at 64px. Human is final judge."
+      },
+      "repair_rounds": 0,
+      "generated": "2026-07-12",
+      "aliases": [
+        "icon_hearthloaf"
+      ]
+    },
+    {
+      "key": "icon_coldiron_brand",
+      "class": "item_icon",
+      "file": "assets/icons/icon_coldiron_brand.png",
+      "sha256": "0724d6159875bde2292226f5c293528f9ea02d5329604bd3f28b3a9013d10b70",
+      "workflow": "skills/m8-atelier/assets/workflows/icon_sdxl_pixel.json",
+      "workflow_sha256": "d7429065d62fe7104ac72ded54896a715fc62aabb435ea357682a5211031366a",
+      "workflow_overrides": {
+        "3.text": "pixel art, game item icon, an upright heavy falchion sword with a very wide broad thick single-edged steel blade, frost-touched pale blue-white glowing edge and cold frost crystals, dark iron guard and leather hilt, wide chopping blade, centered single object, flat colors, clean silhouette, dark plain background",
+        "6.seed": 20260716
+      },
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "post_chain": "icon_post_chain.py --size 64 --margin 1 --quant 32: adaptive border-flood alpha key (ring median, adaptive tol) -> keep largest 4-conn component -> bbox crop -> NEAREST scale to fit 62px box -> center on 64x64 transparent -> binary alpha + largest component -> mediancut <=32 fg colors. post_chain_sha256=c9f484c556a43e36ea37b978e6000f05eea6e7093d2bed490e8625a926b085d6",
+      "gates": {
+        "tier1": {
+          "all_green": true,
+          "fill": 0.162,
+          "fg_colors": 32,
+          "components": 1
+        },
+        "tier3": "agent judge: reads as a frost-touched cold-iron sword - broad pale blue-white glowing falchion blade angled diagonally, cool frost highlights, dark iron guard and hilt; cool-blue palette (deliberate frost weapon); single component, transparent bg, legible at 64px. Human is final judge."
+      },
+      "repair_rounds": 4,
+      "generated": "2026-07-12",
+      "aliases": [
+        "icon_coldiron_brand"
+      ],
+      "repair_note": "weapon-fill struggle: base seed 20260712 + reseeds 20260713/20260714/20260715 all rendered slender upright swords (fill 0.07-0.10, red); the pixel-art-xl LoRA ignores diagonal-pose wording for thin arming swords. Fix = subject switched to a BROAD falchion (seed 20260716) which the LoRA drew diagonally on its own (subj 45x58, fill 0.141) + post-chain margin tightened 3->1 to scale the near-square silhouette over the 0.15 floor (fill 0.162). No 45deg pre-rotation used (raw was already diagonal; rotating it made fill worse)."
+    },
+    {
+      "key": "icon_shaftplate",
+      "class": "item_icon",
+      "file": "assets/icons/icon_shaftplate.png",
+      "sha256": "75f25f0313e8ea64d7b08c7709521ae07c77c4648fc62265e7032fff8eab5343",
+      "workflow": "skills/m8-atelier/assets/workflows/icon_sdxl_pixel.json",
+      "workflow_sha256": "d7429065d62fe7104ac72ded54896a715fc62aabb435ea357682a5211031366a",
+      "workflow_overrides": {
+        "3.text": "pixel art, game item icon, a dark miners iron breastplate chest armor, soot-blackened heavy steel plate, subtle glowing ember-orange trim and rivets, front view, centered single object, flat colors, clean silhouette, dark plain background",
+        "6.seed": 20260712
+      },
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "post_chain": "icon_post_chain.py --size 64 --margin 3 --quant 32: adaptive border-flood alpha key (ring median, adaptive tol) -> keep largest 4-conn component -> bbox crop -> NEAREST scale to fit 58px box -> center on 64x64 transparent -> binary alpha + largest component -> mediancut <=32 fg colors. post_chain_sha256=c9f484c556a43e36ea37b978e6000f05eea6e7093d2bed490e8625a926b085d6",
+      "gates": {
+        "tier1": {
+          "all_green": true,
+          "fill": 0.549,
+          "fg_colors": 32,
+          "components": 1
+        },
+        "tier3": "agent judge: reads as the miner body armor - soot-blackened steel breastplate with grey pauldrons and subtle glowing ember-orange trim and rivets; dark soot + ember on-theme; single component, transparent bg, legible at 64px. Human is final judge."
+      },
+      "repair_rounds": 0,
+      "generated": "2026-07-12",
+      "aliases": [
+        "icon_shaftplate"
+      ]
+    },
+    {
+      "key": "icon_ashwood_stave",
+      "class": "item_icon",
+      "file": "assets/icons/icon_ashwood_stave.png",
+      "sha256": "5766927beabadfef056190a9fb97160779aa75b729661c0309aa3ed9cd4f3b18",
+      "workflow": "skills/m8-atelier/assets/workflows/icon_sdxl_pixel.json",
+      "workflow_sha256": "d7429065d62fe7104ac72ded54896a715fc62aabb435ea357682a5211031366a",
+      "workflow_overrides": {
+        "3.text": "pixel art, game item icon, a casters magic staff, thick pale bleached grey-white ashwood shaft, topped with a large ornate glowing ember-orange crystal cluster held in curved wooden prongs, cloth wrapped grip, centered single object, flat colors, clean silhouette, dark plain background",
+        "4.text": "photo, realistic, 3d render, blurry, soft focus, text, watermark, frame, border, gradient background, multiple objects, green leaves, foliage, plant, tree, pedestal, pillar, stump, base",
+        "6.seed": 20260716
+      },
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "post_chain": "icon_post_chain.py --size 64 --margin 2 --quant 32: adaptive border-flood alpha key (ring median, adaptive tol) -> keep largest 4-conn component -> bbox crop -> NEAREST scale to fit 60px box -> center on 64x64 transparent -> binary alpha + largest component -> mediancut <=32 fg colors. post_chain_sha256=c9f484c556a43e36ea37b978e6000f05eea6e7093d2bed490e8625a926b085d6",
+      "gates": {
+        "tier1": {
+          "all_green": true,
+          "fill": 0.165,
+          "fg_colors": 32,
+          "components": 1
+        },
+        "tier3": "agent judge: reads as the casters ember staff - a large glowing ember-orange crystal cluster head on a diagonal wooden shaft with a silver collar and pommel; strong ember on-theme accent. Shaft renders tan/brown rather than the specified pale ashwood (minor deviation). Single component, transparent bg, legible at 64px. Human is final judge."
+      },
+      "repair_rounds": 4,
+      "generated": "2026-07-12",
+      "aliases": [
+        "icon_ashwood_stave"
+      ],
+      "repair_note": "staff-fill + read struggle: seed 20260712 rendered a proper tall staff but too thin (fill 0.077) and dark-brown with off-theme green leaves; 20260713 (short thick) read as a squat pedestal/pillar not a staff; 20260714/20260715 slender (fill 0.05-0.06). Winner 20260716 = big ornate ember-crystal head on a shaft, which the LoRA drew diagonally on its own -> reads as a staff AND fills the frame; standard chain (no rotation), margin tightened 3->2 for a comfortable 0.165 (margin 3 was exactly on the 0.15 floor). Negative prompt extended to ban leaves/pedestal/pillar failure modes."
+    },
+    {
+      "key": "icon_emberweave_shawl",
+      "class": "item_icon",
+      "file": "assets/icons/icon_emberweave_shawl.png",
+      "sha256": "af988d662a7570b6fd44d1cc5f75969f31f184dc6c5145fb74c1f893892e788f",
+      "workflow": "skills/m8-atelier/assets/workflows/icon_sdxl_pixel.json",
+      "workflow_sha256": "d7429065d62fe7104ac72ded54896a715fc62aabb435ea357682a5211031366a",
+      "workflow_overrides": {
+        "3.text": "pixel art, game item icon, a light woven shawl wrap, a draped folded rectangular cloth stole with fringed tasseled ends, ash-grey knit fabric with glowing ember-orange woven stripe patterns, soft textile scarf, centered single object, flat colors, clean silhouette, dark plain background",
+        "4.text": "photo, realistic, 3d render, blurry, soft focus, text, watermark, frame, border, gradient background, multiple objects, hood, full robe, armor, person, body",
+        "6.seed": 20260713
+      },
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "post_chain": "icon_post_chain.py --size 64 --margin 3 --quant 32: adaptive border-flood alpha key (ring median, adaptive tol) -> keep largest 4-conn component -> bbox crop -> NEAREST scale to fit 58px box -> center on 64x64 transparent -> binary alpha + largest component -> mediancut <=32 fg colors. post_chain_sha256=c9f484c556a43e36ea37b978e6000f05eea6e7093d2bed490e8625a926b085d6",
+      "gates": {
+        "tier1": {
+          "all_green": true,
+          "fill": 0.481,
+          "fg_colors": 32,
+          "components": 1
+        },
+        "tier3": "agent judge: reads as the emberweave shawl - a draped woven stole/scarf, ash-grey knit body with glowing ember-orange woven stripes and fringed tasseled ends; ash + ember palette on-theme; single component, transparent bg, legible at 64px. Human is final judge."
+      },
+      "repair_rounds": 1,
+      "generated": "2026-07-12",
+      "aliases": [
+        "icon_emberweave_shawl"
+      ],
+      "repair_note": "round 1: base seed 20260712 rendered a full hooded ash-grey robe/cloak with ember trim (gate-green but read as a robe, not a light shawl). Reseeded to 20260713 with shawl/stole/scarf wording + a negative banning hood/full-robe/armor -> a properly draped fringed shawl. No post-chain repair; margin 3 standard chain."
     }
   ]
 }

@@ -21,7 +21,14 @@ Steps (same skeleton as tile_post_chain --mode entity, scaled to 64):
  5. binary alpha (>=128), keep largest component again.
  6. mediancut quantize <= QUANT foreground colors.
 
+A thin vertical subject (sword, staff) fills far below the item_icon 0.15
+floor when scaled upright. --rotate DEG rotates the keyed subject before the
+fit (icon convention: blades/staves sit diagonally so they fill the square).
+Rotation happens at source resolution with a hard alpha re-threshold, so the
+pixel look survives the later NEAREST downscale.
+
 Usage: icon_post_chain.py in.png out.png [--size 64] [--margin 3] [--quant 32]
+                          [--rotate 45]
 """
 import sys
 import numpy as np
@@ -99,6 +106,7 @@ def main(argv):
     size = arg(argv, "--size", 64, int)
     margin = arg(argv, "--margin", 3, int)
     quant = arg(argv, "--quant", 32, int)
+    rotate = arg(argv, "--rotate", 0.0, float)
     arr = np.array(Image.open(src).convert("RGBA"))
     bg, tol = border_key(arr)
     alpha = np.where(bg, 0, 255).astype(np.uint8)
@@ -107,6 +115,13 @@ def main(argv):
     ys, xs = np.where(alpha > 0)
     y0, y1, x0, x1 = ys.min(), ys.max() + 1, xs.min(), xs.max() + 1
     crop = np.dstack([arr[:, :, :3], alpha])[y0:y1, x0:x1]
+    if rotate:
+        rot = Image.fromarray(crop, "RGBA").rotate(
+            rotate, resample=Image.BICUBIC, expand=True)
+        r = np.array(rot)
+        r[:, :, 3] = np.where(r[:, :, 3] >= 128, 255, 0)   # hard alpha back
+        rys, rxs = np.where(r[:, :, 3] > 0)
+        crop = r[rys.min():rys.max() + 1, rxs.min():rxs.max() + 1]
     ch, cw = crop.shape[:2]
     fit = size - 2 * margin
     scale = min(fit / ch, fit / cw)

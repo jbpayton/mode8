@@ -22,3 +22,4 @@
 - 2026-07-12 · M1: tileset complete — 5 terrain tiles (seamless via quadrant-offset post-blend) + chest/portal/npc markers, 8/8 gate-green, warden-contrast pass. gate_tile_image v2 (16x16 tileset size check).
 - 2026-07-12 · M1: overworld renders tileset + entity markers — Cinderfall and Ember Depth look like a real HD-2D RPG; 593/593 tests; rusher byte-identical.
 - 2026-07-12 · M1: battle backgrounds (ember_depth, vault) + portraits (warden, ashcaller) done, all gate-green. 8 item/equipment icons remain (prior agent stopped mid-batch; backgrounds+portraits fully manifested per write-per-asset discipline).
+- 2026-07-12 · M1: all 8 remaining item/equipment icons done, gate-green, manifested per-asset. Every content sprite/portrait/tile/bgm key now has generated art. 28 assets total.
