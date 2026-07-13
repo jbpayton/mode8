@@ -1,0 +1,55 @@
+{
+  "milestone": "M1",
+  "game": "emberwake",
+  "generated": "2026-07-12",
+  "total_assets": 34,
+  "total_repair_rounds": 11,
+  "assets_needing_repair": 5,
+  "first_try_green_rate": 0.853,
+  "by_class": {
+    "battle_background": {
+      "count": 2,
+      "repair_rounds": 0
+    },
+    "battle_sprite": {
+      "count": 4,
+      "repair_rounds": 0
+    },
+    "bgm": {
+      "count": 6,
+      "repair_rounds": 0
+    },
+    "item_icon": {
+      "count": 9,
+      "repair_rounds": 10
+    },
+    "portrait": {
+      "count": 2,
+      "repair_rounds": 0
+    },
+    "sprite": {
+      "count": 3,
+      "repair_rounds": 0
+    },
+    "sprite_sheet": {
+      "count": 2,
+      "repair_rounds": 0
+    },
+    "stinger": {
+      "count": 1,
+      "repair_rounds": 0
+    },
+    "tile": {
+      "count": 5,
+      "repair_rounds": 1
+    }
+  },
+  "gate_tiers_active": {
+    "tier1_deterministic": "image (geometry/palette/component) + audio (levels/spectral) + sheet (registration) \u2014 all scripted, bit-identical",
+    "tier3_vlm_judge": "agent/human judgment per asset, recorded in manifest gates.tier3",
+    "tier2_embeddings": "not yet built (needs canonical reference embeddings \u2014 M2)",
+    "tier4_in_engine": "screenshot hook built; differential judging manual this milestone"
+  },
+  "determinism_proof": "rusher 1184-action trace byte-identical after every visual integration (7 checkpoints); one asset (emberdew icon) re-generated from manifest byte-identical",
+  "license_posture": "all models license-vetted; FLUX/MusicGen/Anima/InsightFace/2 civitai pixel models excluded and recorded (RESEARCH-M1 + retro queue)"
+}
