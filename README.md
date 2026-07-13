@@ -20,8 +20,8 @@ Read [SPEC.md](SPEC.md) — the founding charter — for the full architecture a
 
 | Milestone | Description | Status |
 |---|---|---|
-| **M0** | Walking skeleton: ontology v0, effect-algebra interpreter, a completable micro-RPG, ugly on purpose | ✅ build green — [Emberwake](games/emberwake/): 430 unit tests, completability proven, 3.3k sim battles in-band, rusher persona finishes deterministically. Fresh-session exit test passed 2026-07-11 — M0 complete |
-| M1 | The Atelier: full asset pipeline + gate cascade | — |
+| **M0** | Walking skeleton: ontology v0, effect-algebra interpreter, a completable micro-RPG, ugly on purpose | ✅ **complete** — [Emberwake](games/emberwake/): completability proven, 3.3k sim battles in-band, rusher finishes deterministically, fresh-session exit test passed |
+| **M1** | The Atelier: full asset pipeline + gate cascade replaces placeholders | 🔨 near-complete — Emberwake regenerated with generated HD-2D art + music: party walk cycles, monsters, tileset, backgrounds, portraits, icons, a 7-track score — all gate-verified and manifest-pinned. **[See the showcase →](games/emberwake/SHOWCASE.md)** |
 | M2 | Depth: 150+ items, 60+ monsters, balance simulation | — |
 | M3 | Story: VN interludes, character arcs, branch soundness proofs | — |
 | M4 | Genre proof: FF1-style, FF6-style, and grid SRPG from one pipeline | — |
@@ -34,11 +34,22 @@ The studio *is* a Claude Code session pointed at this repo with the skills in `s
 
 ```bash
 appliances/godot/fetch.sh       # restore the pinned Godot appliance
+appliances/comfyui/fetch.sh     # restore the pinned ComfyUI generation appliance (M1+)
 # then, in a Claude Code session:
 #   "build the game in games/<title>/"
 ```
 
-All build state lives in files (`games/<title>/plan/`), so any fresh session can resume any build cold.
+All build state lives in files (`games/<title>/plan/`), so any fresh session can resume any build cold. Every asset is regenerable from its entry in `games/<title>/assets/manifest.json` (workflow hash + model revisions + seed + deterministic post-chain).
+
+## What the studio has made
+
+[**Emberwake showcase →**](games/emberwake/SHOWCASE.md) — the proving-ground RPG, with generated art and music, screenshots of it running, and the assets themselves. Everything below the GDD was produced with zero human labor.
+
+### The generation stack (M1, all local, all license-vetted, all pinned)
+- **Images:** SDXL + `pixel-art-xl` (icons/tiles/monsters), Illustrious-XL + Qwen-Image-Edit + VNCCS (character identity/pose/walk cycles), SDXL alone (painterly backdrops) — via a pinned ComfyUI appliance.
+- **Music:** ACE-Step v1 through the same appliance.
+- **Verification:** a tiered gate cascade (deterministic geometry/audio checks → rubric judgment) with every judgment auditable; see `skills/m8-asset-warden/`.
+- License bar: outputs must be shippable in a free MIT game; FLUX, MusicGen, and several pixel models were **excluded on license grounds** and recorded (`appliances/RESEARCH-M1.md`).
 
 ## License
 
