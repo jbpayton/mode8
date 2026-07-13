@@ -20,6 +20,8 @@ const SHEET_CLASS := "sprite_sheet"
 const BATTLE_CLASS := "battle_sprite"
 const TILE_CLASS := "tile"       # overworld terrain tiles (work order 09)
 const SPRITE_CLASS := "sprite"   # overworld entity-marker sprites (chest/portal/npc)
+const BACKGROUND_CLASS := "battle_background"  # full-screen battle backdrops (work order 10)
+const PORTRAIT_CLASS := "portrait"             # dialogue/status class portraits (work order 10)
 
 var manifest_loaded := false
 var entries: Dictionary = {}    # manifest key -> manifest entry
