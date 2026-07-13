@@ -41,11 +41,14 @@ func _fixture_assets() -> Node:
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(FIX_DIR))
 	_write_png(FIX_DIR + "/fx_icon.png", 8, 8)
 	_write_png(FIX_DIR + "/fx_sheet.png", 64, 96)  # frame box 16x24
+	_write_png(FIX_DIR + "/fx_battle.png", 32, 32)
 	var entries := [
 		{"key": "fx_icon", "class": "item_icon", "file": FIX_DIR + "/fx_icon.png",
 			"aliases": ["icon_fixture_alpha", "icon_fixture_beta"]},
 		{"key": "fx_sheet", "class": "sprite_sheet", "file": FIX_DIR + "/fx_sheet.png",
 			"aliases": ["chr_fixture", "fx_icon"]},  # alias shadowing a real key
+		{"key": "fx_battle", "class": "battle_sprite", "file": FIX_DIR + "/fx_battle.png",
+			"aliases": ["mon_fixture"]},
 		{"key": "fx_icon_gone", "class": "item_icon", "file": FIX_DIR + "/nope.png"},
 		{"key": "music.fixture", "class": "bgm", "file": FIX_DIR + "/fx_bgm.mp3",
 			"aliases": ["bgm_fixture_alias"]},
@@ -124,6 +127,43 @@ func test_icon_texture_soft_fails() -> void:
 	T.eq(a.icon_texture("icon_never_generated"), null, "unresolved key -> null")
 	T.eq(a.icon_texture("music.fixture"), null, "non-icon class -> null (class-gated)")
 	T.eq(a.icon_texture("fx_icon_gone"), null, "manifest entry with missing file -> null")
+
+# -------------------------------------------------------- battle sprites
+
+func test_battle_texture_loads_and_caches() -> void:
+	var a := _fixture_assets()
+	var tex: Texture2D = a.battle_texture("fx_battle")
+	T.ok(tex != null, "battle sprite loads at runtime")
+	T.eq(tex.get_width(), 32, "battle sprite width")
+	T.eq(tex.get_height(), 32, "battle sprite height")
+	T.ok(a.battle_texture("mon_fixture") == tex, "battle texture cached per manifest key (same instance)")
+
+func test_battle_texture_soft_fails_and_class_gated() -> void:
+	var a := _fixture_assets()
+	T.eq(a.battle_texture(""), null, "empty sprite key -> null")
+	T.eq(a.battle_texture("mon_never_generated"), null, "unresolved key -> null")
+	T.eq(a.battle_texture("fx_icon"), null, "item_icon class -> null (class-gated)")
+	T.eq(a.battle_texture("chr_fixture"), null, "sprite_sheet class -> null (class-gated)")
+	T.eq(a.battle_texture("music.fixture"), null, "bgm class -> null (class-gated)")
+
+# Guarded + id-free (like test_real_manifest_parses): every battle_sprite entry
+# in the real manifest loads to a Texture2D, and battle_texture stays class-gated
+# against the manifest's non-battle_sprite entries. No content/asset ids hardcoded.
+func test_battle_texture_real_manifest() -> void:
+	if not FileAccess.file_exists("res://assets/manifest.json"):
+		return  # assets are progressive enhancement — absent is a valid state
+	var a: Node = AssetsScript.new()
+	_nodes.append(a)
+	a.load_manifest("res://assets/manifest.json")
+	var battle_seen := 0
+	for key in a.entries:
+		var cls := str(a.resolve(key)["class"])
+		if cls == AssetsScript.BATTLE_CLASS:
+			battle_seen += 1
+			T.ok(a.battle_texture(str(key)) is Texture2D, "battle_sprite entry loads a texture: " + str(key))
+		else:
+			T.eq(a.battle_texture(str(key)), null, "non-battle_sprite entry is class-gated: " + str(key))
+	T.ok(battle_seen > 0, "real manifest carries at least one battle_sprite")
 
 # ----------------------------------------------------------- walk sheets
 

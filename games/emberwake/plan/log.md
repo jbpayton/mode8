@@ -18,3 +18,4 @@
 - 2026-07-12 · M1: Warden 4-dir walk cycles GREEN through the new sheet gate (feet baseline ≤1px, drift <0.7px); bit-exact regenerable (132s all 4 canvases); chr_warden alias live — overworld leader now animates; rusher trace still byte-identical; 496/496 tests.
 - 2026-07-12 · M1: Warden dressed (ShaftWarden) and cycles re-cut with clothed identity — gate green, 0 generation repairs, rusher byte-identical. Scrub v2.1 canonical.
 - 2026-07-12 · M1: Ashcaller complete (identity→EmberMender outfit→cycles) — gate green, cycle stage 0 repairs, contrast goal achieved. Party fully sprited. ~40min/character calibrated.
+- 2026-07-12 · M1: battle sprites live — monsters + party render in battle_menu; 529/529 tests; rusher byte-identical. First real combat screen.

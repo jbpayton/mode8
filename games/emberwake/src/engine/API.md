@@ -40,6 +40,7 @@ Error convention: fallible calls return a Dictionary with `"error"` (and/or `"ok
 - `resolve(key) -> Dictionary | null` — resolution rule: content sprite key -> manifest entry whose `key` equals it OR whose `aliases` array contains it (key match wins). Returns `{"key", "class", "path"}`; game-dir-relative `file` fields land under `res://`.
 - `texture(key) -> Texture2D | null` — runtime image load (`Image.load_from_file` + `ImageTexture`, no import pipeline), cached per manifest key (misses too).
 - `icon_texture(key) -> Texture2D | null` — class-gated to `item_icon`; null = keep the glyph/text fallback. Scene lists pass it as the Menu entry `icon` (UI.Menu draws it 16px, nearest, before the label).
+- `battle_texture(key) -> Texture2D | null` — class-gated to `battle_sprite`; null = keep the glyph fallback. Cached per manifest key like `texture()`. battle_menu draws each enemy's `monster.sprite` here (boss centered + larger, aspect-preserved, nearest) and party members via `sheet()` down-frame-0; keys read from ContentDB, so it consumes no Rng and writes no Game state (contract §3).
 - `sheet(key) -> Dictionary` — class-gated to `sprite_sheet`: `{"texture", "frame_w", "frame_h"}`, uniform frame box = image_size/4 (4 facing rows down/left/right/up x 4 walk-cycle columns). `{}` = placeholder.
 - `sheet_region(sheet, facing, frame) -> Rect2` — frame box for a facing row + cycle column (frame wraps mod 4). Pure math.
 - Determinism (contract §3): consumes no Rng, writes no Game state — traces are identical whether or not assets exist.

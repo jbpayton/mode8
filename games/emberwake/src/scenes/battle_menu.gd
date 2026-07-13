@@ -14,6 +14,23 @@ const Story := preload("res://scenes/story.gd")
 const BattleLog := preload("res://scenes/battle_log.gd")
 const LOG_LINES := 7
 
+# Battle-sprite layout (work order 08), 640x360 canvas. Enemies sit in the
+# upper battlefield on a shared baseline; party members in a lower row; both
+# left of the command panel (x>=420) and above the battle log (y>=214). Sizes:
+# a 128px monster ~96px tall, the 224px boss ~150px and centered; party
+# walk-frames ~64px tall.
+const ENEMY_BASELINE_Y := 150.0
+const ENEMY_CX := 200.0
+const ENEMY_STEP := 116.0     # horizontal offset between same-area enemies
+const ENEMY_SPAN := 300.0     # max total spread before the step tightens
+const ENEMY_H := 96.0
+const BOSS_H := 150.0
+const PARTY_BASELINE_Y := 212.0
+const PARTY_CX := 200.0
+const PARTY_STEP := 92.0
+const PARTY_SPAN := 320.0
+const PARTY_H := 64.0
+
 @onready var _db: Node = get_node("/root/ContentDB")
 @onready var _game: Node = get_node("/root/Game")
 @onready var _input: Node = get_node("/root/M8Input")
@@ -34,6 +51,8 @@ var _targets := UI.Menu.new()
 var _log_label: Label = null
 var _party_labels: Array = []
 var _monster_labels: Array = []
+var _monster_boxes: Array = []    # glyph-fallback ColorRects, parallel to monsters
+var _monster_sprites: Array = []  # TextureRect or null, parallel to monsters
 var _actor_label: Label = null
 var _round_label: Label = null
 var _end_label: Label = null
@@ -65,6 +84,7 @@ func _build_ui() -> void:
 		box.position = Vector2(40, 40 + i * 40)
 		box.size = Vector2(24, 24)
 		add_child(box)
+		_monster_boxes.append(box)
 		UI.label(box, Vector2(7, 1), str(m["name"]).left(1), 16, UI.COL_TEXT)
 		_monster_labels.append(UI.label(self, Vector2(74, 42 + i * 40), "", 14))
 	var pp := UI.panel(self, Rect2(340, 30, 284, 30 + _battle.party.size() * 22))
@@ -79,6 +99,66 @@ func _build_ui() -> void:
 	_end_panel = UI.panel(self, Rect2(140, 90, 360, 170), UI.COL_PANEL, UI.COL_EDGE)
 	_end_label = UI.label(_end_panel, Vector2(18, 12), "", 14)
 	_end_panel.visible = false
+	_build_sprites()
+
+# Battle sprites (work order 08): enemies get their monster's battle_sprite in
+# the upper battlefield (boss centered + larger), party members their walk-sheet
+# down-frame-0 (front view) in a lower row. Pure visual dressing layered behind
+# the existing glyph boxes / HP text / menus (move_child index 1) — reads sprite
+# keys from ContentDB (no id literals), consumes no Rng, writes no Game state
+# (contract §3). Missing/wrong-class assets resolve to null and the M0 glyph box
+# placeholder stays.
+func _build_sprites() -> void:
+	var n: int = _battle.monsters.size()
+	var estep: float = minf(ENEMY_STEP, ENEMY_SPAN / float(maxi(1, n)))
+	var estart: float = ENEMY_CX - estep * float(n - 1) * 0.5
+	for i in n:
+		_monster_sprites.append(null)
+		var mdef: Dictionary = _db.monster(str(_battle.monsters[i].get("id", "")))
+		var tex: Texture2D = _assets.battle_texture(str(mdef.get("sprite", "")))
+		if tex == null:
+			continue  # keep this enemy's glyph box fallback
+		var boss: bool = bool(mdef.get("is_boss", false))
+		var cx: float = ENEMY_CX if boss else estart + estep * float(i)
+		_monster_sprites[i] = _sprite_rect(tex, null, BOSS_H if boss else ENEMY_H, cx, ENEMY_BASELINE_Y)
+		_monster_boxes[i].visible = false  # sprite replaces the glyph placeholder
+	var pn: int = _battle.party.size()
+	var pstep: float = minf(PARTY_STEP, PARTY_SPAN / float(maxi(1, pn)))
+	var pstart: float = PARTY_CX - pstep * float(pn - 1) * 0.5
+	for i in pn:
+		var cdef: Dictionary = _db.cls(str(_battle.party[i].get("class", "")))
+		var sh: Dictionary = _assets.sheet(str(cdef.get("sprite", "")))
+		if sh.is_empty():
+			continue  # no walk sheet -> party text panel only
+		var region: Rect2 = _assets.sheet_region(sh, "down", 0)  # front-facing rest frame
+		_sprite_rect(sh["texture"], region, PARTY_H, pstart + pstep * float(i), PARTY_BASELINE_Y)
+
+# Bottom-center-anchored sprite, aspect preserved to target_h, nearest filter,
+# layered just above the background so glyph HP text and menus draw on top.
+# region null = whole texture; Rect2 = an atlas sub-frame (a walk-sheet cell).
+func _sprite_rect(tex: Texture2D, region: Variant, target_h: float, cx: float, baseline_y: float) -> TextureRect:
+	var draw_tex: Texture2D = tex
+	var src_w: float = float(tex.get_width())
+	var src_h: float = float(tex.get_height())
+	if region is Rect2:
+		var at := AtlasTexture.new()
+		at.atlas = tex
+		at.region = region
+		draw_tex = at
+		src_w = region.size.x
+		src_h = region.size.y
+	var scale: float = target_h / maxf(1.0, src_h)
+	var w: float = src_w * scale
+	var tr := TextureRect.new()
+	tr.texture = draw_tex
+	tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	tr.stretch_mode = TextureRect.STRETCH_SCALE
+	tr.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	tr.size = Vector2(w, target_h)
+	tr.position = Vector2(cx - w * 0.5, baseline_y - target_h)
+	add_child(tr)
+	move_child(tr, 1)  # above the bg fill (child 0), behind all text/panels
+	return tr
 
 func _show_only(menu: Variant) -> void:
 	for m in [_cmd, _spells, _items, _targets]:
@@ -103,6 +183,8 @@ func _sync() -> void:
 				"" if m["alive"] else "  —down—"]
 		_monster_labels[i].add_theme_color_override("font_color",
 				UI.COL_TEXT if m["alive"] else UI.COL_DIM)
+		if _monster_sprites[i] != null:
+			_monster_sprites[i].modulate.a = 1.0 if m["alive"] else 0.35
 	for i in _battle.party.size():
 		var p: Dictionary = _battle.party[i]
 		var bits := ""

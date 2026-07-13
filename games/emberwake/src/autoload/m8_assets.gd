@@ -17,6 +17,7 @@ const SHEET_DIRS: Array = ["down", "left", "right", "up"]
 const SHEET_COLS := 4
 const ICON_CLASS := "item_icon"
 const SHEET_CLASS := "sprite_sheet"
+const BATTLE_CLASS := "battle_sprite"
 
 var manifest_loaded := false
 var entries: Dictionary = {}    # manifest key -> manifest entry
@@ -97,6 +98,19 @@ func icon_texture(key: String) -> Texture2D:
 		return null
 	var r: Variant = resolve(key)
 	if r == null or str(r["class"]) != ICON_CLASS:
+		return null
+	return texture(key)
+
+# Battle-sprite lookup for the battle scene (work order 08): only BATTLE_CLASS
+# entries qualify. Class-gated exactly like icon_texture — anything else
+# (unresolved key, wrong class, unreadable file) is null = glyph fallback, so
+# the battle scene keeps its M0 ColorRect+glyph placeholder. Cached per key
+# via texture(); consumes no Rng, writes no Game state (contract §3).
+func battle_texture(key: String) -> Texture2D:
+	if key == "":
+		return null
+	var r: Variant = resolve(key)
+	if r == null or str(r["class"]) != BATTLE_CLASS:
 		return null
 	return texture(key)
 
