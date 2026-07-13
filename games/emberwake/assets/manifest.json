@@ -1312,6 +1312,133 @@
         "icon_emberweave_shawl"
       ],
       "repair_note": "round 1: base seed 20260712 rendered a full hooded ash-grey robe/cloak with ember trim (gate-green but read as a robe, not a light shawl). Reseeded to 20260713 with shawl/stole/scarf wording + a negative banning hood/full-robe/armor -> a properly draped fringed shawl. No post-chain repair; margin 3 standard chain."
+    },
+    {
+      "key": "music.depth",
+      "class": "bgm",
+      "file": "assets/audio/music.depth.mp3",
+      "sha256": "e5b0ff3a429c7b6583c31165fd7ed6cf40acf92b58cd377a8b69424bd1b99389",
+      "workflow": "skills/m8-soundsmith/assets/workflows/bgm_ace.json",
+      "workflow_sha256": "72744c38b5f1eaf48664b0ab9e9f2604312260aa1ddb7fe872f18bf7c7bd32bf",
+      "workflow_overrides": {
+        "2.tags": "instrumental, dark dungeon ambience, quiet dread underground, low strings, sparse hand percussion, distant cavern rumble, slow, minor key, 70 bpm, seamless loop, consistent tempo, game music",
+        "4.seconds": 90.0,
+        "5.seed": 20260712
+      },
+      "models": {
+        "ace_step_v1_aio": "9496247418317321988fb3a14fd44c5141bfc767"
+      },
+      "gates": {
+        "tier1_audio": "green"
+      },
+      "status": "candidate \u2014 human Tier-3 pending; loop battery (A.4) not yet applied",
+      "generated": "2026-07-12"
+    },
+    {
+      "key": "music.vault",
+      "class": "bgm",
+      "file": "assets/audio/music.vault.mp3",
+      "sha256": "d6c51d109d6ba19a12b04190fbba8cf6a2deffa19a7d4b35cf6624fcded76fa9",
+      "workflow": "skills/m8-soundsmith/assets/workflows/bgm_ace.json",
+      "workflow_sha256": "72744c38b5f1eaf48664b0ab9e9f2604312260aa1ddb7fe872f18bf7c7bd32bf",
+      "workflow_overrides": {
+        "2.tags": "instrumental, ominous volcanic depths, molten heart, deep brass drones, low choir, slow menacing pulse, 60 bpm, seamless loop, consistent tempo, game music",
+        "4.seconds": 90.0,
+        "5.seed": 20260712
+      },
+      "models": {
+        "ace_step_v1_aio": "9496247418317321988fb3a14fd44c5141bfc767"
+      },
+      "gates": {
+        "tier1_audio": "green"
+      },
+      "status": "candidate \u2014 human Tier-3 pending; loop battery (A.4) not yet applied",
+      "generated": "2026-07-12"
+    },
+    {
+      "key": "music.battle",
+      "class": "bgm",
+      "file": "assets/audio/music.battle.mp3",
+      "sha256": "08d67d161c4069cd58c4379d89ac2b48a7ba9f20bdfb57db786084951193d371",
+      "workflow": "skills/m8-soundsmith/assets/workflows/bgm_ace.json",
+      "workflow_sha256": "72744c38b5f1eaf48664b0ab9e9f2604312260aa1ddb7fe872f18bf7c7bd32bf",
+      "workflow_overrides": {
+        "2.tags": "instrumental, fast battle theme, driving hand percussion, urgent strings, brass stabs, frontier grit, 140 bpm, seamless loop, consistent tempo, game music",
+        "4.seconds": 75.0,
+        "5.seed": 20260712
+      },
+      "models": {
+        "ace_step_v1_aio": "9496247418317321988fb3a14fd44c5141bfc767"
+      },
+      "gates": {
+        "tier1_audio": "green"
+      },
+      "status": "candidate \u2014 human Tier-3 pending; loop battery (A.4) not yet applied",
+      "generated": "2026-07-12"
+    },
+    {
+      "key": "music.boss",
+      "class": "bgm",
+      "file": "assets/audio/music.boss.mp3",
+      "sha256": "96fdedee8cbd5a7f1244d0f37f8f267b6dfdeaf14c3f060e2fc1716f6f937944",
+      "workflow": "skills/m8-soundsmith/assets/workflows/bgm_ace.json",
+      "workflow_sha256": "72744c38b5f1eaf48664b0ab9e9f2604312260aa1ddb7fe872f18bf7c7bd32bf",
+      "workflow_overrides": {
+        "2.tags": "instrumental, epic boss battle, ash tyrant, thunderous drums, dissonant brass, choir swells, volcanic fury, 150 bpm, seamless loop, consistent tempo, game music",
+        "4.seconds": 90.0,
+        "5.seed": 20260712
+      },
+      "models": {
+        "ace_step_v1_aio": "9496247418317321988fb3a14fd44c5141bfc767"
+      },
+      "gates": {
+        "tier1_audio": "green"
+      },
+      "status": "candidate \u2014 human Tier-3 pending; loop battery (A.4) not yet applied",
+      "generated": "2026-07-12"
+    },
+    {
+      "key": "music.title",
+      "class": "bgm",
+      "file": "assets/audio/music.title.mp3",
+      "sha256": "523d0611af67de20440f7907d11fe213c30453857b64fd1eba00f32b06dbf03d",
+      "workflow": "skills/m8-soundsmith/assets/workflows/bgm_ace.json",
+      "workflow_sha256": "72744c38b5f1eaf48664b0ab9e9f2604312260aa1ddb7fe872f18bf7c7bd32bf",
+      "workflow_overrides": {
+        "2.tags": "instrumental, warm melancholic main theme, lone flute over soft strings, embers and hope, stoic frontier, 80 bpm, consistent tempo, game music",
+        "4.seconds": 60.0,
+        "5.seed": 20260712
+      },
+      "models": {
+        "ace_step_v1_aio": "9496247418317321988fb3a14fd44c5141bfc767"
+      },
+      "gates": {
+        "tier1_audio": "green"
+      },
+      "status": "candidate \u2014 human Tier-3 pending; loop battery (A.4) not yet applied",
+      "generated": "2026-07-12",
+      "post_chain": "trailing-silence trim (>0.01 rms threshold, +0.25s tail) so the title theme's natural fade-out doesn't gap the loop; 59.9s->55.7s"
+    },
+    {
+      "key": "music.victory",
+      "class": "stinger",
+      "file": "assets/audio/music.victory.mp3",
+      "sha256": "0c41c8ec8316497bfdde49c8b42f11e42a8583cf7cc0390de95cc57f52bea648",
+      "workflow": "skills/m8-soundsmith/assets/workflows/bgm_ace.json",
+      "workflow_sha256": "72744c38b5f1eaf48664b0ab9e9f2604312260aa1ddb7fe872f18bf7c7bd32bf",
+      "workflow_overrides": {
+        "2.tags": "instrumental, short triumphant victory fanfare, bright brass flourish, warm resolve, uplifting, 100 bpm, consistent tempo, game music",
+        "4.seconds": 12.0,
+        "5.seed": 20260712
+      },
+      "models": {
+        "ace_step_v1_aio": "9496247418317321988fb3a14fd44c5141bfc767"
+      },
+      "gates": {
+        "tier1_audio": "green"
+      },
+      "status": "candidate \u2014 human Tier-3 pending; loop battery (A.4) not yet applied",
+      "generated": "2026-07-12"
     }
   ]
 }

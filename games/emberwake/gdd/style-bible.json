@@ -40,6 +40,22 @@
     "bgm_battle": {
       "template": "instrumental, fast battle theme, driving percussion, urgent strings, brass hits, energetic, {bpm} bpm, consistent tempo, seamless loop, game music",
       "workflow": "skills/m8-soundsmith/assets/workflows/bgm_ace.json"
+    },
+    "bgm_vault": {
+      "template": "instrumental, ominous volcanic depths, molten heart, deep brass drones, low choir, slow menacing pulse, {bpm} bpm, seamless loop, game music",
+      "workflow": "skills/m8-soundsmith/assets/workflows/bgm_ace.json"
+    },
+    "bgm_boss": {
+      "template": "instrumental, epic boss battle, thunderous drums, dissonant brass, choir swells, volcanic fury, {bpm} bpm, seamless loop, game music",
+      "workflow": "skills/m8-soundsmith/assets/workflows/bgm_ace.json"
+    },
+    "bgm_title": {
+      "template": "instrumental, warm melancholic main theme, lone flute over soft strings, embers and hope, {bpm} bpm, game music",
+      "workflow": "skills/m8-soundsmith/assets/workflows/bgm_ace.json"
+    },
+    "bgm_victory": {
+      "template": "instrumental, short triumphant victory fanfare, bright brass flourish, warm resolve, uplifting, {bpm} bpm, game music",
+      "workflow": "skills/m8-soundsmith/assets/workflows/bgm_ace.json"
     }
   }
 }

@@ -24,3 +24,4 @@
 - 2026-07-12 · M1: battle backgrounds (ember_depth, vault) + portraits (warden, ashcaller) done, all gate-green. 8 item/equipment icons remain (prior agent stopped mid-batch; backgrounds+portraits fully manifested per write-per-asset discipline).
 - 2026-07-12 · M1: all 8 remaining item/equipment icons done, gate-green, manifested per-asset. Every content sprite/portrait/tile/bgm key now has generated art. 28 assets total.
 - 2026-07-12 · M1: battle backgrounds + portraits wired (WO10) — 729/729 tests; rusher byte-identical; conductor finished the stalled phase.
+- 2026-07-12 · M1: full soundtrack — 6 more tracks (depth/vault/battle/boss/title/victory) via ACE-Step, all gate-green (title tail-trimmed). 7 music slots total. Soundsmith flipped stub->active; style bible gains bgm scaffolds.
