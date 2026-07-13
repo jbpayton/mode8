@@ -42,6 +42,8 @@ func _fixture_assets() -> Node:
 	_write_png(FIX_DIR + "/fx_icon.png", 8, 8)
 	_write_png(FIX_DIR + "/fx_sheet.png", 64, 96)  # frame box 16x24
 	_write_png(FIX_DIR + "/fx_battle.png", 32, 32)
+	_write_png(FIX_DIR + "/fx_tile.png", 16, 16)
+	_write_png(FIX_DIR + "/fx_marker.png", 16, 16)
 	var entries := [
 		{"key": "fx_icon", "class": "item_icon", "file": FIX_DIR + "/fx_icon.png",
 			"aliases": ["icon_fixture_alpha", "icon_fixture_beta"]},
@@ -49,6 +51,10 @@ func _fixture_assets() -> Node:
 			"aliases": ["chr_fixture", "fx_icon"]},  # alias shadowing a real key
 		{"key": "fx_battle", "class": "battle_sprite", "file": FIX_DIR + "/fx_battle.png",
 			"aliases": ["mon_fixture"]},
+		{"key": "fx_tile", "class": "tile", "file": FIX_DIR + "/fx_tile.png",
+			"aliases": ["tile_fixture"]},
+		{"key": "fx_marker", "class": "sprite", "file": FIX_DIR + "/fx_marker.png",
+			"aliases": ["marker_fixture"]},
 		{"key": "fx_icon_gone", "class": "item_icon", "file": FIX_DIR + "/nope.png"},
 		{"key": "music.fixture", "class": "bgm", "file": FIX_DIR + "/fx_bgm.mp3",
 			"aliases": ["bgm_fixture_alias"]},
@@ -164,6 +170,53 @@ func test_battle_texture_real_manifest() -> void:
 		else:
 			T.eq(a.battle_texture(str(key)), null, "non-battle_sprite entry is class-gated: " + str(key))
 	T.ok(battle_seen > 0, "real manifest carries at least one battle_sprite")
+
+# ------------------------------------------------------- overworld tiles
+
+func test_tile_texture_loads_and_caches() -> void:
+	var a := _fixture_assets()
+	var tex: Texture2D = a.tile_texture("fx_tile")
+	T.ok(tex != null, "tile texture loads at runtime")
+	T.eq(tex.get_width(), 16, "tile width")
+	T.eq(tex.get_height(), 16, "tile height")
+	T.ok(a.tile_texture("tile_fixture") == tex, "tile texture cached per manifest key (same instance)")
+
+func test_tile_texture_soft_fails_and_class_gated() -> void:
+	var a := _fixture_assets()
+	T.eq(a.tile_texture(""), null, "empty tileset key -> null")
+	T.eq(a.tile_texture("tile_never_generated"), null, "unresolved key -> null")
+	T.eq(a.tile_texture("fx_marker"), null, "sprite class -> null (class-gated)")
+	T.eq(a.tile_texture("fx_battle"), null, "battle_sprite class -> null (class-gated)")
+	T.eq(a.tile_texture("music.fixture"), null, "bgm class -> null (class-gated)")
+
+func test_sprite_texture_loads_and_class_gated() -> void:
+	var a := _fixture_assets()
+	var tex: Texture2D = a.sprite_texture("fx_marker")
+	T.ok(tex != null, "entity-marker sprite loads at runtime")
+	T.ok(a.sprite_texture("marker_fixture") == tex, "sprite texture cached per manifest key (same instance)")
+	T.eq(a.sprite_texture(""), null, "empty key -> null")
+	T.eq(a.sprite_texture("sprite_never_generated"), null, "unresolved key -> null")
+	T.eq(a.sprite_texture("fx_tile"), null, "tile class -> null (class-gated)")
+	T.eq(a.sprite_texture("chr_fixture"), null, "sprite_sheet class -> null (class-gated)")
+
+# Guarded + id-free (like test_battle_texture_real_manifest): every tile entry
+# in the real manifest loads to a Texture2D, and tile_texture stays class-gated
+# against every non-tile entry. No content/asset ids hardcoded.
+func test_tile_texture_real_manifest() -> void:
+	if not FileAccess.file_exists("res://assets/manifest.json"):
+		return  # assets are progressive enhancement — absent is a valid state
+	var a: Node = AssetsScript.new()
+	_nodes.append(a)
+	a.load_manifest("res://assets/manifest.json")
+	var tile_seen := 0
+	for key in a.entries:
+		var cls := str(a.resolve(key)["class"])
+		if cls == AssetsScript.TILE_CLASS:
+			tile_seen += 1
+			T.ok(a.tile_texture(str(key)) is Texture2D, "tile entry loads a texture: " + str(key))
+		else:
+			T.eq(a.tile_texture(str(key)), null, "non-tile entry is class-gated: " + str(key))
+	T.ok(tile_seen > 0, "real manifest carries at least one tile")
 
 # ----------------------------------------------------------- walk sheets
 

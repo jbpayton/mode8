@@ -18,6 +18,8 @@ const SHEET_COLS := 4
 const ICON_CLASS := "item_icon"
 const SHEET_CLASS := "sprite_sheet"
 const BATTLE_CLASS := "battle_sprite"
+const TILE_CLASS := "tile"       # overworld terrain tiles (work order 09)
+const SPRITE_CLASS := "sprite"   # overworld entity-marker sprites (chest/portal/npc)
 
 var manifest_loaded := false
 var entries: Dictionary = {}    # manifest key -> manifest entry
@@ -111,6 +113,33 @@ func battle_texture(key: String) -> Texture2D:
 		return null
 	var r: Variant = resolve(key)
 	if r == null or str(r["class"]) != BATTLE_CLASS:
+		return null
+	return texture(key)
+
+# Overworld tile lookup for the terrain grid (work order 09): only TILE_CLASS
+# entries qualify. Class-gated exactly like battle_texture — anything else
+# (unresolved key, wrong class, unreadable file) is null = the overworld keeps
+# its M0 ColorRect tile-color placeholder. Keys are the map legend's
+# tileset_key (content/map data), so this consumes no Rng and writes no Game
+# state (contract §3); cached per manifest key via texture().
+func tile_texture(key: String) -> Texture2D:
+	if key == "":
+		return null
+	var r: Variant = resolve(key)
+	if r == null or str(r["class"]) != TILE_CLASS:
+		return null
+	return texture(key)
+
+# Overworld entity-marker lookup (work order 09): only SPRITE_CLASS entries
+# qualify (chest/portal/npc markers). Class-gated like tile_texture — anything
+# else is null = the overworld keeps its M0 kind-glyph placeholder. The key is
+# the map entity's kind (schema vocabulary from map data), so this consumes no
+# Rng and writes no Game state (contract §3); cached per manifest key.
+func sprite_texture(key: String) -> Texture2D:
+	if key == "":
+		return null
+	var r: Variant = resolve(key)
+	if r == null or str(r["class"]) != SPRITE_CLASS:
 		return null
 	return texture(key)
 

@@ -65,6 +65,11 @@ func _ready() -> void:
 	if args.get("menu", false):
 		_pause.open_menu(int(args.get("menu_cursor", 0)))
 
+# Terrain grid: draw the legend's tileset_key as a generated tile texture when
+# it resolves (work order 09; nearest filter via project default, full 16px
+# cell so seamless tiles butt together), else fall back to the M0 ColorRect
+# tone. Pure render — tileset_key comes from map/legend data, no Rng, no Game
+# writes (contract §3); walkable/collision reads legend.walkable, unchanged.
 func _draw_tiles() -> void:
 	var legend: Dictionary = _map.get("legend", {})
 	var rows: Array = _map.get("tiles", [])
@@ -72,20 +77,53 @@ func _draw_tiles() -> void:
 		var row: String = rows[y]
 		for x in row.length():
 			var leg: Dictionary = legend.get(row[x], {})
-			var r := ColorRect.new()
-			r.color = UI.tile_color(str(leg.get("tileset_key", "?")),
-					bool(leg.get("walkable", false)), leg.has("encounter_table"))
-			r.position = _origin + Vector2(x * TILE, y * TILE)
-			r.size = Vector2(TILE - 1, TILE - 1)  # 1px soot seam as outline
-			add_child(r)
+			var key := str(leg.get("tileset_key", "?"))
+			var pos := _origin + Vector2(x * TILE, y * TILE)
+			var tex: Texture2D = _assets.tile_texture(key)
+			if tex != null:
+				var tr := TextureRect.new()
+				tr.texture = tex
+				tr.position = pos
+				tr.size = Vector2(TILE, TILE)
+				tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+				tr.stretch_mode = TextureRect.STRETCH_SCALE  # nearest via project default
+				add_child(tr)
+			else:
+				var r := ColorRect.new()
+				r.color = UI.tile_color(key,
+						bool(leg.get("walkable", false)), leg.has("encounter_table"))
+				r.position = pos
+				r.size = Vector2(TILE - 1, TILE - 1)  # 1px soot seam as outline
+				add_child(r)
 
+# Entity markers: draw the kind's generated marker sprite (chest/portal/npc)
+# when it resolves (work order 09; kind IS the sprite key — schema vocabulary
+# from map data), else the M0 kind-glyph label. Opened chests dim (modulate for
+# the sprite, dim glyph for the label). Pure render: no Rng, no Game writes.
 func _place_entity(e: Dictionary) -> void:
-	if not (e.get("kind", "") in ["npc", "chest", "portal"]):
+	var kind := str(e.get("kind", ""))
+	if not (kind in ["npc", "chest", "portal"]):
 		return
-	var g: Array = UI.kind_glyph(e["kind"], e.get("id", "") in _game.opened)
-	var l := UI.label(self, _tile_px(Vector2i(int(e["x"]), int(e["y"]))), g[0], 14, g[1])
-	l.visible = _active(e)
-	_ent_nodes[e["id"]] = l
+	var t := Vector2i(int(e["x"]), int(e["y"]))
+	var opened: bool = e.get("id", "") in _game.opened
+	var node: Control
+	var tex: Texture2D = _assets.sprite_texture(kind)
+	if tex != null:
+		var tr := TextureRect.new()
+		tr.texture = tex
+		tr.position = _origin + Vector2(t.x * TILE, t.y * TILE)
+		tr.size = Vector2(TILE, TILE)
+		tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		tr.stretch_mode = TextureRect.STRETCH_SCALE  # nearest via project default
+		if kind == "chest" and opened:
+			tr.modulate = UI.COL_DIM
+		add_child(tr)
+		node = tr
+	else:
+		var g: Array = UI.kind_glyph(kind, opened)
+		node = UI.label(self, _tile_px(t), g[0], 14, g[1])
+	node.visible = _active(e)
+	_ent_nodes[e["id"]] = node
 
 func _tile_px(t: Vector2i) -> Vector2:
 	return _origin + Vector2(t.x * TILE + 3, t.y * TILE - 3)
@@ -279,9 +317,14 @@ func _open_chest(e: Dictionary) -> void:
 	elif entry.has("gold"):
 		_game.gold += int(entry["gold"])
 		_msg.text = "Found %d gold!" % int(entry["gold"])
-	var g: Array = UI.kind_glyph("chest", true)
-	_ent_nodes[e["id"]].text = g[0]
-	_ent_nodes[e["id"]].add_theme_color_override("font_color", g[1])
+	# Opened state: dim the marker sprite (modulate) or swap to the dim glyph.
+	var node: Control = _ent_nodes[e["id"]]
+	if node is Label:
+		var g: Array = UI.kind_glyph("chest", true)
+		node.text = g[0]
+		node.add_theme_color_override("font_color", g[1])
+	else:
+		node.modulate = UI.COL_DIM
 
 # ------------------------------------------------------------------- debug
 
