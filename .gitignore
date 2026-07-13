@@ -14,3 +14,6 @@ games/*/src/.godot/
 __pycache__/
 *.pyc
 .DS_Store
+
+# Agent in-repo scratch (must use the session scratchpad instead)
+games/*/scratchpad/
