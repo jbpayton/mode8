@@ -39,7 +39,7 @@ The Atelier milestone: every placeholder replaced with generated, gate-verified,
 
 ## Reproducibility
 
-Every manifest entry pins: workflow file + its SHA, exact model HF revisions, seed, prompt overrides, and the deterministic post-chain (with its own SHA where scripted). Verified: the `emberdew` icon **re-generates byte-identically** from its manifest entry; all 34 files match their pinned hashes; the game's rusher playtest trace is byte-identical after every visual integration.
+Every manifest entry pins: workflow file + its SHA, exact model HF revisions, seed, prompt overrides, and the deterministic post-chain (with its own SHA where scripted). "Regenerable from the manifest" means **re-run the pinned ComfyUI workflow on the pinned model revisions, then the pinned post-chain** — not replay a cached intermediate; the raw generations are disposable. Verified two ways: the `emberdew` icon's raw→post-chain step **reproduces byte-identically** (post-chain determinism), and all 34 installed files match their pinned hashes (integrity). The generation stage's determinism rests on ComfyUI + fixed seed + pinned weights; the game's rusher playtest trace is byte-identical after every visual integration (logic untouched).
 
 ## License posture
 

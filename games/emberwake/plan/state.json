@@ -1,5 +1,5 @@
 {
-  "milestone": "M0",
+  "milestone": "M1",
   "game": "emberwake",
   "ontology_version": "0.1.0",
   "phases": [
@@ -13,7 +13,8 @@
         "gdd/style-bible.json",
         "gdd/decisions.md"
       ],
-      "gate_evidence": "stub copy of skills/m8-design-compiler/assets/m0-gdd (fixed micro-GDD)"
+      "gate_evidence": "stub copy of skills/m8-design-compiler/assets/m0-gdd (fixed micro-GDD)",
+      "milestone": "M0"
     },
     {
       "id": 1,
@@ -24,7 +25,8 @@
         "content/elements.json",
         "content/statuses.json"
       ],
-      "gate_evidence": "gate_content.py: zero errors for the three systems files (later-phase files still missing as expected); schemas OK; RFC-001/002 filed and accepted (doc clarifications)"
+      "gate_evidence": "gate_content.py: zero errors for the three systems files (later-phase files still missing as expected); schemas OK; RFC-001/002 filed and accepted (doc clarifications)",
+      "milestone": "M0"
     },
     {
       "id": 2,
@@ -42,7 +44,8 @@
         "content/dialogue.json",
         "content/maps/*.json"
       ],
-      "gate_evidence": "gate_content GREEN (0 err, 0 warn); completability GREEN (node.ending reachable; 1 benign orphan = intro one-shot excluded from monotone proof); conductor re-ran both"
+      "gate_evidence": "gate_content GREEN (0 err, 0 warn); completability GREEN (node.ending reachable; 1 benign orphan = intro one-shot excluded from monotone proof); conductor re-ran both",
+      "milestone": "M0"
     },
     {
       "id": 3,
@@ -51,7 +54,8 @@
       "outputs": [
         "src/**"
       ],
-      "gate_evidence": "03a: TESTS 428/428. 03b: boot exit 0, tests still 428/428, 40-action smoke green with 5 scene types + quit, byte-identical reruns. Conductor re-verified all three. RFC candidates + G-003 mismatch noted for wrap."
+      "gate_evidence": "03a: TESTS 428/428. 03b: boot exit 0, tests still 428/428, 40-action smoke green with 5 scene types + quit, byte-identical reruns. Conductor re-verified all three. RFC candidates + G-003 mismatch noted for wrap.",
+      "milestone": "M0"
     },
     {
       "id": 4,
@@ -60,7 +64,8 @@
       "outputs": [
         "reports/gate_*.{json,txt,jsonl}"
       ],
-      "gate_evidence": "content GREEN 0/0; tests 428/428 w/ per-file proof incl. test_save 40/40 (runner gained per-file lines \u2014 conductor micro-edit, noted); boot exit 0 no errors; smoke GREEN 5 scene types + quit. Evidence: reports/gate_{content.json,tests.txt,boot.txt,smoke.json,smoke.jsonl}"
+      "gate_evidence": "content GREEN 0/0; tests 428/428 w/ per-file proof incl. test_save 40/40 (runner gained per-file lines \u2014 conductor micro-edit, noted); boot exit 0 no errors; smoke GREEN 5 scene types + quit. Evidence: reports/gate_{content.json,tests.txt,boot.txt,smoke.json,smoke.jsonl}",
+      "milestone": "M0"
     },
     {
       "id": 5,
@@ -71,7 +76,8 @@
         "reports/balance.json",
         "reports/balance.md"
       ],
-      "gate_evidence": "balance GREEN after 1 patch round: boss wipe 0.230->0.090 (eruption softened + reweighted, data-only), ttk 10.84 in [6,16]; 3300 battles via the game engine, seed 20260711. reports/balance.{json,md}"
+      "gate_evidence": "balance GREEN after 1 patch round: boss wipe 0.230->0.090 (eruption softened + reweighted, data-only), ttk 10.84 in [6,16]; 3300 battles via the game engine, seed 20260711. reports/balance.{json,md}",
+      "milestone": "M0"
     },
     {
       "id": 6,
@@ -82,7 +88,8 @@
         "reports/playtest/rusher/*",
         "reports/playtest/summary.json"
       ],
-      "gate_evidence": "static completability GREEN; rusher PASS seed 1101: 1184 actions, ending+credits+quit, deterministic (conductor rerun trace sha-identical to committed artifact), party L5 at boss (grind cap ok). Defects: PT-001 found->fixed->regression-tested->re-verified (1 repair round-trip); PT-002 deferred M1. reports/playtest/summary.json"
+      "gate_evidence": "static completability GREEN; rusher PASS seed 1101: 1184 actions, ending+credits+quit, deterministic (conductor rerun trace sha-identical to committed artifact), party L5 at boss (grind cap ok). Defects: PT-001 found->fixed->regression-tested->re-verified (1 repair round-trip); PT-002 deferred M1. reports/playtest/summary.json",
+      "milestone": "M0"
     },
     {
       "id": 7,
@@ -92,8 +99,23 @@
         "plan/log.md closed",
         "retrospectives/queue.md entry"
       ],
-      "gate_evidence": "log closed; retrospectives/queue.md stocked; README milestone updated. M0 exit test (fresh session) queued as next action."
+      "gate_evidence": "log closed; retrospectives/queue.md stocked; README milestone updated. M0 exit test (fresh session) queued as next action.",
+      "milestone": "M0"
+    },
+    {
+      "id": 8,
+      "name": "M1-atelier",
+      "milestone": "M1",
+      "status": "done",
+      "outputs": [
+        "assets/manifest.json (34 assets)",
+        "assets/{sprites,tiles,backgrounds,portraits,icons,audio}/",
+        "src asset layer (M8Assets/M8Audio)",
+        "reports/gate_stats.{json,md}"
+      ],
+      "gate_evidence": "M1 exit test PASSED (fresh session 2026-07-12): 771/771 tests, content+completability green, rusher byte-identical, generated art renders (title/town/battle), emberdew icon regenerates byte-identical, 34/34 manifest integrity. retrospectives/2026-07-12-emberwake-m1.md"
     }
   ],
-  "repair_counts": {}
+  "repair_counts": {},
+  "m1_note": "M1 (The Atelier) complete. Orders 07-10 in plan/orders/ wired the asset layer. Full narrative in plan/log.md; assets in assets/manifest.json."
 }

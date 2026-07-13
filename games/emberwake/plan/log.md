@@ -26,3 +26,4 @@
 - 2026-07-12 · M1: battle backgrounds + portraits wired (WO10) — 729/729 tests; rusher byte-identical; conductor finished the stalled phase.
 - 2026-07-12 · M1: full soundtrack — 6 more tracks (depth/vault/battle/boss/title/victory) via ACE-Step, all gate-green (title tail-trimmed). 7 music slots total. Soundsmith flipped stub->active; style bible gains bgm scaffolds.
 - 2026-07-12 · M1: gate-stats report (34 assets, 85% first-try green, 0 hash mismatches, all content keys resolve) + M1 retrospective written. Showcase + README docs updated.
+- 2026-07-12 · M1 COMPLETE — fresh-session exit test PASSED (771/771 tests, art renders, asset regenerates byte-identical, gate stats reported). 4 self-sufficiency gaps found+fixed (state.json advanced, playtester invocation documented, reproducibility wording, conductor wrap rule). Current tests: 771/771.

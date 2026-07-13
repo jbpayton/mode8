@@ -21,7 +21,7 @@ Read [SPEC.md](SPEC.md) — the founding charter — for the full architecture a
 | Milestone | Description | Status |
 |---|---|---|
 | **M0** | Walking skeleton: ontology v0, effect-algebra interpreter, a completable micro-RPG, ugly on purpose | ✅ **complete** — [Emberwake](games/emberwake/): completability proven, 3.3k sim battles in-band, rusher finishes deterministically, fresh-session exit test passed |
-| **M1** | The Atelier: full asset pipeline + gate cascade replaces placeholders | 🔨 near-complete — Emberwake regenerated with generated HD-2D art + music: party walk cycles, monsters, tileset, backgrounds, portraits, icons, a 7-track score — all gate-verified and manifest-pinned. **[See the showcase →](games/emberwake/SHOWCASE.md)** |
+| **M1** | The Atelier: full asset pipeline + gate cascade replaces placeholders | ✅ **complete** — Emberwake regenerated with generated HD-2D art + music: party walk cycles, monsters, tileset, backgrounds, portraits, icons, a 7-track score — all gate-verified and manifest-pinned. Fresh-session exit test passed 2026-07-12. **[See the showcase →](games/emberwake/SHOWCASE.md)** |
 | M2 | Depth: 150+ items, 60+ monsters, balance simulation | — |
 | M3 | Story: VN interludes, character arcs, branch soundness proofs | — |
 | M4 | Genre proof: FF1-style, FF6-style, and grid SRPG from one pipeline | — |

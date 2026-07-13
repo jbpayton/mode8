@@ -13,7 +13,13 @@ Two jobs: **prove** the game is completable (static), then **play** it and try t
 
 ## Dynamic personas (engine contract §6 drive model: script → run → read trace → extend → rerun)
 
-Work in `reports/playtest/<persona>/`. Loop per persona: write `actions.json` → run headless with a fixed seed → read `trace.jsonl` → extend or correct the script → rerun *from the start* (determinism makes this cheap). You are navigating by state, not pixels: positions, flags, hp, scene types are all in the trace. Consult `content/maps/*.json` to plan routes like a human reads a walkthrough map.
+Work in `reports/playtest/<persona>/`. Loop per persona: write `actions.json` → run with a fixed seed → read `trace.jsonl` → extend or correct the script → rerun *from the start* (determinism makes this cheap). You are navigating by state, not pixels: positions, flags, hp, scene types are all in the trace. Consult `content/maps/*.json` to plan routes like a human reads a walkthrough map.
+
+**Exact invocation** (custom args go AFTER `--`, read via `OS.get_cmdline_user_args()`; use an ABSOLUTE `--m8-script` path — a bare relative path silently no-ops under `--path`):
+```
+<godot> --headless --path games/<t>/src -- --m8-script=<ABS actions.json> --m8-trace=<ABS trace.jsonl> --m8-seed=<n> [--m8-max-frames=<n>]
+```
+Determinism repro = `cmp` the new trace against the committed one. **Screenshots** (`{"do":"screenshot","path":"<abs>"}` step; Tier-4 QA) need a windowed run — they no-op under `--headless`; wrap with `xvfb-run -a -s "-screen 0 1280x720x24" <godot> --path games/<t>/src -- …` (drop `--headless`). Full drive/trace contract: `skills/m8-engine-smith/references/engine-contract.md` §6.
 
 - **rusher** (M0+): critical path, minimum fights (flee when allowed), straight to the ending. Success = trace ends in the ending scene → title/credits. This is the M0 exit persona.
 - **completionist** (M2+): every chest, every shop item purchasable check, every sidequest, full bestiary contact.
