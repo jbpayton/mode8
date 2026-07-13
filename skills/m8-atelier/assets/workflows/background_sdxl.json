@@ -1,0 +1,47 @@
+{
+  "_meta": {
+    "name": "background_sdxl",
+    "stage": "Emberwake battle backgrounds (HD-2D backdrops behind battle sprites). SDXL base 1.0 ALONE — NO pixel-art-xl LoRA — 1344x768 painterly generation -> deterministic bg_post_chain.py -> opaque 640x360 (game internal res).",
+    "date": "2026-07-12",
+    "model_choice": "SDXL base alone, painterly (no pixel LoRA). Rationale: a battle background RECEDES behind 128-224px pixel monster sprites; the HD-2D aesthetic (style-bible: 640x360 internal, nearest upscale) deliberately pairs painterly/atmospheric backdrops with pixel foreground sprites (Octopath model). pixel-art-xl flattens depth into blocky bands that fight the receding-cavern brief and read as noise at 640x360; SDXL alone gives the ember-glow gradient, aerial-perspective depth, and soft cool shadows the brief asks for. Opacity is intrinsic (no alpha channel from VAEDecode) so the battle_background gate (fill>=0.95) is met by construction.",
+    "post_chain": "skills/m8-atelier/assets/workflows/bg_post_chain.py: center-crop to 16:9 -> LANCZOS downscale to 640x360 -> flatten to opaque RGBA (alpha=255) -> optional mediancut quantize (--quant, default off; backgrounds gate allows unlimited colors, a light 192-color pass harmonizes with the pixel palette without banding the ember gradient).",
+    "status": "new — Emberwake M1 battle backgrounds",
+    "jobs": {
+      "bg_ember_depth": {"seed": 20260712, "pos": "dark volcanic cavern interior, rough black basalt rock walls, glowing ember-orange lava fissures cracking through the stone, deep receding tunnel perspective into darkness, warm ember glow rising from below, cool blue shadows in the depths, drifting embers and faint smoke, atmospheric aerial depth, wide establishing shot, empty cavern, digital painting, moody dramatic volcanic lighting, fantasy game battle background", "neg": "default"},
+      "bg_vault": {"seed": 20260712, "pos": "vast underground molten chamber, immense volcanic vault, wide rivers and pools of glowing lava across the floor, towering cracked basalt pillars and a great arched stone gate, oppressive ominous red-orange volcanic glow, embers and heat haze rising, deep receding cavern depth, cool blue shadows against the fiery light, cathedral of stone and fire, wide establishing shot, empty chamber, digital painting, dramatic cinematic volcanic lighting, fantasy boss arena background", "neg": "default"}
+    }
+  },
+  "1": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {"ckpt_name": "sd_xl_base_1.0.safetensors"}
+  },
+  "3": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {"clip": ["1", 1],
+               "text": "dark volcanic cavern interior, rough black basalt rock walls, glowing ember-orange lava fissures cracking through the stone, deep receding tunnel perspective into darkness, warm ember glow rising from below, cool blue shadows in the depths, drifting embers and faint smoke, atmospheric aerial depth, wide establishing shot, empty cavern, digital painting, moody dramatic volcanic lighting, fantasy game battle background"}
+  },
+  "4": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {"clip": ["1", 1],
+               "text": "characters, people, person, human, silhouette figure, monster, creature, animal, dragon, portrait, face, text, letters, words, watermark, signature, logo, ui, hud, health bar, frame, border, vignette, blurry, low quality, jpeg artifacts, close up macro, flat, empty black void"}
+  },
+  "5": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {"width": 1344, "height": 768, "batch_size": 1}
+  },
+  "6": {
+    "class_type": "KSampler",
+    "inputs": {"model": ["1", 0], "positive": ["3", 0], "negative": ["4", 0],
+               "latent_image": ["5", 0], "seed": 20260712, "steps": 32,
+               "cfg": 6.5, "sampler_name": "dpmpp_2m", "scheduler": "karras",
+               "denoise": 1.0}
+  },
+  "7": {
+    "class_type": "VAEDecode",
+    "inputs": {"samples": ["6", 0], "vae": ["1", 2]}
+  },
+  "8": {
+    "class_type": "SaveImage",
+    "inputs": {"images": ["7", 0], "filename_prefix": "m8_bg"}
+  }
+}

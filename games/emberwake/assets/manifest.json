@@ -831,6 +831,218 @@
         "npc"
       ],
       "repair_note": "seeds 20260712 & 20260714 rendered as multi-pose VNCCS-style contact sheets (multi-component, unusable); 20260713 gave a single clean centered figure."
+    },
+    {
+      "key": "bg_ember_depth",
+      "class": "battle_background",
+      "file": "assets/backgrounds/bg_ember_depth.png",
+      "sha256": "f9f339dd76dc4a682a2fe1a1db9d2d8f1ac3d7c0539895eec2405981eb03db73",
+      "size": [
+        640,
+        360
+      ],
+      "workflow": "skills/m8-atelier/assets/workflows/background_sdxl.json",
+      "workflow_sha256": "ac2e251d116b620be222c4cdf4ae9a8c7f30a8c25af9c7ff33bde590f3477428",
+      "workflow_overrides": {
+        "3.text": "dark volcanic cavern interior, rough black basalt rock walls, glowing ember-orange lava fissures cracking through the stone, deep receding tunnel perspective into darkness, warm ember glow rising from below, cool blue shadows in the depths, drifting embers and faint smoke, atmospheric aerial depth, wide establishing shot, empty cavern, digital painting, moody dramatic volcanic lighting, fantasy game battle background",
+        "6.seed": 20260713
+      },
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b"
+      },
+      "model_note": "SDXL base 1.0 ALONE, NO pixel-art-xl LoRA — painterly HD-2D backdrop that recedes behind pixel sprites; full rationale in workflow _meta.model_choice",
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "post_chain": "bg_post_chain.py --quant 192: center-crop 1344x768 gen to exact 16:9 -> LANCZOS downscale to 640x360 -> mediancut quantize 192 -> flatten to opaque RGBA (alpha 255). post_chain_sha256=820436567d72b5f34c2dbabd4c1e86505cfd0a040051a1beb857800522fb213e",
+      "gates": {
+        "tier1_image": {
+          "class": "battle_background",
+          "all_green": true,
+          "size": [
+            640,
+            360
+          ],
+          "fill": 1.0,
+          "fg_colors": 192
+        },
+        "tier3": "agent judge: reads as a dark volcanic cavern interior — rough basalt walls, ember-orange lava fissures/river receding into depth, cool-blue foreground boulders (style-bible cool shadow blues); no characters/monsters/text; dark enough that pixel monster sprites pop against it. Human is final judge."
+      },
+      "repair_rounds": 0,
+      "repair_note": "0 generation re-rolls; winner chosen from a 4-seed contact sheet (20260712-15) at seed 20260713; post-chain green on first pass.",
+      "engine_wiring": "NOT YET WIRED — content maps do not reference battle backgrounds yet. A separate engine order must map this key to the Ember Depth dungeon (F1-F3) battle scenes.",
+      "generated": "2026-07-12",
+      "aliases": [
+        "bg_ember_depth"
+      ]
+    },
+    {
+      "key": "bg_vault",
+      "class": "battle_background",
+      "file": "assets/backgrounds/bg_vault.png",
+      "sha256": "e4e5b4c0c6584eb9390f202b003892c8350eeb412173a797b4c7a8884d33214e",
+      "size": [
+        640,
+        360
+      ],
+      "workflow": "skills/m8-atelier/assets/workflows/background_sdxl.json",
+      "workflow_sha256": "ac2e251d116b620be222c4cdf4ae9a8c7f30a8c25af9c7ff33bde590f3477428",
+      "workflow_overrides": {
+        "3.text": "vast underground molten chamber, immense volcanic vault, wide rivers and pools of glowing lava across the floor, towering cracked basalt pillars and a great arched stone gate, oppressive ominous red-orange volcanic glow, embers and heat haze rising, deep receding cavern depth, cool blue shadows against the fiery light, cathedral of stone and fire, wide establishing shot, empty chamber, digital painting, dramatic cinematic volcanic lighting, fantasy boss arena background",
+        "6.seed": 20260715
+      },
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b"
+      },
+      "model_note": "SDXL base 1.0 ALONE, NO pixel-art-xl LoRA — painterly HD-2D backdrop that recedes behind pixel sprites; full rationale in workflow _meta.model_choice",
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "post_chain": "bg_post_chain.py --quant 192: center-crop 1344x768 gen to exact 16:9 -> LANCZOS downscale to 640x360 -> mediancut quantize 192 -> flatten to opaque RGBA (alpha 255). post_chain_sha256=820436567d72b5f34c2dbabd4c1e86505cfd0a040051a1beb857800522fb213e",
+      "gates": {
+        "tier1_image": {
+          "class": "battle_background",
+          "all_green": true,
+          "size": [
+            640,
+            360
+          ],
+          "fill": 1.0,
+          "fg_colors": 192
+        },
+        "tier3": "agent judge: reads as the Ash Tyrant's vault — a vast molten cathedral of stone and fire, arched basalt galleries receding into depth, a central glowing altar-gate, lava rivers and a cool reflecting pool with steps in the foreground; ominous and grander than bg_ember_depth (larger chamber, architectural); no characters/monsters/text; the darker foreground ledge gives the boss sprite a place to stand. Human is final judge."
+      },
+      "repair_rounds": 0,
+      "repair_note": "0 generation re-rolls; winner chosen from a 4-seed contact sheet (20260712-15) at seed 20260715; post-chain green on first pass.",
+      "engine_wiring": "NOT YET WIRED — content maps do not reference battle backgrounds yet. A separate engine order must map this key to the Ember Depth F3 vault / Ash Tyrant boss battle scene.",
+      "generated": "2026-07-12",
+      "aliases": [
+        "bg_vault"
+      ]
+    },
+    {
+      "key": "por_warden",
+      "class": "portrait",
+      "file": "assets/portraits/por_warden.png",
+      "sha256": "56b7b98512e7b8637f588cc7759b7972fee49ffb020dc98ed826ae3ed906d1e7",
+      "size": [
+        96,
+        96
+      ],
+      "derivation": "crop-from-canonical-identity (no new generation) — head-and-shoulders bust cut from the accepted clothed ShaftWarden front view.",
+      "source_sprite": {
+        "file": "appliances/comfyui/ComfyUI/output/VNCCS/Characters/Warden/Sprites/ShaftWarden/Neutral/sprite_pose_0005.png",
+        "view": "front (0005)",
+        "sha256": "de2ea1d2ca56201ecff4346ada407e1b30dbcb253338700c9af5b49cbc5e765e"
+      },
+      "workflow": "skills/m8-atelier/assets/workflows/portrait_crop.py",
+      "workflow_sha256": "93bb2e82e058a0e9be151c98ae3ea2f673e9ae1fa996eb4f752b770d8390438a",
+      "workflow_overrides": {
+        "bust": 0.38,
+        "margin": 0.06,
+        "headband": 0.14,
+        "colors": 256,
+        "thr": 160
+      },
+      "post_chain": "portrait_crop.py --bust 0.38: scipy label -> keep largest solid component (alpha>160) -> figure bbox -> head x-centre from top 14% band -> square bust window side=0.38*fig_h, top=head_top-0.06*side, x-centred on head -> composite over dark cool->warm vertical gradient (opaque) -> LANCZOS to 96x96 -> mediancut quantize 256. portrait_crop_sha256=93bb2e82e058a0e9be151c98ae3ea2f673e9ae1fa996eb4f752b770d8390438a",
+      "upstream": {
+        "note": "clothed ShaftWarden identity that produced the source sprite (same VNCCS QIE2511 stack as warden_walk); regenerate the source via these before re-cropping",
+        "identity_workflow": "skills/m8-atelier/assets/workflows/character_sheet_vnccs.json",
+        "identity_workflow_sha256": "d38b3448ebe2ac5cbf8935efcdb780cc258b02410eaf34bce61bfe5850bafe81",
+        "clothes_workflow": "skills/m8-atelier/assets/workflows/clothes_vnccs.json",
+        "clothes_workflow_sha256": "78d80f1225dcd27a5432898a259e946b84cfa8b2e6018fa95fa138657058369f"
+      },
+      "models": {
+        "qwen_image_edit_2511_fp8": "e9e85de74a8f48c1e3e2656617626348675a2f21",
+        "qwen25_vl_7b_fp8_text_encoder": "46839d338df81ce625d5fae27d7e370314c0fbc9",
+        "qwen_image_vae": "46839d338df81ce625d5fae27d7e370314c0fbc9",
+        "qie2511_lightning_4step_lora": "d74eba145674fd7e31b949324e148e21e7118abd",
+        "vnccs_pose_studio_qie2511_lora": "ba45075903203e511b054443d9e1c2c313b719ef"
+      },
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "identity": "clothed v2 (ShaftWarden)",
+      "gates": {
+        "tier1_image": {
+          "class": "portrait",
+          "all_green": true,
+          "size": [
+            96,
+            96
+          ],
+          "fill": 1.0,
+          "fg_colors": 256
+        },
+        "tier3": "agent judge: reads as the Warden bust in dialogue/status — dark spiky hair, amber-lit face (canonical ShaftWarden lighting, matches the walk-cycle 'amber face'), dark quilted jacket with ember-orange collar trim; identity consistent with chr_warden; simple cool-dark gradient bg. Face is moody/backlit (his established look) but clearly legible at 96px. Human is final judge."
+      },
+      "repair_rounds": 0,
+      "repair_note": "0 re-rolls; bust fraction chosen from a 3-value contact sheet (0.32/0.38/0.44), 0.38 gives the cleanest head-and-shoulders. Gate green first pass.",
+      "engine_wiring": "NOT YET WIRED beyond content — classes.json class.warden.portrait already declares key 'por_warden'; the dialogue/status engine must load & render it (which VN/status panels, at what size).",
+      "generated": "2026-07-12",
+      "aliases": [
+        "por_warden"
+      ]
+    },
+    {
+      "key": "por_ashcaller",
+      "class": "portrait",
+      "file": "assets/portraits/por_ashcaller.png",
+      "sha256": "067d01650086c00e0678801c4e775ee28c8d449b8b6e1137f0cb8869c018e21d",
+      "size": [
+        96,
+        96
+      ],
+      "derivation": "crop-from-canonical-identity (no new generation) — head-and-shoulders bust cut from the accepted clothed EmberMender front view.",
+      "source_sprite": {
+        "file": "appliances/comfyui/ComfyUI/output/VNCCS/Characters/Ashcaller/Sprites/EmberMender/Neutral/sprite_pose_0001.png",
+        "view": "front (0001)",
+        "sha256": "c1e7444e7ead4b3108bc7ac34b30a499fe379ef4690c63a14db7658cf1be53db"
+      },
+      "workflow": "skills/m8-atelier/assets/workflows/portrait_crop.py",
+      "workflow_sha256": "93bb2e82e058a0e9be151c98ae3ea2f673e9ae1fa996eb4f752b770d8390438a",
+      "workflow_overrides": {
+        "bust": 0.38,
+        "margin": 0.06,
+        "headband": 0.14,
+        "colors": 256,
+        "thr": 160
+      },
+      "post_chain": "portrait_crop.py --bust 0.38: scipy label -> keep largest solid component (alpha>160) -> figure bbox -> head x-centre from top 14% band -> square bust window side=0.38*fig_h, top=head_top-0.06*side, x-centred on head -> composite over dark cool->warm vertical gradient (opaque) -> LANCZOS to 96x96 -> mediancut quantize 256. portrait_crop_sha256=93bb2e82e058a0e9be151c98ae3ea2f673e9ae1fa996eb4f752b770d8390438a",
+      "upstream": {
+        "note": "clothed EmberMender identity that produced the source sprite (same VNCCS QIE2511 stack as ashcaller_walk); regenerate the source via these before re-cropping",
+        "identity_workflow": "skills/m8-atelier/assets/workflows/character_sheet_vnccs_ashcaller.json",
+        "identity_workflow_sha256": "273a28ff7927c814a22d2e69d7ebd988b6d95ef503e79d5d1f7685aa169b349d",
+        "clothes_workflow": "skills/m8-atelier/assets/workflows/clothes_vnccs_ashcaller.json",
+        "clothes_workflow_sha256": "7d8ffad6527d9589bf89be9d024089c07216369bf3d404f38cacdd2b0ca515d1"
+      },
+      "models": {
+        "qwen_image_edit_2511_fp8": "e9e85de74a8f48c1e3e2656617626348675a2f21",
+        "qwen25_vl_7b_fp8_text_encoder": "46839d338df81ce625d5fae27d7e370314c0fbc9",
+        "qwen_image_vae": "46839d338df81ce625d5fae27d7e370314c0fbc9",
+        "qie2511_lightning_4step_lora": "d74eba145674fd7e31b949324e148e21e7118abd",
+        "vnccs_pose_studio_qie2511_lora": "ba45075903203e511b054443d9e1c2c313b719ef"
+      },
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "identity": "clothed (EmberMender)",
+      "gates": {
+        "tier1_image": {
+          "class": "portrait",
+          "all_green": true,
+          "size": [
+            96,
+            96
+          ],
+          "fill": 1.0,
+          "fg_colors": 256
+        },
+        "tier3": "agent judge: reads cleanly as the Ashcaller bust in dialogue/status — white layered hair, pale skin, ember-orange eyes, pale ash-grey robe with a red collar tie and ember-orange trim; identity consistent with chr_ashcaller; strong contrast against the dark gradient bg (design goal vs the darker Warden). Best-reading portrait of the pair. Human is final judge."
+      },
+      "repair_rounds": 0,
+      "repair_note": "0 re-rolls; bust fraction chosen from a 3-value contact sheet (0.32/0.38/0.44), 0.38 gives the cleanest head-and-shoulders. Gate green first pass.",
+      "engine_wiring": "NOT YET WIRED beyond content — classes.json class.ashcaller.portrait already declares key 'por_ashcaller'; the dialogue/status engine must load & render it (which VN/status panels, at what size).",
+      "generated": "2026-07-12",
+      "aliases": [
+        "por_ashcaller"
+      ]
     }
   ]
 }
