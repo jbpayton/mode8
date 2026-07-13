@@ -1,0 +1,23 @@
+{
+  "gate": "tier1_image",
+  "file": "/home/seraphius/mode8/games/emberwake/assets/tiles/entities/chest.png",
+  "class": "sprite",
+  "gates": {
+    "size 16x16": true,
+    "has transparent region": true,
+    "single major component": true,
+    "specks <= 3": true,
+    "fill in [0.1, 0.9]": true,
+    "palette <= 96": true
+  },
+  "measured": {
+    "size": [
+      16,
+      16
+    ],
+    "fill": 0.652,
+    "fg_colors": 32,
+    "components": 1
+  },
+  "status": "green"
+}

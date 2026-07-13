@@ -19,3 +19,4 @@
 - 2026-07-12 · M1: Warden dressed (ShaftWarden) and cycles re-cut with clothed identity — gate green, 0 generation repairs, rusher byte-identical. Scrub v2.1 canonical.
 - 2026-07-12 · M1: Ashcaller complete (identity→EmberMender outfit→cycles) — gate green, cycle stage 0 repairs, contrast goal achieved. Party fully sprited. ~40min/character calibrated.
 - 2026-07-12 · M1: battle sprites live — monsters + party render in battle_menu; 529/529 tests; rusher byte-identical. First real combat screen.
+- 2026-07-12 · M1: tileset complete — 5 terrain tiles (seamless via quadrant-offset post-blend) + chest/portal/npc markers, 8/8 gate-green, warden-contrast pass. gate_tile_image v2 (16x16 tileset size check).

@@ -481,6 +481,356 @@
       },
       "status": "installed \u2014 partial seed provenance (generating agent ran out of credits before writing final manifest; assets gate-green and human-reviewed; exact winning seed recoverable by re-running the candidate range and hash-matching)",
       "generated": "2026-07-12"
+    },
+    {
+      "key": "town_floor",
+      "class": "tile",
+      "tileset_key": "town_floor",
+      "file": "assets/tiles/town_floor.png",
+      "sha256": "7edf1588b80e1b8b2bf9cd998ae0a68f117927c7672291f833330d8da6f30295",
+      "size": [
+        16,
+        16
+      ],
+      "walkable": true,
+      "workflow": "skills/m8-atelier/assets/workflows/tileset_sdxl.json",
+      "workflow_sha256": "c69ac01ecb99cccb3d5b98a66ed17a9ae885f2487a5e5504c686664e4e44743e",
+      "workflow_overrides": {
+        "3.text": "pixel art, seamless tileable texture, top down ground tile, packed dry earth with scattered worn cobblestones, warm neutral tan and brown dirt, flat even lighting, repeating pattern, no border, muted earthy palette",
+        "6.seed": 20260714
+      },
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "post_chain": "tile_post_chain.py --mode terrain: center-crop 512 of 1024 -> quadrant-offset seamless blend (T=roll(P,H/2,W/2), result=T*max(rampx,rampy)+P*(1-...)) -> box-downsample 512->16 -> mediancut <=32 colors, opaque full-bleed. post_chain_sha256=da17c1cde90f26985b1008e5ad5585b6267a14dfd5ef2fbfb6eeb174712c2c12",
+      "tileability": "seamless (quadrant-offset blend); verified by 4x4 repeat, no hard seams",
+      "gates": {
+        "tier1_image": {
+          "class": "tileset",
+          "all_green": true,
+          "size": [
+            16,
+            16
+          ],
+          "fill": 1.0,
+          "fg_colors": 32
+        },
+        "tier3": "agent judge: tiles seamlessly into a continuous field, no hard grid; warm/cool palette coherent with party+monster sprites. Human is final judge."
+      },
+      "repair_rounds": 0,
+      "generated": "2026-07-12",
+      "aliases": [
+        "town_floor"
+      ]
+    },
+    {
+      "key": "town_wall",
+      "class": "tile",
+      "tileset_key": "town_wall",
+      "file": "assets/tiles/town_wall.png",
+      "sha256": "ffe421ed4f7e2883eb0f642419eb79840c16b1d88247783be6bfad17adde414e",
+      "size": [
+        16,
+        16
+      ],
+      "walkable": false,
+      "workflow": "skills/m8-atelier/assets/workflows/tileset_sdxl.json",
+      "workflow_sha256": "c69ac01ecb99cccb3d5b98a66ed17a9ae885f2487a5e5504c686664e4e44743e",
+      "workflow_overrides": {
+        "3.text": "pixel art, seamless tileable texture, top down village wall surface, soot-darkened timber planks and grey fieldstone masonry, rough weathered wood and stone, flat even lighting, repeating pattern, no border, dark muted warm greys and browns",
+        "6.seed": 20260712
+      },
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "post_chain": "tile_post_chain.py --mode terrain: center-crop 512 of 1024 -> quadrant-offset seamless blend (T=roll(P,H/2,W/2), result=T*max(rampx,rampy)+P*(1-...)) -> box-downsample 512->16 -> mediancut <=32 colors, opaque full-bleed. post_chain_sha256=da17c1cde90f26985b1008e5ad5585b6267a14dfd5ef2fbfb6eeb174712c2c12",
+      "tileability": "seamless (quadrant-offset blend); verified by 4x4 repeat, no hard seams",
+      "gates": {
+        "tier1_image": {
+          "class": "tileset",
+          "all_green": true,
+          "size": [
+            16,
+            16
+          ],
+          "fill": 1.0,
+          "fg_colors": 31
+        },
+        "tier3": "agent judge: tiles seamlessly into a continuous field, no hard grid; warm/cool palette coherent with party+monster sprites. Human is final judge."
+      },
+      "repair_rounds": 0,
+      "generated": "2026-07-12",
+      "aliases": [
+        "town_wall"
+      ]
+    },
+    {
+      "key": "town_well",
+      "class": "tile",
+      "tileset_key": "town_well",
+      "file": "assets/tiles/town_well.png",
+      "sha256": "50d239199bc8cf4e955ca1287578ddb17c0e412d58f59500c7e782775aa47aa1",
+      "size": [
+        16,
+        16
+      ],
+      "walkable": false,
+      "workflow": "skills/m8-atelier/assets/workflows/tileset_sdxl.json",
+      "workflow_sha256": "c69ac01ecb99cccb3d5b98a66ed17a9ae885f2487a5e5504c686664e4e44743e",
+      "workflow_overrides": {
+        "3.text": "pixel art, top down stone water well, circular stacked-stone rim wall, dark round water opening in the center, mossy grey cobblestone, single round object filling the frame, flat even lighting, muted grey stone",
+        "4.text": "photo, realistic, 3d render, blurry, soft focus, text, watermark, frame, border, vignette, character, creature, grid lines",
+        "6.seed": 20260714
+      },
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "post_chain": "tile_post_chain.py --mode object: center-crop 640 of 1024 -> box-downsample ->16 -> mediancut <=32, opaque (NO seamless blend; placed object). post_chain_sha256=da17c1cde90f26985b1008e5ad5585b6267a14dfd5ef2fbfb6eeb174712c2c12",
+      "tileability": "n/a \u2014 placed object (map shows only 'oo'); opaque full-bleed",
+      "gates": {
+        "tier1_image": {
+          "class": "tileset",
+          "all_green": true,
+          "size": [
+            16,
+            16
+          ],
+          "fill": 1.0,
+          "fg_colors": 32
+        },
+        "tier3": "agent judge: reads as a top-down stone well (grey rim, dark shaft) at 16px; two side-by-side read as one wide well. Human is final judge."
+      },
+      "repair_rounds": 0,
+      "generated": "2026-07-12",
+      "aliases": [
+        "town_well"
+      ]
+    },
+    {
+      "key": "cave_floor",
+      "class": "tile",
+      "tileset_key": "cave_floor",
+      "file": "assets/tiles/cave_floor.png",
+      "sha256": "9c1889d2ad98d2ed017316667044ca1ed19e584571fc617750c813a2c394a18c",
+      "size": [
+        16,
+        16
+      ],
+      "walkable": true,
+      "workflow": "skills/m8-atelier/assets/workflows/tileset_sdxl.json",
+      "workflow_sha256": "c69ac01ecb99cccb3d5b98a66ed17a9ae885f2487a5e5504c686664e4e44743e",
+      "workflow_overrides": {
+        "3.text": "pixel art, seamless tileable texture, top down volcanic cave floor, dark grey basalt rock with thin glowing ember-orange cracks, medium dark stone not pure black, faint warm glow in fissures, flat even lighting, repeating pattern, no border, cool grey rock with warm ember accents",
+        "6.seed": 20260714
+      },
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "post_chain": "tile_post_chain.py --mode terrain: center-crop 512 of 1024 -> quadrant-offset seamless blend (T=roll(P,H/2,W/2), result=T*max(rampx,rampy)+P*(1-...)) -> box-downsample 512->16 -> mediancut <=32 colors, opaque full-bleed. post_chain_sha256=da17c1cde90f26985b1008e5ad5585b6267a14dfd5ef2fbfb6eeb174712c2c12",
+      "tileability": "seamless (quadrant-offset blend); verified by 4x4 repeat, no hard seams",
+      "gates": {
+        "tier1_image": {
+          "class": "tileset",
+          "all_green": true,
+          "size": [
+            16,
+            16
+          ],
+          "fill": 1.0,
+          "fg_colors": 32
+        },
+        "tier3": "agent judge: tiles seamlessly into a continuous field, no hard grid; warm/cool palette coherent with party+monster sprites. Human is final judge."
+      },
+      "repair_rounds": 0,
+      "generated": "2026-07-12",
+      "aliases": [
+        "cave_floor"
+      ]
+    },
+    {
+      "key": "cave_wall",
+      "class": "tile",
+      "tileset_key": "cave_wall",
+      "file": "assets/tiles/cave_wall.png",
+      "sha256": "3960261cd70a4cdad4ba0ac05968bd58b2a0831e9b0a70106558cf452525e2c7",
+      "size": [
+        16,
+        16
+      ],
+      "walkable": false,
+      "workflow": "skills/m8-atelier/assets/workflows/tileset_sdxl.json",
+      "workflow_sha256": "c69ac01ecb99cccb3d5b98a66ed17a9ae885f2487a5e5504c686664e4e44743e",
+      "workflow_overrides": {
+        "3.text": "pixel art, seamless tileable texture, rough craggy basalt cavern wall, large chunky dark volcanic boulders, deep black shadow crevices between rocks, heavy solid dark stone mass, near black charcoal grey, no glow, flat even lighting, repeating pattern, no border",
+        "6.seed": 20260742
+      },
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "post_chain": "tile_post_chain.py --mode terrain: center-crop 512 of 1024 -> quadrant-offset seamless blend (T=roll(P,H/2,W/2), result=T*max(rampx,rampy)+P*(1-...)) -> box-downsample 512->16 -> mediancut <=32 colors, opaque full-bleed. post_chain_sha256=da17c1cde90f26985b1008e5ad5585b6267a14dfd5ef2fbfb6eeb174712c2c12",
+      "tileability": "seamless (quadrant-offset blend); verified by 4x4 repeat, no hard seams",
+      "gates": {
+        "tier1_image": {
+          "class": "tileset",
+          "all_green": true,
+          "size": [
+            16,
+            16
+          ],
+          "fill": 1.0,
+          "fg_colors": 32
+        },
+        "tier3": "agent judge: tiles seamlessly into a continuous field, no hard grid; warm/cool palette coherent with party+monster sprites. Human is final judge."
+      },
+      "repair_rounds": 1,
+      "generated": "2026-07-12",
+      "aliases": [
+        "cave_wall"
+      ],
+      "repair_note": "reseeded to 20260742 with a darker/chunkier prompt: the first cave_wall (light grey basalt, seeds 20260712-14) was nearly indistinguishable from cave_floor when rendered into ember_depth_f1. Darkening the wall + keeping ember on the floor gives clear walkable/blocked readability."
+    },
+    {
+      "key": "chest",
+      "class": "sprite",
+      "file": "assets/tiles/entities/chest.png",
+      "sha256": "8c5ee80aafd2885abd398d47c7efdf520cb15e35fb5e070659d9bb387bc734c0",
+      "size": [
+        16,
+        16
+      ],
+      "workflow": "skills/m8-atelier/assets/workflows/tileset_sdxl.json",
+      "workflow_sha256": "c69ac01ecb99cccb3d5b98a66ed17a9ae885f2487a5e5504c686664e4e44743e",
+      "workflow_overrides": {
+        "3.text": "pixel art, game icon, a closed wooden treasure chest with iron bands and a gold lock, front three-quarter view, single object, centered, warm wood and iron, flat colors, clean bold black outline silhouette, plain solid grey background",
+        "4.text": "photo, realistic, 3d render, blurry, soft focus, text, watermark, frame, border, gradient background, multiple objects, busy background, scenery, ground shadow, drop shadow",
+        "6.seed": 20260713
+      },
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "post_chain": "tile_post_chain.py --mode entity: adaptive border-flood alpha key -> keep largest 4-conn component -> bbox crop -> box-scale to fit 14px -> center on 16x16 transparent -> hard alpha + largest comp -> mediancut <=32 fg colors. post_chain_sha256=da17c1cde90f26985b1008e5ad5585b6267a14dfd5ef2fbfb6eeb174712c2c12",
+      "gates": {
+        "tier1_image": {
+          "class": "sprite",
+          "size_check": "16x16",
+          "all_green": true,
+          "fill": 0.652,
+          "fg_colors": 32,
+          "single_major_component": true,
+          "has_alpha": true,
+          "specks": 0
+        },
+        "tier3": "agent judge: reads at 16px, transparent bg single component. Human is final judge."
+      },
+      "repair_rounds": 0,
+      "generated": "2026-07-12",
+      "aliases": [
+        "chest"
+      ]
+    },
+    {
+      "key": "portal",
+      "class": "sprite",
+      "file": "assets/tiles/entities/portal.png",
+      "sha256": "6f77990206375f3369d776cfd9aceeeb343a0a4edb4fd0d8004218f703f3086f",
+      "size": [
+        16,
+        16
+      ],
+      "workflow": "skills/m8-atelier/assets/workflows/tileset_sdxl.json",
+      "workflow_sha256": "c69ac01ecb99cccb3d5b98a66ed17a9ae885f2487a5e5504c686664e4e44743e",
+      "workflow_overrides": {
+        "3.text": "pixel art, game map icon, a dark stone archway doorway carved into rock, steps descending down into deep warm ember-orange glow, a shaft going down into the fiery depths, single compact object centered on a plain flat grey background, strong contrast, bold black outline",
+        "4.text": "photo, realistic, 3d render, blurry, soft focus, text, watermark, frame, border, gradient background, multiple objects, busy background, scenery, room, wall, flat ground",
+        "6.seed": 20260731
+      },
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "post_chain": "tile_post_chain.py --mode entity: adaptive border-flood alpha key -> keep largest 4-conn component -> bbox crop -> box-scale to fit 14px -> center on 16x16 transparent -> hard alpha + largest comp -> mediancut <=32 fg colors. post_chain_sha256=da17c1cde90f26985b1008e5ad5585b6267a14dfd5ef2fbfb6eeb174712c2c12",
+      "gates": {
+        "tier1_image": {
+          "class": "sprite",
+          "size_check": "16x16",
+          "all_green": true,
+          "fill": 0.434,
+          "fg_colors": 31,
+          "single_major_component": true,
+          "has_alpha": true,
+          "specks": 0
+        },
+        "tier3": "agent judge: reads at 16px, transparent bg single component. Human is final judge."
+      },
+      "repair_rounds": 0,
+      "generated": "2026-07-12",
+      "aliases": [
+        "portal"
+      ],
+      "repair_note": "3 prompt passes: v1/v2 (plain stone stairwell, seeds 20260712-14 / 20260720-22) downsampled to muddy grey blobs at 16px. v3 ember-glow archway (seeds 20260730-33) added the warm glow interior so it reads as 'descend into the Ember Depth'; winner 20260731. WEAKEST asset \u2014 flagged for human."
+    },
+    {
+      "key": "npc",
+      "class": "sprite",
+      "file": "assets/tiles/entities/npc.png",
+      "sha256": "0d3fa5d2a7940591bfa119323719e2941ece962f478e07de7bf7e6bbb3da70cd",
+      "size": [
+        16,
+        16
+      ],
+      "workflow": "skills/m8-atelier/assets/workflows/tileset_sdxl.json",
+      "workflow_sha256": "c69ac01ecb99cccb3d5b98a66ed17a9ae885f2487a5e5504c686664e4e44743e",
+      "workflow_overrides": {
+        "3.text": "pixel art, game character token, a single simple villager figure standing, top down three quarter view, brown hooded cloak and tunic, facing forward, small compact character, centered, flat colors, clean bold black outline silhouette, plain solid grey background",
+        "4.text": "photo, realistic, 3d render, blurry, soft focus, text, watermark, frame, border, gradient background, multiple objects, busy background, scenery, ground shadow, drop shadow",
+        "6.seed": 20260713
+      },
+      "models": {
+        "sdxl_base": "462165984030d82259a11f4367a4eed129e94a7b",
+        "pixel_art_xl_lora": "8bf4a4d9ea283e00a51fafda8e0539f8248ea037"
+      },
+      "appliance": "appliances/comfyui/PIN.json @ ComfyUI v0.9.2",
+      "style_bible_version": "0.1.0",
+      "post_chain": "tile_post_chain.py --mode entity: adaptive border-flood alpha key -> keep largest 4-conn component -> bbox crop -> box-scale to fit 14px -> center on 16x16 transparent -> hard alpha + largest comp -> mediancut <=32 fg colors. post_chain_sha256=da17c1cde90f26985b1008e5ad5585b6267a14dfd5ef2fbfb6eeb174712c2c12",
+      "gates": {
+        "tier1_image": {
+          "class": "sprite",
+          "size_check": "16x16",
+          "all_green": true,
+          "fill": 0.289,
+          "fg_colors": 32,
+          "single_major_component": true,
+          "has_alpha": true,
+          "specks": 0
+        },
+        "tier3": "agent judge: reads at 16px, transparent bg single component. Human is final judge."
+      },
+      "repair_rounds": 0,
+      "generated": "2026-07-12",
+      "aliases": [
+        "npc"
+      ],
+      "repair_note": "seeds 20260712 & 20260714 rendered as multi-pose VNCCS-style contact sheets (multi-component, unusable); 20260713 gave a single clean centered figure."
     }
   ]
 }

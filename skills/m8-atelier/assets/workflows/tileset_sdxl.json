@@ -1,0 +1,67 @@
+{
+  "_meta": {
+    "name": "tileset_sdxl",
+    "stage": "Emberwake overworld tileset: 5 terrain tiles (16x16, opaque, full-bleed, MUST tile seamlessly) + 3 entity markers (16x16, transparent, single component). SDXL base + pixel-art-xl LoRA (proven pixel path), 1024x1024 generation -> deterministic tile_post_chain.py.",
+    "date": "2026-07-12",
+    "status": "used — Emberwake tileset v1 (8 tiles) generated & gate-green 2026-07-12; 0 generation re-rolls, 2 repair rounds (see lessons)",
+    "post_chain": "skills/m8-atelier/assets/workflows/tile_post_chain.py — --mode terrain (seamless), --mode object (well), --mode entity (markers)",
+    "tileability_method": "SDXL cannot do circular-padded (natively seamless) convs without an uninstalled node pack, and the 'seamless tileable texture' prompt alone leaves visible edge seams. So seamlessness is forced deterministically in post (tile_post_chain.py --mode terrain): crop a center 512 patch from the 1024 gen (avoids gen-edge vignette), then quadrant-offset blend to make it perfectly tileable — T = roll(P, H/2, W/2) has seamless OUTER edges (they were P's continuous interior) but a discontinuity cross at center; blend result = T*w + P*(1-w) with w=max(ramp_x,ramp_y) (1 at edges, 0 at center) so the outer ring is 100% T (seamless) and the center uses P (smooth) — provably seamless, no visible cross. Then area-downsample 512->16 and mediancut-quantize <=32 colors. Verify by assembling a 4x4 repeat.",
+    "jobs": {
+      "town_floor": {"mode": "terrain", "seed": 20260714, "pos": "pixel art, seamless tileable texture, top down ground tile, packed dry earth with scattered worn cobblestones, warm neutral tan and brown dirt, flat even lighting, repeating pattern, no border, muted earthy palette", "neg": "default"},
+      "town_wall":  {"mode": "terrain", "seed": 20260712, "pos": "pixel art, seamless tileable texture, top down village wall surface, soot-darkened timber planks and grey fieldstone masonry, rough weathered wood and stone, flat even lighting, repeating pattern, no border, dark muted warm greys and browns", "neg": "default"},
+      "town_well":  {"mode": "object", "seed": 20260714, "pos": "pixel art, top down stone water well, circular stacked-stone rim wall, dark round water opening in the center, mossy grey cobblestone, single round object filling the frame, flat even lighting, muted grey stone", "neg": "photo, realistic, 3d render, blurry, soft focus, text, watermark, frame, border, vignette, character, creature, grid lines"},
+      "cave_floor": {"mode": "terrain", "seed": 20260714, "pos": "pixel art, seamless tileable texture, top down volcanic cave floor, dark grey basalt rock with thin glowing ember-orange cracks, medium dark stone not pure black, faint warm glow in fissures, flat even lighting, repeating pattern, no border, cool grey rock with warm ember accents", "neg": "default"},
+      "cave_wall":  {"mode": "terrain", "seed": 20260742, "pos": "pixel art, seamless tileable texture, rough craggy basalt cavern wall, large chunky dark volcanic boulders, deep black shadow crevices between rocks, heavy solid dark stone mass, near black charcoal grey, no glow, flat even lighting, repeating pattern, no border", "neg": "default"},
+      "chest":  {"mode": "entity", "seed": 20260713, "pos": "pixel art, game icon, a closed wooden treasure chest with iron bands and a gold lock, front three-quarter view, single object, centered, warm wood and iron, flat colors, clean bold black outline silhouette, plain solid grey background", "neg": "photo, realistic, 3d render, blurry, soft focus, text, watermark, frame, border, gradient background, multiple objects, busy background, scenery, ground shadow, drop shadow"},
+      "portal": {"mode": "entity", "seed": 20260731, "pos": "pixel art, game map icon, a dark stone archway doorway carved into rock, steps descending down into deep warm ember-orange glow, a shaft going down into the fiery depths, single compact object centered on a plain flat grey background, strong contrast, bold black outline", "neg": "photo, realistic, 3d render, blurry, soft focus, text, watermark, frame, border, gradient background, multiple objects, busy background, scenery, room, wall, flat ground"},
+      "npc":    {"mode": "entity", "seed": 20260713, "pos": "pixel art, game character token, a single simple villager figure standing, top down three quarter view, brown hooded cloak and tunic, facing forward, small compact character, centered, flat colors, clean bold black outline silhouette, plain solid grey background", "neg": "photo, realistic, 3d render, blurry, soft focus, text, watermark, frame, border, gradient background, multiple objects, busy background, scenery, ground shadow, drop shadow"}
+    },
+    "lessons": [
+      "The 'seamless tileable texture' prompt improves edge continuity but does NOT make SDXL output truly seamless; the deterministic quadrant-offset blend (tile_post_chain --mode terrain) is what guarantees it. Final 4x4 repeats show no hard seams (wrap-seam MAD 4-18/255; residual is texture variation from the 512->16 box downsample, not an edge).",
+      "cave_floor vs cave_wall: SDXL renders both as similar-value basalt. Floor/wall readability needed BOTH (a) ember-orange cracks on the FLOOR only, and (b) a darker/chunkier cave_wall repair pass (reseed to 20260742, 'near black charcoal, deep shadow crevices, no glow'). The first cave_wall (light grey) was nearly indistinguishable from floor when rendered into ember_depth_f1.",
+      "Warden contrast (the queued concern): near-black warden (mean luma ~30) reads clearly on cave_floor (luma ~65, delta 35) — confirmed by compositing the down-contact frame over an 8x8 field. cave_floor must stay medium-dark (do NOT push it near-black).",
+      "town_floor & town_wall both render as brick/masonry courses; walkable/blocked readability is carried by hue (warm brown floor vs cool grey wall), not shape.",
+      "Entity markers need a PLAIN background to key. Full-frame 'scene' gens (portal embedded in a stone room, npc rendered as a multi-pose contact sheet) cannot be keyed or are multi-component; prompt 'single compact object on a large plain flat grey background' + border-flood key. Portal needed an ember-glow interior to read as 'descend' at 16px — plain grey stairwells downsampled to muddy blobs (2 wasted prompt passes).",
+      "Object tiles (town_well) skip the seamless blend: a well is a placed object (map shows only 'oo', two adjacent), not a repeated field. --mode object center-crops and downsamples without the offset blend."
+    ]
+  },
+  "1": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {"ckpt_name": "sd_xl_base_1.0.safetensors"}
+  },
+  "2": {
+    "class_type": "LoraLoader",
+    "inputs": {"model": ["1", 0], "clip": ["1", 1],
+               "lora_name": "pixel-art-xl.safetensors",
+               "strength_model": 0.9, "strength_clip": 0.9}
+  },
+  "3": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {"clip": ["2", 1],
+               "text": "pixel art, seamless tileable texture, top down ground tile, {subject}, flat even lighting, repeating pattern, no border, {tone}"}
+  },
+  "4": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {"clip": ["2", 1],
+               "text": "photo, realistic, 3d render, blurry, soft focus, text, watermark, frame, border, vignette, single centered object, character, creature, seam, grid lines, hard edges, drop shadow, perspective"}
+  },
+  "5": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {"width": 1024, "height": 1024, "batch_size": 1}
+  },
+  "6": {
+    "class_type": "KSampler",
+    "inputs": {"model": ["2", 0], "positive": ["3", 0], "negative": ["4", 0],
+               "latent_image": ["5", 0], "seed": 20260712, "steps": 24,
+               "cfg": 6.5, "sampler_name": "dpmpp_2m", "scheduler": "karras",
+               "denoise": 1.0}
+  },
+  "7": {
+    "class_type": "VAEDecode",
+    "inputs": {"samples": ["6", 0], "vae": ["1", 2]}
+  },
+  "8": {
+    "class_type": "SaveImage",
+    "inputs": {"images": ["7", 0], "filename_prefix": "m8_tile"}
+  }
+}

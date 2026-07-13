@@ -3,6 +3,10 @@
 # bit-identically across sessions (SPEC §6 tier 1). Promoted from the
 # ephemeral gate math validated in the M1 icon smoke test (2026-07-12).
 # Requires PIL + numpy in the calling environment.
+# v2 (2026-07-12, tileset job): tileset class gains size (16,16) — every
+#   Emberwake map declares 16x16 tiles, so a fixed size check is a real gate
+#   (a mis-sized tile is a defect); override with --size if a future tileset
+#   uses another grid.
 """Usage: gate_tier1_image.py <image.png> --class <asset_class> [--size WxH] [--report <path>]
 
 Classes and their thresholds live in THRESHOLDS below; add classes as the
@@ -21,7 +25,7 @@ THRESHOLDS = {
                    "max_specks": 3, "require_alpha": True},
     "portrait":   {"size": (96, 96),  "fill": (0.30, 1.00), "max_colors": 256,
                    "max_specks": 8, "require_alpha": False},
-    "tileset":    {"size": None,      "fill": (0.90, 1.00), "max_colors": 256,
+    "tileset":    {"size": (16, 16),  "fill": (0.90, 1.00), "max_colors": 256,
                    "max_specks": 10**9, "require_alpha": False},
     "battle_background": {"size": None, "fill": (0.95, 1.00), "max_colors": 10**9,
                    "max_specks": 10**9, "require_alpha": False},
