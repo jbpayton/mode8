@@ -1,0 +1,238 @@
+[
+ {
+  "do": "wait",
+  "frames": 5
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 5
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 5
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 5
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_right"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_left"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 4
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 4
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 5
+ },
+ {
+  "do": "press",
+  "action": "menu"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 4
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "cancel"
+ },
+ {
+  "do": "press",
+  "action": "cancel"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "move_up"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 4
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "press",
+  "action": "cancel"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "menu"
+ },
+ {
+  "do": "wait",
+  "frames": 3
+ },
+ {
+  "do": "press",
+  "action": "move_down"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ },
+ {
+  "do": "press",
+  "action": "confirm"
+ },
+ {
+  "do": "wait",
+  "frames": 14
+ },
+ {
+  "do": "screenshot",
+  "path": "/home/seraphius/mode8/games/emberwake/scratchpad/bg_shots/status_portrait.png"
+ },
+ {
+  "do": "wait",
+  "frames": 2
+ }
+]

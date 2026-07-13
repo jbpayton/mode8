@@ -9,10 +9,12 @@ const UI := preload("res://scenes/ui.gd")
 @onready var _db: Node = get_node("/root/ContentDB")
 @onready var _game: Node = get_node("/root/Game")
 @onready var _input: Node = get_node("/root/M8Input")
+@onready var _assets: Node = get_node("/root/M8Assets")
 
 var _idx := 0
 var _name: Label = null
 var _sheet: Label = null
+var _portrait: TextureRect = null
 var _leaving := false
 
 func _ready() -> void:
@@ -22,16 +24,33 @@ func _ready() -> void:
 	UI.panel(self, Rect2(24, 44, 592, 290))
 	_name = UI.label(self, Vector2(40, 54), "", 18, UI.COL_WARM)
 	_sheet = UI.label(self, Vector2(40, 84), "", 14)
+	# Class portrait (work order 10): 96x96 in the panel's top-right, updated per
+	# viewed member; hidden when it doesn't resolve (none fallback).
+	UI.panel(self, Rect2(496, 56, 104, 104))
+	_portrait = TextureRect.new()
+	_portrait.position = Vector2(500, 60)
+	_portrait.size = Vector2(96, 96)
+	_portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_portrait.stretch_mode = TextureRect.STRETCH_SCALE
+	_portrait.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	add_child(_portrait)
 	_render()
 
 func _render() -> void:
 	if _game.party.is_empty():
 		_name.text = "(no party)"
+		if _portrait != null:
+			_portrait.visible = false
 		return
 	_idx = clampi(_idx, 0, _game.party.size() - 1)
 	var m: Dictionary = _game.party[_idx]
 	var cdef: Dictionary = _db.cls(m["class"])
 	var view: Dictionary = _game.stats.member_view(m)
+	# Viewed member's class portrait (work order 10); none/glyph fallback if the
+	# key doesn't resolve. Key from class data (ContentDB): no Rng, no Game write.
+	var ptex: Texture2D = _assets.portrait_texture(str(cdef.get("portrait", "")))
+	_portrait.texture = ptex
+	_portrait.visible = ptex != null
 	_name.text = "%s — %s, level %d" % [m["name"], cdef.get("name", ""), int(m["level"])]
 	var lines: Array = []
 	var next_lvl: int = int(m["level"]) + 1

@@ -145,6 +145,33 @@ func sprite_texture(key: String) -> Texture2D:
 		return null
 	return texture(key)
 
+# Battle-backdrop lookup for the battle scene (work order 10): only
+# BACKGROUND_CLASS entries qualify. Class-gated exactly like battle_texture —
+# anything else (unresolved key, wrong class, unreadable file) is null = the
+# battle scene keeps its M0 black COL_BG fill. The key is an engine
+# presentation choice (boss vs. regular), not game content, so this consumes no
+# Rng and writes no Game state (contract §3); cached per manifest key.
+func background_texture(key: String) -> Texture2D:
+	if key == "":
+		return null
+	var r: Variant = resolve(key)
+	if r == null or str(r["class"]) != BACKGROUND_CLASS:
+		return null
+	return texture(key)
+
+# Class-portrait lookup for dialogue/status (work order 10): only
+# PORTRAIT_CLASS entries qualify. Class-gated like background_texture —
+# anything else is null = the scene keeps its text-only / glyph fallback. Keys
+# come from class data (ContentDB) or dialogue line data, so this consumes no
+# Rng and writes no Game state (contract §3); cached per manifest key.
+func portrait_texture(key: String) -> Texture2D:
+	if key == "":
+		return null
+	var r: Variant = resolve(key)
+	if r == null or str(r["class"]) != PORTRAIT_CLASS:
+		return null
+	return texture(key)
+
 # Walk-sheet lookup: {} unless the key resolves to a loadable SHEET_CLASS
 # entry. Frame box is image_size/4 per the layout contract above.
 func sheet(key: String) -> Dictionary:

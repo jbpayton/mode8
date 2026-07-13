@@ -44,6 +44,8 @@ func _fixture_assets() -> Node:
 	_write_png(FIX_DIR + "/fx_battle.png", 32, 32)
 	_write_png(FIX_DIR + "/fx_tile.png", 16, 16)
 	_write_png(FIX_DIR + "/fx_marker.png", 16, 16)
+	_write_png(FIX_DIR + "/fx_bg.png", 64, 36)
+	_write_png(FIX_DIR + "/fx_portrait.png", 24, 24)
 	var entries := [
 		{"key": "fx_icon", "class": "item_icon", "file": FIX_DIR + "/fx_icon.png",
 			"aliases": ["icon_fixture_alpha", "icon_fixture_beta"]},
@@ -55,6 +57,10 @@ func _fixture_assets() -> Node:
 			"aliases": ["tile_fixture"]},
 		{"key": "fx_marker", "class": "sprite", "file": FIX_DIR + "/fx_marker.png",
 			"aliases": ["marker_fixture"]},
+		{"key": "fx_bg", "class": "battle_background", "file": FIX_DIR + "/fx_bg.png",
+			"aliases": ["bg_fixture"]},
+		{"key": "fx_portrait", "class": "portrait", "file": FIX_DIR + "/fx_portrait.png",
+			"aliases": ["portrait_fixture"]},
 		{"key": "fx_icon_gone", "class": "item_icon", "file": FIX_DIR + "/nope.png"},
 		{"key": "music.fixture", "class": "bgm", "file": FIX_DIR + "/fx_bgm.mp3",
 			"aliases": ["bgm_fixture_alias"]},
@@ -217,6 +223,64 @@ func test_tile_texture_real_manifest() -> void:
 		else:
 			T.eq(a.tile_texture(str(key)), null, "non-tile entry is class-gated: " + str(key))
 	T.ok(tile_seen > 0, "real manifest carries at least one tile")
+
+# ------------------------------------------------- battle backdrops (wo 10)
+
+func test_background_texture_loads_and_class_gated() -> void:
+	var a := _fixture_assets()
+	var tex: Texture2D = a.background_texture("fx_bg")
+	T.ok(tex != null, "battle_background loads at runtime")
+	T.eq(tex.get_width(), 64, "background width")
+	T.eq(tex.get_height(), 36, "background height")
+	T.ok(a.background_texture("bg_fixture") == tex, "background cached per manifest key (same instance)")
+	T.eq(a.background_texture(""), null, "empty key -> null")
+	T.eq(a.background_texture("bg_never_generated"), null, "unresolved key -> null")
+	T.eq(a.background_texture("fx_portrait"), null, "portrait class -> null (class-gated)")
+	T.eq(a.background_texture("fx_battle"), null, "battle_sprite class -> null (class-gated)")
+	T.eq(a.background_texture("music.fixture"), null, "bgm class -> null (class-gated)")
+
+# -------------------------------------------- dialogue/status portraits (wo 10)
+
+func test_portrait_texture_loads_and_class_gated() -> void:
+	var a := _fixture_assets()
+	var tex: Texture2D = a.portrait_texture("fx_portrait")
+	T.ok(tex != null, "portrait loads at runtime")
+	T.eq(tex.get_width(), 24, "portrait width")
+	T.eq(tex.get_height(), 24, "portrait height")
+	T.ok(a.portrait_texture("portrait_fixture") == tex, "portrait cached per manifest key (same instance)")
+	T.eq(a.portrait_texture(""), null, "empty key -> null")
+	T.eq(a.portrait_texture("portrait_never_generated"), null, "unresolved key -> null")
+	T.eq(a.portrait_texture("fx_bg"), null, "battle_background class -> null (class-gated)")
+	T.eq(a.portrait_texture("fx_tile"), null, "tile class -> null (class-gated)")
+	T.eq(a.portrait_texture("music.fixture"), null, "bgm class -> null (class-gated)")
+
+# Guarded + id-free (like test_battle_texture_real_manifest): every
+# battle_background / portrait entry in the real manifest loads to a Texture2D,
+# each accessor stays class-gated against the other classes, and the two never
+# cross-serve. No content/asset ids hardcoded.
+func test_background_and_portrait_real_manifest() -> void:
+	if not FileAccess.file_exists("res://assets/manifest.json"):
+		return  # assets are progressive enhancement — absent is a valid state
+	var a: Node = AssetsScript.new()
+	_nodes.append(a)
+	a.load_manifest("res://assets/manifest.json")
+	var bg_seen := 0
+	var por_seen := 0
+	for key in a.entries:
+		var cls := str(a.resolve(key)["class"])
+		if cls == AssetsScript.BACKGROUND_CLASS:
+			bg_seen += 1
+			T.ok(a.background_texture(str(key)) is Texture2D, "battle_background entry loads a texture: " + str(key))
+			T.eq(a.portrait_texture(str(key)), null, "background not served as portrait: " + str(key))
+		elif cls == AssetsScript.PORTRAIT_CLASS:
+			por_seen += 1
+			T.ok(a.portrait_texture(str(key)) is Texture2D, "portrait entry loads a texture: " + str(key))
+			T.eq(a.background_texture(str(key)), null, "portrait not served as background: " + str(key))
+		else:
+			T.eq(a.background_texture(str(key)), null, "non-background entry class-gated: " + str(key))
+			T.eq(a.portrait_texture(str(key)), null, "non-portrait entry class-gated: " + str(key))
+	T.ok(bg_seen > 0, "real manifest carries at least one battle_background")
+	T.ok(por_seen > 0, "real manifest carries at least one portrait")
 
 # ----------------------------------------------------------- walk sheets
 

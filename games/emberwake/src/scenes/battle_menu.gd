@@ -57,6 +57,7 @@ var _actor_label: Label = null
 var _round_label: Label = null
 var _end_label: Label = null
 var _end_panel: ColorRect = null
+var _bg_layers := 1           # non-UI children below the sprite layer (COL_BG fill; +1 if a backdrop loads)
 var _leaving := false
 
 func _ready() -> void:
@@ -67,6 +68,7 @@ func _ready() -> void:
 	var boss: bool = _game.scene_args.get("monsters", []).any(
 			func(mid: Variant) -> bool: return bool(_db.monster(str(mid)).get("is_boss", false)))
 	_audio.play_slot("music.boss" if boss else "music.battle")
+	_draw_background(boss)
 	_battle = _game.start_battle(_game.scene_args.get("monsters", []), {})
 	_battle.event_cb = _on_event
 	for e in _battle.party + _battle.monsters:
@@ -100,6 +102,29 @@ func _build_ui() -> void:
 	_end_label = UI.label(_end_panel, Vector2(18, 12), "", 14)
 	_end_panel.visible = false
 	_build_sprites()
+
+# Full-screen battle backdrop (work order 10): drawn just above the COL_BG
+# black fill (child 0) and below everything else, so the sprite layer and all
+# UI sit on top. WHICH backdrop is an engine presentation choice from battle
+# context — bg_vault when the group holds a boss, bg_ember_depth otherwise —
+# the same literal-key pattern the audio layer uses for music.boss/music.battle
+# (asset-layer convention, not game content). Backdrops are painterly, so
+# linear filtering is fine here (sprites stay nearest). Missing/wrong-class
+# asset resolves to null and the M0 black fill stays. Consumes no Rng, writes
+# no Game state (contract §3).
+func _draw_background(boss: bool) -> void:
+	var tex: Texture2D = _assets.background_texture("bg_vault" if boss else "bg_ember_depth")
+	if tex == null:
+		return  # keep the COL_BG black fill fallback
+	var bg := TextureRect.new()
+	bg.texture = tex
+	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	bg.stretch_mode = TextureRect.STRETCH_SCALE
+	bg.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	add_child(bg)
+	move_child(bg, 1)  # above the COL_BG fill (child 0), below sprites + all UI
+	_bg_layers = 2
 
 # Battle sprites (work order 08): enemies get their monster's battle_sprite in
 # the upper battlefield (boss centered + larger), party members their walk-sheet
@@ -157,7 +182,7 @@ func _sprite_rect(tex: Texture2D, region: Variant, target_h: float, cx: float, b
 	tr.size = Vector2(w, target_h)
 	tr.position = Vector2(cx - w * 0.5, baseline_y - target_h)
 	add_child(tr)
-	move_child(tr, 1)  # above the bg fill (child 0), behind all text/panels
+	move_child(tr, _bg_layers)  # above the bg fill/backdrop, behind all text/panels
 	return tr
 
 func _show_only(menu: Variant) -> void:
